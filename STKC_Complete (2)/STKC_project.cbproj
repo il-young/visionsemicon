@@ -1,0 +1,324 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{5554CCDD-22CC-4C44-8977-E8B03DFE43C7}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>VCL</FrameworkType>
+			<MainSource>STKC_project.cpp</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<_TCHARMapping>wchar_t</_TCHARMapping>
+			<ProjectType>CppVCLApplication</ProjectType>
+			<ILINK_LibraryPath>STKC\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
+			<Multithreaded>true</Multithreaded>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib</AllPackageLibs>
+			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
+			<UsingDelphiRTL>true</UsingDelphiRTL>
+			<IncludePath>STKC\;$(IncludePath)</IncludePath>
+			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+			<DynamicRTL>true</DynamicRTL>
+			<UsePackages>true</UsePackages>
+			<IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+			<FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+			<BCC_wpar>false</BCC_wpar>
+			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<PackageImports>vacommPkgDXE2;vcldbx;TeeDB;Rave100VCL;vclib;Tee;inetdbbde;DBXOdbcDriver;DBXSybaseASEDriver;ibxpress;vclimg;TeeUI;vclactnband;FMXTee;vcldsnap;bindcompvcl;vcldb;vclie;tmsxlsdxe2;vcltouch;DBXDb2Driver;bcbsmp;websnap;vclribbon;VclSmp;vcl;DataSnapConnectors;CodeSiteExpressPkg;CloudService;DBXMSSQLDriver;FmxTeeUI;dsnapcon;tmsexdxe2;tmsdxe2;vclx;tmswizdxe2;webdsnap;bdertl;adortl;bcbie;$(PackageImports)</PackageImports>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+			<IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<Defines>_DEBUG;$(Defines)</Defines>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+			<DCC_Define>DEBUG</DCC_Define>
+			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<BCC_StackFrames>true</BCC_StackFrames>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+			<ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;vclimg.bpi;tmsdxe2.bpi;adortl.bpi;dbrtl.bpi;vclx.bpi;xmlrtl.bpi;vclactnband.bpi;vcldb.bpi;VclSmp.bpi;Tee.bpi</LinkPackageImports>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<Defines>NDEBUG;$(Defines)</Defines>
+			<TASM_Debugging>None</TASM_Debugging>
+		</PropertyGroup>
+		<ItemGroup>
+			<CppCompile Include="Carrier_FormTopopupConfirm_frm.cpp">
+				<Form>Carrier_FormTopopup_Confirm_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Carrier_FormTopopupConfirm_frm.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Carrier_FormTopopup_frm.cpp">
+				<Form>Carrier_FormTo_popup_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Carrier_FormTopopup_frm.h</DependentOn>
+				<BuildOrder>6</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Carrier_LockComment_frm.cpp">
+				<Form>Carrier_Lock_Comment_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Carrier_LockComment_frm.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Carrier_ToAGVPortPopup_frm.cpp">
+				<Form>Carrier_ToAGVPort_Popup_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Carrier_ToAGVPortPopup_frm.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Carrier_ToPGVPortPopup_frm.cpp">
+				<Form>Carrier_ToPGVPort_Popup_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Carrier_ToPGVPortPopup_frm.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Change_AutoM_frm.cpp">
+				<Form>Change_AutoManual_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Change_AutoM_frm.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="History_Alarmform.cpp">
+				<Form>History_Alarm_frm</Form>
+				<DependentOn>History_Alarmform.h</DependentOn>
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="History_Carrier_Historyform.cpp">
+				<Form>History_Carrier_History_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>History_Carrier_Historyform.h</DependentOn>
+				<BuildOrder>13</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="History_Eventform.cpp">
+				<Form>History_Event_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>History_Eventform.h</DependentOn>
+				<BuildOrder>10</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="History_Operationform.cpp">
+				<Form>History_Operation_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>History_Operationform.h</DependentOn>
+				<BuildOrder>12</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="History_TransferCommandform.cpp">
+				<Form>History_TransferCommand_frm</Form>
+				<DependentOn>History_TransferCommandform.h</DependentOn>
+				<BuildOrder>11</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="LinkStatusChange_frm.cpp">
+				<Form>Link_Status_Change_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>LinkStatusChange_frm.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Operation_ContinuousTestingBt_form.cpp">
+				<Form>Operation_ContinuousTestingBt_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Operation_ContinuousTestingBt_form.h</DependentOn>
+				<BuildOrder>21</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Operation_ShelfTestForm.cpp">
+				<Form>Operation_ShelfTest_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Operation_ShelfTestForm.h</DependentOn>
+				<BuildOrder>19</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Operation_ShelfTest_OnceTestBtform.cpp">
+				<Form>Operation_ShelfTest_OnceTestBt_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Operation_ShelfTest_OnceTestBtform.h</DependentOn>
+				<BuildOrder>20</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Operation_Shelf_Position_Confirmation_form.cpp">
+				<Form>Operation_Shelf_Position_Confirmation_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Operation_Shelf_Position_Confirmation_form.h</DependentOn>
+				<BuildOrder>23</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Operation_SpecifyTesBtform.cpp">
+				<Form>Operation_SpecifyTest_Bt_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Operation_SpecifyTesBtform.h</DependentOn>
+				<BuildOrder>22</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Statistics_Time_statistics_processform.cpp">
+				<Form>Statistics_Time_statistics_process_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Statistics_Time_statistics_processform.h</DependentOn>
+				<BuildOrder>15</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Statistics_WorkTimeform.cpp">
+				<Form>Statistics_WorkTime_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>Statistics_WorkTimeform.h</DependentOn>
+				<BuildOrder>14</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="STKC.cpp">
+				<Form>Form1</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>STKC.h</DependentOn>
+				<BuildOrder>1</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="STKC_project.cpp">
+				<BuildOrder>0</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="System_Max_PoolLevelform.cpp">
+				<Form>System_Max_PoolLevel_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>System_Max_PoolLevelform.h</DependentOn>
+				<BuildOrder>18</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="System_UserGroupingform.cpp">
+				<Form>System_UserGrouping_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>System_UserGroupingform.h</DependentOn>
+				<BuildOrder>17</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="System_UserManagementform.cpp">
+				<Form>System_UserManagement_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>System_UserManagementform.h</DependentOn>
+				<BuildOrder>16</BuildOrder>
+			</CppCompile>
+			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
+			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
+			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
+			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
+			<FormResources Include="Operation_ShelfTestForm.dfm"/>
+			<FormResources Include="Statistics_WorkTimeform.dfm"/>
+			<FormResources Include="System_UserGroupingform.dfm"/>
+			<FormResources Include="System_UserManagementform.dfm"/>
+			<FormResources Include="System_Max_PoolLevelform.dfm"/>
+			<FormResources Include="STKC.dfm"/>
+			<FormResources Include="LinkStatusChange_frm.dfm"/>
+			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
+			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
+			<FormResources Include="Carrier_LockComment_frm.dfm"/>
+			<FormResources Include="Carrier_FormTopopupConfirm_frm.dfm"/>
+			<FormResources Include="Carrier_FormTopopup_frm.dfm"/>
+			<FormResources Include="Change_AutoM_frm.dfm"/>
+			<FormResources Include="History_Operationform.dfm"/>
+			<FormResources Include="History_TransferCommandform.dfm"/>
+			<FormResources Include="History_Eventform.dfm"/>
+			<FormResources Include="History_Alarmform.dfm"/>
+			<FormResources Include="History_Carrier_Historyform.dfm"/>
+			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>CppVCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality>
+					<Source>
+						<Source Name="MainSource">STKC_project.cpp</Source>
+					</Source>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1042</VersionInfo>
+						<VersionInfo Name="CodePage">949</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<ProjectProperties>
+						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+						<ProjectProperties Name="ManagePaths">True</ProjectProperties>
+						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+					</ProjectProperties>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_120_160.bpl">File c:\program files (x86)\embarcadero\rad studio\9.0\bin\dclIntraweb_120_160.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+					</Excluded_Packages>
+				</CPlusPlusBuilder.Personality>
+				<Deployment/>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+	</Project>
