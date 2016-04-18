@@ -14,6 +14,9 @@ TSetting_Frm *Setting_Frm;
 __fastcall TSetting_Frm::TSetting_Frm(TComponent* Owner)
 	: TForm(Owner)
 {
+
+
+
 }
 //---------------------------------------------------------------------------
 void __fastcall TSetting_Frm::tb_t3Change(TObject *Sender)
@@ -103,6 +106,21 @@ void __fastcall TSetting_Frm::tb_t9Change(TObject *Sender)
 		else if(t9_temp > 240){
 			tb_t9->Text = 240;
 		}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSetting_Frm::btn_cancelClick(TObject *Sender)
+{
+	Setting_Frm->Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSetting_Frm::Settingfrm_OnActivate(TObject *Sender)
+{
+	DBManager->ConnectDB();
+
+	stSECSInfo info =  DBManager->SelectSECSInfo();
+
 }
 //---------------------------------------------------------------------------
 

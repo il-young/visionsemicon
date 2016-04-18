@@ -1,0 +1,94 @@
+object login_frm: Tlogin_frm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Login '
+  ClientHeight = 120
+  ClientWidth = 310
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnActivate = login_frm_Activate
+  PixelsPerInch = 120
+  TextHeight = 16
+  object lb_user: TLabel
+    Left = 24
+    Top = 27
+    Width = 44
+    Height = 24
+    Caption = 'ID : '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 24
+    Top = 67
+    Width = 53
+    Height = 24
+    Caption = 'PW : '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object tb_id: TEdit
+    Left = 88
+    Top = 24
+    Width = 121
+    Height = 32
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ImeName = 'Microsoft IME 2010'
+    ParentFont = False
+    TabOrder = 0
+  end
+  object tb_pw: TEdit
+    Left = 88
+    Top = 62
+    Width = 121
+    Height = 32
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ImeName = 'Microsoft IME 2010'
+    ParentFont = False
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 229
+    Top = 27
+    Width = 65
+    Height = 65
+    Caption = 'Login'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+  end
+  object dbConnection: TADOConnection
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 8
+  end
+end

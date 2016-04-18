@@ -52,7 +52,7 @@ __published:	// IDE-managed Components
 	TLabel *Label4;
 	TLabel *Label5;
 	TTabSheet *TabSheet2;
-	TButton *Button2;
+	TButton *btn_date;
 	TPageControl *PageControl2;
 	TTabSheet *TabSheet3;
 	TAdvStringGrid *Carrier_Grid;
@@ -93,6 +93,7 @@ __published:	// IDE-managed Components
 	TMenuItem *Setting1;
 	TADOConnection *dbConnection;
 	TADOQuery *dbQuery;
+	TTimer *logout_timer;
 	void __fastcall Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
           TBrush *ABrush, TFont *AFont);
 	void __fastcall FormCreate(TObject *Sender);
@@ -120,10 +121,18 @@ __published:	// IDE-managed Components
 	void __fastcall N4Click(TObject *Sender);
 	void __fastcall Setting1Click(TObject *Sender);
 	void __fastcall btn_loginClick(TObject *Sender);
+	void __fastcall logout_timerTimer(TObject *Sender);
+
+	void __fastcall logout();
 
 private:	// User declarations
+
 public:		// User declarations
 	__fastcall Tstkc_frm(TComponent* Owner);
+	int logout_time;
+	int logout_cnt;
+
+	AnsiString Now_User;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE Tstkc_frm *stkc_frm;

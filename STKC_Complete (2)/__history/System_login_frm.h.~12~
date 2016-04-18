@@ -1,0 +1,31 @@
+//---------------------------------------------------------------------------
+
+#ifndef System_login_frmH
+#define System_login_frmH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+
+#include "DBModule.h"
+
+//---------------------------------------------------------------------------
+class TLogin_frm : public TForm
+{
+__published:	// IDE-managed Components
+	TLabel *Label1;
+	TLabel *Label2;
+	TEdit *tb_id;
+	TEdit *tb_pw;
+	TButton *btn_login;
+
+	TDBManager *manager;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TLogin_frm(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TLogin_frm *Login_frm;
+//---------------------------------------------------------------------------
+#endif

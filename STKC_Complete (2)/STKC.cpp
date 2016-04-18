@@ -27,8 +27,9 @@
 #include "System_Max_PoolLevelform.h"
 #include "Operation_ShelfTestForm.h"
 #include "Operation_Shelf_Position_Confirmation_form.h"
-#include "System_Setting.h"
-#include "System_login_frm.h"
+#include "G_Define.h"
+
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "AdvGrid"
@@ -38,6 +39,9 @@
 
 
 Tstkc_frm *stkc_frm;
+
+
+
 //---------------------------------------------------------------------------
 __fastcall Tstkc_frm::Tstkc_frm(TComponent* Owner)
 	: TForm(Owner)
@@ -545,19 +549,46 @@ void __fastcall Tstkc_frm::N4Click(TObject *Sender)
 
 void __fastcall Tstkc_frm::Setting1Click(TObject *Sender)
 {
-	Setting_Frm->Show();
+	Setting_Frm->ShowModal();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall Tstkc_frm::btn_loginClick(TObject *Sender)
 {
 	if (btn_login->Caption == "Login Here") {
-		login_frm->ShowModal() ;
+		Login_frm->ShowModal();
 	}
 	else	{
 
+		if (MessageDlg("Log Out?",mtConfirmation,TMsgDlgButtons() << mbYes << mbNo,0) == mrYes) {
+			logout();
+		}
 	}
 
 }
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall Tstkc_frm::logout_timerTimer(TObject *Sender)
+{
+	if (logout_cnt >= logout_time )	{
+		logout();
+	}
+	else	logout_cnt++;
+
+}
+
+void __fastcall Tstkc_frm::logout()
+{
+	Now_User = "";
+	logout_time = 0;
+	logout_cnt = 0;
+
+	logout_timer->Enabled = false;
+
+	stkc_frm->btn_login->Caption = "Login Here";
+}
+
 //---------------------------------------------------------------------------
 

@@ -871,7 +871,7 @@ object stkc_frm: Tstkc_frm
       end
     end
   end
-  object Button2: TButton
+  object btn_date: TButton
     Left = 1348
     Top = 65
     Width = 288
@@ -880,7 +880,6 @@ object stkc_frm: Tstkc_frm
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    Caption = '2015  17:00:34'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
@@ -1300,5 +1299,12 @@ object stkc_frm: Tstkc_frm
     Parameters = <>
     Left = 32
     Top = 64
+  end
+  object logout_timer: TTimer
+    Enabled = False
+    Interval = 60000
+    OnTimer = logout_timerTimer
+    Left = 112
+    Top = 8
   end
 end

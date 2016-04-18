@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "System_login_frm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TLogin_frm *Login_frm;
+//---------------------------------------------------------------------------
+__fastcall TLogin_frm::TLogin_frm(TComponent* Owner)
+	: TForm(Owner)
+{
+	manager = new TDBManager();
+}
+//---------------------------------------------------------------------------
+
+
+
+

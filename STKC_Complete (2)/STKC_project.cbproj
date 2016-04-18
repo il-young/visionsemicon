@@ -35,16 +35,19 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Locale>1042</VerInfo_Locale>
 			<_TCHARMapping>wchar_t</_TCHARMapping>
 			<ProjectType>CppVCLApplication</ProjectType>
-			<ILINK_LibraryPath>STKC\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_LibraryPath>STKC\;G:\Project\ASE K5\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
 			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
-			<IncludePath>STKC\;$(IncludePath)</IncludePath>
+			<IncludePath>STKC\;G:\Project\ASE K5\STKC_Complete (2);$(IncludePath)</IncludePath>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
 			<DynamicRTL>true</DynamicRTL>
 			<UsePackages>true</UsePackages>
@@ -83,6 +86,9 @@
 			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<ILINK_LibraryPath>G:\Project\git temp\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<IncludePath>G:\Project\git temp\STKC_Complete (2);$(IncludePath)</IncludePath>
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<LinkPackageImports>rtl.bpi;vcl.bpi;vclimg.bpi;tmsdxe2.bpi;adortl.bpi;dbrtl.bpi;vclx.bpi;xmlrtl.bpi;vclactnband.bpi;vcldb.bpi;VclSmp.bpi;Tee.bpi</LinkPackageImports>
 			<VerInfo_Locale>1033</VerInfo_Locale>
@@ -128,6 +134,15 @@
 				<DependentOn>Change_AutoM_frm.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="DBModule.cpp">
+				<Form>DBManager</Form>
+				<DesignClass>TDataModule</DesignClass>
+				<DependentOn>DBModule.h</DependentOn>
+				<BuildOrder>30</BuildOrder>
+			</CppCompile>
+			<None Include="G_Define.h">
+				<BuildOrder>28</BuildOrder>
+			</None>
 			<CppCompile Include="History_Alarmform.cpp">
 				<Form>History_Alarm_frm</Form>
 				<DependentOn>History_Alarmform.h</DependentOn>
@@ -205,7 +220,7 @@
 				<BuildOrder>14</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="STKC.cpp">
-				<Form>Form1</Form>
+				<Form>stkc_frm</Form>
 				<FormType>dfm</FormType>
 				<DependentOn>STKC.h</DependentOn>
 				<BuildOrder>1</BuildOrder>
@@ -213,11 +228,23 @@
 			<CppCompile Include="STKC_project.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="System_login_frm.cpp">
+				<Form>Login_frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>System_login_frm.h</DependentOn>
+				<BuildOrder>29</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="System_Max_PoolLevelform.cpp">
 				<Form>System_Max_PoolLevel_frm</Form>
 				<FormType>dfm</FormType>
 				<DependentOn>System_Max_PoolLevelform.h</DependentOn>
 				<BuildOrder>18</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="System_Setting.cpp">
+				<Form>Setting_Frm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>System_Setting.h</DependentOn>
+				<BuildOrder>24</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="System_UserGroupingform.cpp">
 				<Form>System_UserGrouping_frm</Form>
@@ -231,29 +258,40 @@
 				<DependentOn>System_UserManagementform.h</DependentOn>
 				<BuildOrder>16</BuildOrder>
 			</CppCompile>
-			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
+			<None Include="User.MDB">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<RcItem Include="Visionsemicon CI.png">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_1</ResourceId>
+			</RcItem>
 			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
-			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
-			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
-			<FormResources Include="Operation_ShelfTestForm.dfm"/>
 			<FormResources Include="Statistics_WorkTimeform.dfm"/>
-			<FormResources Include="System_UserGroupingform.dfm"/>
-			<FormResources Include="System_UserManagementform.dfm"/>
-			<FormResources Include="System_Max_PoolLevelform.dfm"/>
 			<FormResources Include="STKC.dfm"/>
-			<FormResources Include="LinkStatusChange_frm.dfm"/>
-			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
+			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
+			<FormResources Include="Operation_ShelfTestForm.dfm"/>
+			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
+			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
+			<FormResources Include="System_UserManagementform.dfm"/>
+			<FormResources Include="System_UserGroupingform.dfm"/>
+			<FormResources Include="System_login_frm.dfm"/>
+			<FormResources Include="System_Max_PoolLevelform.dfm"/>
+			<FormResources Include="System_Setting.dfm"/>
 			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
-			<FormResources Include="Carrier_LockComment_frm.dfm"/>
+			<FormResources Include="Change_AutoM_frm.dfm"/>
+			<FormResources Include="DBModule.dfm"/>
+			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
 			<FormResources Include="Carrier_FormTopopupConfirm_frm.dfm"/>
 			<FormResources Include="Carrier_FormTopopup_frm.dfm"/>
-			<FormResources Include="Change_AutoM_frm.dfm"/>
-			<FormResources Include="History_Operationform.dfm"/>
+			<FormResources Include="Carrier_LockComment_frm.dfm"/>
 			<FormResources Include="History_TransferCommandform.dfm"/>
-			<FormResources Include="History_Eventform.dfm"/>
+			<FormResources Include="LinkStatusChange_frm.dfm"/>
+			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
+			<FormResources Include="History_Operationform.dfm"/>
 			<FormResources Include="History_Alarmform.dfm"/>
 			<FormResources Include="History_Carrier_Historyform.dfm"/>
-			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
+			<FormResources Include="History_Eventform.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
@@ -307,10 +345,16 @@
 						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
 					</ProjectProperties>
 					<Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_120_160.bpl">File c:\program files (x86)\embarcadero\rad studio\9.0\bin\dclIntraweb_120_160.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_120_160.bpl">IntraWeb 12.0 Design Package for RAD Studio XE2</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
 					</Excluded_Packages>
+					<Folders>
+						<Folder Path="G:\Project\git temp\STKC_Complete (2)\data" Masks="*.*" ShowSubdirectories="false"/>
+					</Folders>
+					<VFOLDERS>
+						<VFOLDER name="data" ID="{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}"/>
+					</VFOLDERS>
 				</CPlusPlusBuilder.Personality>
 				<Deployment/>
 				<Platforms>

@@ -1,0 +1,43 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "System_login_frm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TLogin_frm *Login_frm;
+//---------------------------------------------------------------------------
+__fastcall TLogin_frm::TLogin_frm(TComponent* Owner)
+	: TForm(Owner)
+{
+
+	DBManager->ConnectDB();
+
+
+//	manager = new TDataModule();
+//	manager->ConnectDB();
+}
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TLogin_frm::btn_loginClick(TObject *Sender)
+{
+	stUserInfo info;
+
+	if(DBManager->LoginCheckUser(tb_id->Text ,tb_pw->text,info))
+		{
+			ModalResult = mrOk;
+//	 = info.USER_DESCRIPTIONS+", Logout Here";
+		}
+		else
+		{
+			MessageDlg("Login Fail!" ,mtWarning, TMsgDlgButtons() << mbOK, 0);
+			//editPASS->Text = "";
+		}
+}
+//---------------------------------------------------------------------------
+

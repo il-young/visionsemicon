@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.278,=vcl.bpi</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.273,=C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_TLB.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.336,=C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_OCX.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.067,=rtl.bpi</Transaction>
+  </Transactions>
+</BorlandProject>
