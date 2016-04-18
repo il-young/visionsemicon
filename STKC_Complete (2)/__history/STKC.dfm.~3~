@@ -1,4 +1,4 @@
-object stkc_frm: Tstkc_frm
+object Form1: TForm1
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
@@ -563,7 +563,7 @@ object stkc_frm: Tstkc_frm
     Margins.Right = 4
     Margins.Bottom = 4
     TabOrder = 6
-    object btn_login: TButton
+    object Button3: TButton
       Left = 9
       Top = 3
       Width = 288
@@ -572,7 +572,7 @@ object stkc_frm: Tstkc_frm
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
-      Caption = 'Login Here'
+      Caption = 'D2891. Logout Here'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -20
@@ -580,7 +580,6 @@ object stkc_frm: Tstkc_frm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      OnClick = btn_loginClick
     end
   end
   object PageControl1: TPageControl
@@ -1288,17 +1287,5 @@ object stkc_frm: Tstkc_frm
       Caption = 'Unlock'
       Enabled = False
     end
-  end
-  object dbConnection: TADOConnection
-    LoginPrompt = False
-    Mode = cmShareDenyNone
-    Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 32
-    Top = 8
-  end
-  object dbQuery: TADOQuery
-    Parameters = <>
-    Left = 32
-    Top = 64
   end
 end

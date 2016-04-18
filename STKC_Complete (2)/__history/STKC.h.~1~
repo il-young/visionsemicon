@@ -15,10 +15,8 @@
 #include "AdvObj.hpp"
 #include "BaseGrid.hpp"
 #include <Vcl.Grids.hpp>
-#include <Data.DB.hpp>
-#include <Data.Win.ADODB.hpp>
 //---------------------------------------------------------------------------
-class Tstkc_frm : public TForm
+class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
 	TPanel *bottom;
@@ -36,7 +34,7 @@ __published:	// IDE-managed Components
 	TPanel *Panel6;
 	TPanel *Panel7;
 	TPanel *Panel4;
-	TButton *btn_login;
+	TButton *Button3;
 	TPageControl *PageControl1;
 	TTabSheet *TabSheet1;
 	TPanel *Panel2;
@@ -90,9 +88,6 @@ __published:	// IDE-managed Components
 	TMenuItem *MaxPoolLevel1;
 	TMenuItem *N3;
 	TMenuItem *N4;
-	TMenuItem *Setting1;
-	TADOConnection *dbConnection;
-	TADOQuery *dbQuery;
 	void __fastcall Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
           TBrush *ABrush, TFont *AFont);
 	void __fastcall FormCreate(TObject *Sender);
@@ -118,14 +113,12 @@ __published:	// IDE-managed Components
 	void __fastcall MaxPoolLevel1Click(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);
-	void __fastcall Setting1Click(TObject *Sender);
-	void __fastcall btn_loginClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
-	__fastcall Tstkc_frm(TComponent* Owner);
+	__fastcall TForm1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE Tstkc_frm *stkc_frm;
+extern PACKAGE TForm1 *Form1;
 //---------------------------------------------------------------------------
 #endif
