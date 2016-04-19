@@ -55,7 +55,6 @@ __published:	// IDE-managed Components
 	TButton *btn_date;
 	TPageControl *PageControl2;
 	TTabSheet *TabSheet3;
-	TAdvStringGrid *Carrier_Grid;
 	TTabSheet *TabSheet4;
 	TButton *CarrierID_bt;
 	TButton *Search_bt;
@@ -94,6 +93,7 @@ __published:	// IDE-managed Components
 	TADOConnection *dbConnection;
 	TADOQuery *dbQuery;
 	TTimer *logout_timer;
+	TAdvStringGrid *gd_carrier;
 	void __fastcall Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
           TBrush *ABrush, TFont *AFont);
 	void __fastcall FormCreate(TObject *Sender);
@@ -124,6 +124,7 @@ __published:	// IDE-managed Components
 	void __fastcall logout_timerTimer(TObject *Sender);
 
 	void __fastcall logout();
+	void __fastcall STKC_OnActive(TObject *Sender);
 
 private:	// User declarations
 

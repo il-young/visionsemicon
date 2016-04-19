@@ -19,7 +19,7 @@ class TSetting_Frm : public TForm
 __published:	// IDE-managed Components
 	TPageControl *pc_panel;
 	TTabSheet *TabSheet1;
-	TTabSheet *TabSheet2;
+	TTabSheet *ts_maintenance;
 	TComboBox *cb_connect_mode;
 	TEdit *tb_local_port;
 	TLabel *lb_local_port;
@@ -44,6 +44,10 @@ __published:	// IDE-managed Components
 	TButton *btn_ok;
 	TAdvIPEdit *AdvIPEdit1;
 	TAdvIPEdit *AdvIPEdit2;
+	TEdit *tb_col;
+	TEdit *tb_row;
+	TLabel *Label2;
+	TLabel *Label3;
 	void __fastcall tb_t3Change(TObject *Sender);
 	void __fastcall tb_t5Change(TObject *Sender);
 	void __fastcall tb_t6Change(TObject *Sender);
@@ -52,9 +56,12 @@ __published:	// IDE-managed Components
 	void __fastcall tb_t9Change(TObject *Sender);
 	void __fastcall btn_cancelClick(TObject *Sender);
 	void __fastcall Settingfrm_OnActivate(TObject *Sender);
+	void __fastcall btn_okClick(TObject *Sender);
+	void __fastcall Settingfrm_maintenance(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TSetting_Frm(TComponent* Owner);
+	void __fastcall Read_Setting();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TSetting_Frm *Setting_Frm;

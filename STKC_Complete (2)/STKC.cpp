@@ -70,184 +70,193 @@ __fastcall Tstkc_frm::Tstkc_frm(TComponent* Owner)
 void __fastcall Tstkc_frm::Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol,
           TGridDrawState AState, TBrush *ABrush, TFont *AFont)
 {
-	if (ACol == 1 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-	 //Carrier_Grid->Cells[1][1] = "Alex";
-
-   }
-   if (ACol == 1 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 1 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 1 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clRed;
-   }
-//---------------------------------------------------------------------------
-   if (ACol == 2 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 2 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 2 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 2 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clRed;
-   }
-//---------------------------------------------------------------------------
-	if (ACol == 3 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 3 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 3 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 3 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 4 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 4 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 4 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 4 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 5 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 5 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 5 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 5 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 6 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 6 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 6 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 6 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 7 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 7 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 7 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clSilver;
-   }
-   if (ACol == 7 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clBlack;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 8 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 8 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 8 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 8 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 9 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 9 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 9 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 9 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
-if (ACol == 10 && ARow == 1)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
-   }
-   if (ACol == 10 && ARow == 2)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 10 && ARow == 3)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-   if (ACol == 10 && ARow == 4)
-   {
-	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
-   }
-//---------------------------------------------------------------------------
+//	if (ACol == 1 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//	 //Carrier_Grid->Cells[1][1] = "Alex";
+//
+//   }
+//   if (ACol == 1 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 1 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 1 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clRed;
+//   }
+////---------------------------------------------------------------------------
+//   if (ACol == 2 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 2 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 2 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 2 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clRed;
+//   }
+////---------------------------------------------------------------------------
+//	if (ACol == 3 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 3 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 3 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 3 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 4 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 4 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 4 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 4 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 5 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 5 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 5 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 5 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 6 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 6 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 6 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 6 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 7 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 7 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 7 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clSilver;
+//   }
+//   if (ACol == 7 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clBlack;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 8 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 8 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 8 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 8 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 9 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 9 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 9 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 9 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
+//if (ACol == 10 && ARow == 1)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMenuHighlight;
+//   }
+//   if (ACol == 10 && ARow == 2)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 10 && ARow == 3)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+//   if (ACol == 10 && ARow == 4)
+//   {
+//	 Carrier_Grid->Canvas->Brush->Color = clMoneyGreen;
+//   }
+////---------------------------------------------------------------------------
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall Tstkc_frm::FormCreate(TObject *Sender)
 {
+
+	//Setting_Frm->Read_Setting();
+
+	gd_carrier->RemoveRows(0,5);
+
+	gd_carrier->AddRow();
+
+
+	/*
 	Carrier_Grid->Cells[1][1] = "  15/12/31\n  08:47:57\n  12NL047";
 	Carrier_Grid->Cells[1][2] = "  15/12/31\n  06:37:57\n  12NL055";
 	Carrier_Grid->Cells[1][3] = "  15/12/31\n  07:45:57\n  12NL157";
@@ -298,7 +307,7 @@ void __fastcall Tstkc_frm::FormCreate(TObject *Sender)
 	Carrier_Grid->Cells[10][3] = "  idle";
 	Carrier_Grid->Cells[10][4] = "  idle";
 	//--------------------------------------------------------------
-
+	*/
 
 	Stocker_Grid->Cells[0][0] = "  	      Carrier ID  ";
 	Stocker_Grid->Cells[1][0] = "   F/E  ";
@@ -590,5 +599,41 @@ void __fastcall Tstkc_frm::logout()
 	stkc_frm->btn_login->Caption = "Login Here";
 }
 
+//---------------------------------------------------------------------------
+
+void __fastcall Tstkc_frm::STKC_OnActive(TObject *Sender)
+{
+	Setting_Frm->Read_Setting();
+
+	gd_carrier->RemoveRows(0,10);
+	gd_carrier->RemoveCols(0,3);
+
+	int i, j, row, col;
+
+	col = StrToInt(Setting_Frm->tb_col->Text );
+	row = StrToInt(Setting_Frm->tb_row->Text );
+
+	TStringList *pList = new TStringList;
+
+
+	for(i=0 ; i <= col-1 ; i++){
+		gd_carrier->AddColumn();
+		pList->Add(printf("%00d",i));
+	}
+	gd_carrier->ColumnHeaders = pList;
+
+	for(i=1 ; i <= gd_carrier->TotalColCount()-1 ; i++)
+		gd_carrier->ColWidths[i]  = int( gd_carrier->Width /col);
+
+	gd_carrier->ColWidths[0] = 25;
+
+	for (j=0 ; j <= row - 1 ; j++)
+		gd_carrier->AddRow();
+	for (j=1 ; j < gd_carrier->TotalRowCount()-1 ; j++)
+		gd_carrier->RowHeights[j] = int(gd_carrier->Height / row);
+
+	gd_carrier->RowHeights[0] = 25;
+
+}
 //---------------------------------------------------------------------------
 

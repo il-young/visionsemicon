@@ -248,6 +248,10 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 	info.SECS_T7 = 0;
 	info.SECS_T8 = 0;
 	info.SECS_T9 = 0;
+	info.SECS_COL = 0;
+	info.SECS_ROW = 0;
+
+
 	try
 	{
 		if(!dbConnection->Connected)
@@ -274,6 +278,9 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 			info.SECS_T7 = dbQuery->FieldByName("S_T7")->AsString;
 			info.SECS_T8 = dbQuery->FieldByName("S_T8")->AsString;
 			info.SECS_T9 = dbQuery->FieldByName("S_T9")->AsString;
+
+			info.SECS_COL = dbQuery->FieldByName("S_COL")->AsInteger ;
+			info.SECS_ROW = dbQuery->FieldByName("S_ROW")->AsInteger ;
 		}
 
 		if(dbQuery->RecordCount > 0)
@@ -295,24 +302,26 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 bool __fastcall TDBManager::EditSECS(stSECSInfo info)
 {
 	if(!dbConnection->Connected)	return false;
-
-	String Value = "SET [SECS_TYPE] = '" + info.SECS_TYPE + "',";
-	Value += "[SECS_IP] = '"	+ info.SECS_LIP + "',";
-	Value += "[SECS_PORT] = '" 	+ info.SECS_LPORT + "',";
-	Value += "[SECS_IP] = '"	+ info.SECS_RIP + "',";
-	Value += "[SECS_PORT] = '" 	+ info.SECS_RPORT + "',";
-	Value += "[SECS_T3] = '" 	+ info.SECS_T3 + "',";
-	Value += "[SECS_T5] = '" 	+ info.SECS_T5 + "',";
-	Value += "[SECS_T6] = '" 	+ info.SECS_T6 + "',";
-	Value += "[SECS_T7] = '" 	+ info.SECS_T7 + "',";
-	Value += "[SECS_T8] = '" 	+ info.SECS_T8 + "'";
-	Value += "[SECS_T9] = '" 	+ info.SECS_T9 + "',";
-	String WHERE = " WHERE [SECS_NO]= 'set';";
+	String Value;
+	Value  = "[S_MODE] = '" + info.SECS_TYPE + "',";
+	Value += "[S_LIP] = '"	+ info.SECS_LIP + "',";
+	Value += "[S_LPORT] = " 	+ info.SECS_LPORT + ",";
+	Value += "[S_RIP] = '"	+ info.SECS_RIP + "',";
+	Value += "[S_RPORT] = " 	+ info.SECS_RPORT + ",";
+	Value += "[S_T3] = " 	+ info.SECS_T3 + ",";
+	Value += "[S_T5] = " 	+ info.SECS_T5 + ",";
+	Value += "[S_T6] = " 	+ info.SECS_T6 + ",";
+	Value += "[S_T7] = " 	+ info.SECS_T7 + ",";
+	Value += "[S_T8] = " 	+ info.SECS_T8 + ",";
+	Value += "[S_T9] = " 	+ info.SECS_T9 + ",";
+	Value += "[S_COL] = "	+ info.SECS_COL + ",";
+	Value += "[S_ROW] = "	+ info.SECS_ROW ;
+	String WHERE = " WHERE [S_NO]= 1;";
 
 	dbQuery->Connection = dbConnection;
 	dbQuery->Close();
 	dbQuery->SQL->Clear();
-	dbQuery->SQL->Add("UPDATE tblSECS " + Value + WHERE);
+	dbQuery->SQL->Add("UPDATE tblSetting SET" + Value + WHERE);
 	dbQuery->Prepared = true;
 
 	if(dbQuery->ExecSQL() > 0)

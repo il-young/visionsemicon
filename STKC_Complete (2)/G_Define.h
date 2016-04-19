@@ -112,6 +112,9 @@ typedef struct SECSInfo
 	AnsiString SECS_T7;
 	AnsiString SECS_T8;
 	AnsiString SECS_T9;
+
+	AnsiString SECS_COL;
+	AnsiString SECS_ROW;
 }stSECSInfo;
 #define SECSInfo
 #endif

@@ -117,10 +117,95 @@ void __fastcall TSetting_Frm::btn_cancelClick(TObject *Sender)
 
 void __fastcall TSetting_Frm::Settingfrm_OnActivate(TObject *Sender)
 {
-	DBManager->ConnectDB();
+//	DBManager->ConnectDB();
+//
+//	stSECSInfo info =  DBManager->SelectSECSInfo();
+//
+//	tb_t3->Text = info.SECS_T3;
+//	tb_t5->Text = info.SECS_T5;
+//	tb_t6->Text = info.SECS_T6;
+//	tb_t7->Text = info.SECS_T7;
+//	tb_t8->Text = info.SECS_T8;
+//	tb_t9->Text = info.SECS_T9;
+//	cb_connect_mode->Text = info.SECS_TYPE;
+//	AdvIPEdit1->IPAddress = info.SECS_LIP;
+//	tb_local_port->Text  = info.SECS_LPORT;
+//	AdvIPEdit2->IPAddress = info.SECS_RIP;
+//	tb_remote_port->Text = info.SECS_RPORT;
+//
+//	tb_col->Text = info.SECS_COL;
+//	tb_row->Text = info.SECS_ROW;
 
-	stSECSInfo info =  DBManager->SelectSECSInfo();
+	//ts_maintenance->Visible = false;
+	  //Read_Setting();
 
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TSetting_Frm::btn_okClick(TObject *Sender)
+{
+	DBManager->ConnectDB();
+	stSECSInfo info =  DBManager->SelectSECSInfo();
+
+	info.SECS_T3 = tb_t3->Text;
+	info.SECS_T5 = tb_t5->Text;
+	info.SECS_T6 = tb_t6->Text;
+	info.SECS_T7 = tb_t7->Text;
+	info.SECS_T8 = tb_t8->Text;
+	info.SECS_T9 = tb_t9->Text;
+	info.SECS_TYPE  =	cb_connect_mode->Text;
+	info.SECS_LIP   =	AdvIPEdit1->IPAddress;
+	info.SECS_LPORT =	tb_local_port->Text;
+	info.SECS_RIP   =	AdvIPEdit2->IPAddress;
+	info.SECS_RPORT =	tb_remote_port->Text;
+
+	info.SECS_COL = tb_col->Text;
+	info.SECS_ROW = tb_row->Text;
+
+	DBManager->EditSECS(info);
+
+	Setting_Frm->Close();
+}
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+
+void __fastcall TSetting_Frm::Settingfrm_maintenance(TObject *Sender)
+{
+	  AnsiString temp1 = InputBox("maintenance","Enter maintenance Password","");
+
+	if (temp1 == "mngr") {
+		ts_maintenance->Enabled = true;
+		ts_maintenance->Visible = true;
+
+		tb_col->ReadOnly = false;
+		tb_row->ReadOnly = false;
+	}
+	else {
+		MessageDlg("Access Denied",mtConfirmation,TMsgDlgButtons() << mbOK,0);
+
+	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TSetting_Frm::Read_Setting()
+{
+    DBManager->ConnectDB();
+
+	stSECSInfo info =  DBManager->SelectSECSInfo();
+
+	Setting_Frm->tb_t3->Text = info.SECS_T3;
+	Setting_Frm->tb_t5->Text = info.SECS_T5;
+	Setting_Frm->tb_t6->Text = info.SECS_T6;
+	Setting_Frm->tb_t7->Text = info.SECS_T7;
+	Setting_Frm->tb_t8->Text = info.SECS_T8;
+	Setting_Frm->tb_t9->Text = info.SECS_T9;
+	Setting_Frm->cb_connect_mode->Text = info.SECS_TYPE;
+	Setting_Frm->AdvIPEdit1->IPAddress = info.SECS_LIP;
+	Setting_Frm->tb_local_port->Text  = info.SECS_LPORT;
+	Setting_Frm->AdvIPEdit2->IPAddress = info.SECS_RIP;
+	Setting_Frm->tb_remote_port->Text = info.SECS_RPORT;
+
+	Setting_Frm->tb_col->Text = info.SECS_COL;
+	Setting_Frm->tb_row->Text = info.SECS_ROW;
+}
