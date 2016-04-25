@@ -40,12 +40,14 @@ void __fastcall TLogin_frm::btn_loginClick(TObject *Sender)
 	{
 		ModalResult = mrOk;
 		stkc_frm->btn_login->Caption = info.USER_DESCRIPTIONS+", Logout Here";
-		stkc_frm->Now_User  = info.USER_ID;
+		stkc_frm->STK_SRVinfo.SRV_USER   = info.USER_ID;
 		stkc_frm->logout_time =  info.USER_LOGOUTTIME.ToInt() ;
 		stkc_frm->btn_date->Caption = info.USER_LOGINDATE;
 		stkc_frm->logout_cnt = 0;
 		stkc_frm->logout_timer->Enabled = true;
-;
+
+		stkc_frm->PNT_ListBox(stkc_frm->STK_SRVinfo.SRV_USER  + " Login");
+
 	}
 	else
 	{
@@ -53,6 +55,15 @@ void __fastcall TLogin_frm::btn_loginClick(TObject *Sender)
 		//editPASS->Text = "";
 	}
 
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TLogin_frm::OnKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+
+{
+	if (Key == vkReturn  ) {
+		btn_login->SetFocus();
+	}
 }
 //---------------------------------------------------------------------------
 

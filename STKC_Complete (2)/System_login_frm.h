@@ -21,6 +21,7 @@ __published:	// IDE-managed Components
 	TEdit *tb_pw;
 	TButton *btn_login;
 	void __fastcall btn_loginClick(TObject *Sender);
+	void __fastcall OnKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 
 
 private:	// User declarations

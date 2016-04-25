@@ -48,6 +48,12 @@ __published:	// IDE-managed Components
 	TEdit *tb_row;
 	TLabel *Label2;
 	TLabel *Label3;
+	TLabel *Label6;
+	TEdit *tb_dev_num;
+	TLabel *Label7;
+	TEdit *tb_model;
+	TLabel *Label8;
+	TEdit *tb_version;
 	void __fastcall tb_t3Change(TObject *Sender);
 	void __fastcall tb_t5Change(TObject *Sender);
 	void __fastcall tb_t6Change(TObject *Sender);
@@ -61,6 +67,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TSetting_Frm(TComponent* Owner);
+	void __fastcall TSetting_Frm::DBCarrierInit();
 	void __fastcall Read_Setting();
 };
 //---------------------------------------------------------------------------

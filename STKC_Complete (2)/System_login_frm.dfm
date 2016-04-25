@@ -63,6 +63,7 @@ object Login_frm: TLogin_frm
     PasswordChar = '*'
     TabOrder = 1
     TextHint = 'Enter PASSWORD'
+    OnKeyDown = OnKeyDown
   end
   object btn_login: TButton
     Left = 232

@@ -1,0 +1,162 @@
+//---------------------------------------------------------------------------
+
+#ifndef STKCH
+#define STKCH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Imaging.jpeg.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include "AdvGrid.hpp"
+#include "AdvObj.hpp"
+#include "BaseGrid.hpp"
+#include <Vcl.Grids.hpp>
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+#include "EZGEMLib_OCX.h"
+#include <Vcl.OleCtrls.hpp>
+
+#include "G_Define.h"
+//---------------------------------------------------------------------------
+class Tstkc_frm : public TForm
+{
+__published:	// IDE-managed Components
+	TPanel *bottom;
+	TImage *Image1;
+	TMainMenu *MainMenu1;
+	TMenuItem *Change1;
+	TMenuItem *Log1;
+	TMenuItem *History1;
+	TMenuItem *Statistics1;
+	TMenuItem *Operation1;
+	TMenuItem *System1;
+	TPanel *Panel8;
+	TPanel *pn_lr;
+	TPanel *Panel6;
+	TPanel *Panel7;
+	TPanel *Panel4;
+	TButton *btn_login;
+	TPageControl *PageControl1;
+	TTabSheet *TabSheet1;
+	TPanel *Panel2;
+	TLabel *Label2;
+	TLabel *Label6;
+	TLabel *Label7;
+	TPanel *Panel3;
+	TLabel *Label3;
+	TLabel *Label8;
+	TLabel *Label9;
+	TPanel *Panel1;
+	TLabel *Label1;
+	TLabel *Label4;
+	TLabel *Label5;
+	TTabSheet *TabSheet2;
+	TButton *btn_date;
+	TPageControl *PageControl2;
+	TTabSheet *TabSheet3;
+	TTabSheet *TabSheet4;
+	TButton *CarrierID_bt;
+	TButton *Search_bt;
+	TStringGrid *Stocker_Grid;
+	TStringGrid *Alarm_Grid;
+	TMenuItem *AutoManual1;
+	TMenuItem *LinkStatusChange1;
+	TMenuItem *Selectconnectedequipment1;
+	TMenuItem *CraneOffOnline1;
+	TMenuItem *PLCOffOnline1;
+	TMenuItem *AGVPort01OffOnline1;
+	TMenuItem *PGVPort02OffOnline1;
+	TPopupMenu *Carrier_Grid_Popup;
+	TMenuItem *oAGVPort1;
+	TMenuItem *oPGVPort1;
+	TMenuItem *FormTo1;
+	TMenuItem *Lock1;
+	TMenuItem *Unlock1;
+	TMenuItem *Event1;
+	TMenuItem *Operation2;
+	TMenuItem *HostCommunication1;
+	TMenuItem *LogFolder1;
+	TMenuItem *Alarm1;
+	TMenuItem *Event2;
+	TMenuItem *ransferCommand1;
+	TMenuItem *Operation3;
+	TMenuItem *CarrierHistory1;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *UserManagement1;
+	TMenuItem *UserGrouping1;
+	TMenuItem *MaxPoolLevel1;
+	TMenuItem *N3;
+	TMenuItem *N4;
+	TMenuItem *Setting1;
+	TADOConnection *dbConnection;
+	TADOQuery *dbQuery;
+	TTimer *logout_timer;
+	TAdvStringGrid *gd_carrier;
+	TListBox *lb_msg;
+	TEZGEM *EZGEM1;
+	void __fastcall Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
+          TBrush *ABrush, TFont *AFont);
+	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall AutoManual1Click(TObject *Sender);
+	void __fastcall LinkStatusChange1Click(TObject *Sender);
+	void __fastcall oAGVPort1Click(TObject *Sender);
+	void __fastcall oPGVPort1Click(TObject *Sender);
+	void __fastcall FormTo1Click(TObject *Sender);
+	void __fastcall Lock1Click(TObject *Sender);
+	void __fastcall Event1Click(TObject *Sender);
+	void __fastcall Operation2Click(TObject *Sender);
+	void __fastcall HostCommunication1Click(TObject *Sender);
+	void __fastcall LogFolder1Click(TObject *Sender);
+	void __fastcall Alarm1Click(TObject *Sender);
+	void __fastcall Event2Click(TObject *Sender);
+	void __fastcall ransferCommand1Click(TObject *Sender);
+	void __fastcall Operation3Click(TObject *Sender);
+	void __fastcall CarrierHistory1Click(TObject *Sender);
+	void __fastcall N2Click(TObject *Sender);
+	void __fastcall N1Click(TObject *Sender);
+	void __fastcall UserManagement1Click(TObject *Sender);
+	void __fastcall UserGrouping1Click(TObject *Sender);
+	void __fastcall MaxPoolLevel1Click(TObject *Sender);
+	void __fastcall N3Click(TObject *Sender);
+	void __fastcall N4Click(TObject *Sender);
+	void __fastcall Setting1Click(TObject *Sender);
+	void __fastcall btn_loginClick(TObject *Sender);
+	void __fastcall logout_timerTimer(TObject *Sender);
+
+	void __fastcall logout();
+	void __fastcall STKC_OnActive(TObject *Sender);
+	void __fastcall EZGEM1_OnConnected(TObject *Sender);
+	void __fastcall EZGEM1_OnDisConnected(TObject *Sender);
+	void __fastcall EZGEM1SecsMsgIn(TObject *Sender, short nStream, short nFunction,
+		  short nWbit, long lSysByte);
+	void __fastcall pn_lrDblClick(TObject *Sender);
+
+
+private:	// User declarations
+
+public:		// User declarations
+	__fastcall Tstkc_frm(TComponent* Owner);
+	int logout_time;
+	int logout_cnt;
+	void __fastcall Tstkc_frm::PNT_ListBox(String msg);
+	void __fastcall Tstkc_frm::CarrierGrid_init(void);
+	void __fastcall Tstkc_frm::SaveMessage(AnsiString msg);
+	void __fastcall Tstkc_frm::EZGEM_Init();
+	void __fastcall AddSVIDs(void);
+	void __fastcall AddCEIDs(void);
+	void __fastcall AddECIDs(void);
+	void __fastcall AddALIDs(void);
+	void __fastcall S1F13(void);
+	stSRVInfo STK_SRVinfo;
+};
+//---------------------------------------------------------------------------
+extern PACKAGE Tstkc_frm *stkc_frm;
+//---------------------------------------------------------------------------
+#endif
+
+

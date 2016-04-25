@@ -793,13 +793,9 @@ object Setting_Frm: TSetting_Frm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Parameter'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object lb_local_port: TLabel
         Left = 215
-        Top = 276
+        Top = 284
         Width = 42
         Height = 24
         Caption = 'Port'
@@ -812,7 +808,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_local_ip: TLabel
         Left = 24
-        Top = 242
+        Top = 250
         Width = 233
         Height = 24
         Caption = 'Local Entity IP Address'
@@ -825,7 +821,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_connect_mode: TLabel
         Left = 24
-        Top = 212
+        Top = 220
         Width = 143
         Height = 24
         Caption = 'Connect Mode'
@@ -838,7 +834,7 @@ object Setting_Frm: TSetting_Frm
       end
       object Label1: TLabel
         Left = 24
-        Top = 182
+        Top = 190
         Width = 394
         Height = 24
         Caption = 'T9(Establish Communications Timeout)'
@@ -851,7 +847,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_t9: TLabel
         Left = 24
-        Top = 152
+        Top = 160
         Width = 369
         Height = 24
         Caption = 'T8 Network Inter-character Timeout'
@@ -864,7 +860,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_t7: TLabel
         Left = 24
-        Top = 122
+        Top = 130
         Width = 279
         Height = 24
         Caption = 'T7(NOT SELECTED Timeout)'
@@ -877,7 +873,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_t6: TLabel
         Left = 24
-        Top = 92
+        Top = 100
         Width = 328
         Height = 24
         Caption = 'T6(Control Transaction Timeout)'
@@ -890,7 +886,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_t5: TLabel
         Left = 24
-        Top = 62
+        Top = 70
         Width = 241
         Height = 24
         Caption = 'T5(Connect Separation)'
@@ -903,7 +899,7 @@ object Setting_Frm: TSetting_Frm
       end
       object lb_t3: TLabel
         Left = 24
-        Top = 32
+        Top = 40
         Width = 189
         Height = 24
         Caption = 'T3(Reply Timeout)'
@@ -916,7 +912,7 @@ object Setting_Frm: TSetting_Frm
       end
       object Label4: TLabel
         Left = 24
-        Top = 306
+        Top = 314
         Width = 259
         Height = 24
         Caption = 'Remote Entity IP Address'
@@ -929,7 +925,7 @@ object Setting_Frm: TSetting_Frm
       end
       object Label5: TLabel
         Left = 241
-        Top = 336
+        Top = 344
         Width = 42
         Height = 24
         Caption = 'Port'
@@ -940,9 +936,22 @@ object Setting_Frm: TSetting_Frm
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object Label6: TLabel
+        Left = 24
+        Top = 10
+        Width = 155
+        Height = 24
+        Caption = 'Device Number'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object cb_connect_mode: TComboBox
         Left = 456
-        Top = 216
+        Top = 224
         Width = 129
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -959,7 +968,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_local_port: TEdit
         Left = 464
-        Top = 276
+        Top = 284
         Width = 121
         Height = 29
         Alignment = taRightJustify
@@ -976,7 +985,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t3: TEdit
         Left = 464
-        Top = 36
+        Top = 44
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -992,7 +1001,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t5: TEdit
         Left = 464
-        Top = 66
+        Top = 74
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1008,7 +1017,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t6: TEdit
         Left = 464
-        Top = 96
+        Top = 104
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1024,7 +1033,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t7: TEdit
         Left = 464
-        Top = 126
+        Top = 134
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1040,7 +1049,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t8: TEdit
         Left = 464
-        Top = 156
+        Top = 164
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1056,7 +1065,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_t9: TEdit
         Left = 464
-        Top = 186
+        Top = 194
         Width = 121
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1072,7 +1081,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_remote_port: TEdit
         Left = 464
-        Top = 340
+        Top = 348
         Width = 121
         Height = 29
         Alignment = taRightJustify
@@ -1089,7 +1098,7 @@ object Setting_Frm: TSetting_Frm
       end
       object AdvIPEdit1: TAdvIPEdit
         Left = 445
-        Top = 246
+        Top = 254
         Width = 140
         Height = 24
         Alignment = taCenter
@@ -1130,7 +1139,7 @@ object Setting_Frm: TSetting_Frm
       end
       object AdvIPEdit2: TAdvIPEdit
         Left = 445
-        Top = 306
+        Top = 314
         Width = 140
         Height = 24
         Alignment = taCenter
@@ -1169,18 +1178,30 @@ object Setting_Frm: TSetting_Frm
         IPAddress = '127.0.0.1'
         IPAddressType = ipv4
       end
+      object tb_dev_num: TEdit
+        Left = 464
+        Top = 10
+        Width = 121
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImeName = 'Microsoft IME 2010'
+        ParentFont = False
+        TabOrder = 11
+        TextHint = '1~120'
+        OnChange = tb_t3Change
+      end
     end
     object ts_maintenance: TTabSheet
       Caption = 'Maintenance'
       Enabled = False
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 31
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label2: TLabel
         Left = 16
-        Top = 19
+        Top = 6
         Width = 31
         Height = 24
         Caption = 'Col'
@@ -1193,7 +1214,7 @@ object Setting_Frm: TSetting_Frm
       end
       object Label3: TLabel
         Left = 280
-        Top = 19
+        Top = 11
         Width = 45
         Height = 24
         Caption = 'Row'
@@ -1204,9 +1225,35 @@ object Setting_Frm: TSetting_Frm
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object Label7: TLabel
+        Left = 16
+        Top = 62
+        Width = 71
+        Height = 24
+        Caption = 'MODEL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 280
+        Top = 62
+        Width = 94
+        Height = 24
+        Caption = 'VERSION'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object tb_col: TEdit
         Left = 72
-        Top = 11
+        Top = 3
         Width = 121
         Height = 32
         Font.Charset = DEFAULT_CHARSET
@@ -1220,7 +1267,7 @@ object Setting_Frm: TSetting_Frm
       end
       object tb_row: TEdit
         Left = 350
-        Top = 16
+        Top = 8
         Width = 121
         Height = 32
         Font.Charset = DEFAULT_CHARSET
@@ -1231,6 +1278,34 @@ object Setting_Frm: TSetting_Frm
         ImeName = 'Microsoft IME 2010'
         ParentFont = False
         TabOrder = 1
+      end
+      object tb_model: TEdit
+        Left = 104
+        Top = 59
+        Width = 161
+        Height = 32
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImeName = 'Microsoft IME 2010'
+        ParentFont = False
+        TabOrder = 2
+      end
+      object tb_version: TEdit
+        Left = 392
+        Top = 59
+        Width = 121
+        Height = 32
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ImeName = 'Microsoft IME 2010'
+        ParentFont = False
+        TabOrder = 3
       end
     end
   end

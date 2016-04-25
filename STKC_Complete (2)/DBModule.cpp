@@ -73,7 +73,8 @@ bool __fastcall TDBManager::LoginCheckUser(AnsiString ID, AnsiString PASS, stUse
 		dbQuery->SQL->Clear();
 		AnsiString a = Now();
 		dbQuery->SQL->Add("UPDATE tblUser SET [USER_LOGINDATE] = '" + a +
-		"' WHERE [USER_ID] = '"+info.USER_ID +"'" );
+		"' WHERE [USER_ID] = '"+info
+		.USER_ID +"'" );
 		dbQuery->Prepared = true;
 		info.USER_LOGINDATE = a;
 		dbQuery->ExecSQL();
@@ -232,6 +233,93 @@ bool __fastcall TDBManager::DeleteUser(AnsiString ID)
 		return false;
 	}
 }
+// Carrier 정보 얻기
+__fastcall TDBManager::GetCarrierinfo()
+{
+	int i,j,row, col;
+	String str;
+	col = StrToInt(Setting_Frm->tb_col->Text );
+	row = StrToInt(Setting_Frm->tb_row->Text );
+
+//	try
+//	{
+		if(!dbConnection->Connected)
+
+
+		dbQuery->Connection = dbConnection;
+		dbQuery->Close();
+		dbQuery->SQL->Clear();
+		dbQuery->SQL->Add("SELECT * from tblCarrier");
+		dbQuery->Open();
+
+		if(dbQuery->RecordCount > 0)
+		{
+			dbQuery->First();
+
+			for (i=0; i < row-1 ; i++)
+			{
+				for (j=0; j < col-1; j++)
+				{
+//					dbQuery->Close();
+//					dbQuery->SQL->Clear();
+//					dbQuery->SQL->Add("SELECT [C_X] = " + i + "[C_Y] = " + j + " from tblCarrier");
+//					dbQuery->Open();
+//					stkc_frm->gd_carrier->Cells[i][j] = dbQuery->SQL->FieldByName("C_ST")->AsString;
+//
+					str = dbQuery->SQL->FieldByName("C_ST");
+//					switch (str)
+//					{
+//						case 0 :
+//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Alarm_Str;
+//							stkc_frm->gd_carrier->Canvas->FloodFill(i, j, clRed,);
+//						case 1 :
+//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Complete_Str;
+//						case 2 :
+//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Idel_Str;
+//						case 3 :
+//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Offline_Str;
+					}
+				}
+			}
+
+
+
+
+//			info.SECS_TYPE = dbQuery->FieldByName("S_MODE")->AsString;
+//			info.SECS_LIP = dbQuery->FieldByName("S_LIP")->AsString;
+//			info.SECS_LPORT = dbQuery->FieldByName("S_LPORT")->AsString;
+//			info.SECS_RIP = dbQuery->FieldByName("S_RIP")->AsString;
+//			info.SECS_RPORT = dbQuery->FieldByName("S_RPORT")->AsString;
+//			info.SECS_T3 = dbQuery->FieldByName("S_T3")->AsString;
+//			info.SECS_T5 = dbQuery->FieldByName("S_T5")->AsString;
+//			info.SECS_T6 = dbQuery->FieldByName("S_T6")->AsString;
+//			info.SECS_T7 = dbQuery->FieldByName("S_T7")->AsString;
+//			info.SECS_T8 = dbQuery->FieldByName("S_T8")->AsString;
+//			info.SECS_T9 = dbQuery->FieldByName("S_T9")->AsString;
+//
+//			info.SECS_COL = dbQuery->FieldByName("S_COL")->AsInteger ;
+//			info.SECS_ROW = dbQuery->FieldByName("S_ROW")->AsInteger ;
+//			info.SECS_DEV_NUM = dbQuery->FieldByName("S_DEVICE_NUMBER")->AsInteger ;
+//			info.SECS_MODELNAME = dbQuery->FieldByName("S_MODELNAME")->AsAnsiString ;
+//			info.SECS_VERSION = dbQuery->FieldByName("S_VERSION")->AsAnsiString;
+ //		}
+
+//		if(dbQuery->RecordCount > 0)
+//		{
+//			//return info;
+//		}
+//		else
+//		{
+//		   //	return info;
+//		}
+//	}
+//	catch(Exception *e)
+//	{
+//		//return info;
+//	}
+
+}
+
 
 //SECS 정보 얻기
 stSECSInfo __fastcall TDBManager::SelectSECSInfo()
@@ -250,7 +338,9 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 	info.SECS_T9 = 0;
 	info.SECS_COL = 0;
 	info.SECS_ROW = 0;
-
+	info.SECS_DEV_NUM = "";
+	info.SECS_MODELNAME = "";
+	info.SECS_VERSION = "";
 
 	try
 	{
@@ -281,6 +371,9 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 
 			info.SECS_COL = dbQuery->FieldByName("S_COL")->AsInteger ;
 			info.SECS_ROW = dbQuery->FieldByName("S_ROW")->AsInteger ;
+			info.SECS_DEV_NUM = dbQuery->FieldByName("S_DEVICE_NUMBER")->AsInteger ;
+			info.SECS_MODELNAME = dbQuery->FieldByName("S_MODELNAME")->AsAnsiString ;
+			info.SECS_VERSION = dbQuery->FieldByName("S_VERSION")->AsAnsiString;
 		}
 
 		if(dbQuery->RecordCount > 0)
@@ -315,7 +408,10 @@ bool __fastcall TDBManager::EditSECS(stSECSInfo info)
 	Value += "[S_T8] = " 	+ info.SECS_T8 + ",";
 	Value += "[S_T9] = " 	+ info.SECS_T9 + ",";
 	Value += "[S_COL] = "	+ info.SECS_COL + ",";
-	Value += "[S_ROW] = "	+ info.SECS_ROW ;
+	Value += "[S_ROW] = "	+ info.SECS_ROW +",";
+	Value += "[S_DEVICE_NUMBER] =" + info.SECS_DEV_NUM + ",";
+	Value += "[S_MODELNAME] = '" + info.SECS_MODELNAME+ "',";
+	Value += "[S_VERSION]= '" + info.SECS_VERSION + "'"  ;
 	String WHERE = " WHERE [S_NO]= 1;";
 
 	dbQuery->Connection = dbConnection;
@@ -332,4 +428,19 @@ bool __fastcall TDBManager::EditSECS(stSECSInfo info)
 	{
 		return false;
 	}
+}
+
+
+
+void __fastcall TDBManager::InitCarrierDB()
+{
+
+	dbQuery->Connection = dbConnection;
+	dbQuery->Close();
+	dbQuery->SQL->Clear();
+	dbQuery->SQL->Add("UPDATE tblCarrier SET [C_ST] = '', [C_DATE] = '', [C_LOT] = '';");
+	dbQuery->Prepared = true;
+	dbQuery->ExecSQL();
+
+
 }

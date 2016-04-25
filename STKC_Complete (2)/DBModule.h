@@ -8,6 +8,8 @@
 #include <Data.Win.ADODB.hpp>
 #include <deque.h>
 
+
+#include "System_Setting.h"
 #include "G_Define.h"
 
 
@@ -31,6 +33,8 @@ public:		// User declarations
 
 	__fastcall stSECSInfo SelectSECSInfo();                         					//SECS 정보 얻기
 	__fastcall bool EditSECS(stSECSInfo info);											//SECS 정보 수정
+	void __fastcall InitCarrierDB();                                                     //CarrierDB 초기화
+	__fastcall GetCarrierinfo();                                                         //CarrierDB 정보 얻기
 
 };
 //---------------------------------------------------------------------------

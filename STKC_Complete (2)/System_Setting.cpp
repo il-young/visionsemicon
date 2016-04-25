@@ -162,6 +162,11 @@ void __fastcall TSetting_Frm::btn_okClick(TObject *Sender)
 	info.SECS_COL = tb_col->Text;
 	info.SECS_ROW = tb_row->Text;
 
+	info.SECS_DEV_NUM = tb_dev_num->Text;
+	info.SECS_MODELNAME = tb_model->Text;
+	info.SECS_VERSION = tb_version->Text;
+
+
 	DBManager->EditSECS(info);
 
 	Setting_Frm->Close();
@@ -181,16 +186,20 @@ void __fastcall TSetting_Frm::Settingfrm_maintenance(TObject *Sender)
 
 		tb_col->ReadOnly = false;
 		tb_row->ReadOnly = false;
+		tb_model->ReadOnly = false;
+		tb_version->ReadOnly = false;
 	}
 	else {
+		stkc_frm->PNT_ListBox("ACCESS DENINED");
 		MessageDlg("Access Denied",mtConfirmation,TMsgDlgButtons() << mbOK,0);
+
 
 	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TSetting_Frm::Read_Setting()
 {
-    DBManager->ConnectDB();
+	DBManager->ConnectDB();
 
 	stSECSInfo info =  DBManager->SelectSECSInfo();
 
@@ -208,4 +217,20 @@ void __fastcall TSetting_Frm::Read_Setting()
 
 	Setting_Frm->tb_col->Text = info.SECS_COL;
 	Setting_Frm->tb_row->Text = info.SECS_ROW;
+
+	Setting_Frm->tb_dev_num->Text  = info.SECS_DEV_NUM;
+	Setting_Frm->tb_model->Text = info.SECS_MODELNAME;
+	Setting_Frm->tb_version->Text = info.SECS_VERSION;
+
+	stkc_frm->STK_SRVinfo.SRV_MODELNAME = info.SECS_MODELNAME;
+	stkc_frm->STK_SRVinfo.SRV_VERSION = info.SECS_VERSION;
+
 }
+
+
+void __fastcall TSetting_Frm::DBCarrierInit()
+{
+	DBManager->InitCarrierDB();
+
+}
+

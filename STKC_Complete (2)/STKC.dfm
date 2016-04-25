@@ -319,6 +319,7 @@ object stkc_frm: Tstkc_frm
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = STKC_OnActive
+  OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     1654
@@ -455,34 +456,6 @@ object stkc_frm: Tstkc_frm
         9558FFD9}
     end
   end
-  object memo1: TMemo
-    Left = 534
-    Top = 0
-    Width = 392
-    Height = 211
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
-    TabStop = False
-    Alignment = taCenter
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ImeName = 'Microsoft IME 2010'
-    Lines.Strings = (
-      '12/31/08:47:38.................12NL047  Move IN'
-      '12/31/08:44:38.................12NL046  Move IN'
-      '12/31/08:40:38.................12NL287  Move IN'
-      '12/31/08:30:38.................12NL987  Move IN'
-      '12/31/08:26:38.................12NL985  Move IN'
-      '12/31/08:20:38.................12NL924  Move IN')
-    ParentFont = False
-    ReadOnly = True
-    TabOrder = 1
-  end
   object Panel8: TPanel
     Left = 935
     Top = 0
@@ -492,11 +465,11 @@ object stkc_frm: Tstkc_frm
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    TabOrder = 2
+    TabOrder = 1
   end
-  object Panel5: TPanel
+  object pn_lr: TPanel
     Left = 949
-    Top = 10
+    Top = 9
     Width = 361
     Height = 54
     Margins.Left = 4
@@ -512,7 +485,8 @@ object stkc_frm: Tstkc_frm
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
+    OnDblClick = pn_lrDblClick
   end
   object Panel6: TPanel
     Left = 949
@@ -532,7 +506,7 @@ object stkc_frm: Tstkc_frm
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 3
   end
   object Panel7: TPanel
     Left = 1130
@@ -552,7 +526,7 @@ object stkc_frm: Tstkc_frm
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 4
   end
   object Panel4: TPanel
     Left = 1339
@@ -563,7 +537,7 @@ object stkc_frm: Tstkc_frm
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    TabOrder = 6
+    TabOrder = 5
     object btn_login: TButton
       Left = 9
       Top = 3
@@ -601,7 +575,7 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     object TabSheet1: TTabSheet
       Margins.Left = 4
       Margins.Top = 4
@@ -887,7 +861,7 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
   end
   object PageControl2: TPageControl
     Left = -13
@@ -906,7 +880,7 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 8
     object TabSheet3: TTabSheet
       Margins.Left = 4
       Margins.Top = 4
@@ -949,10 +923,10 @@ object stkc_frm: Tstkc_frm
     end
   end
   object CarrierID_bt: TButton
-    Left = 251
-    Top = 195
-    Width = 127
-    Height = 46
+    Left = 238
+    Top = 208
+    Width = 110
+    Height = 35
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -960,17 +934,17 @@ object stkc_frm: Tstkc_frm
     Caption = 'Carrier ID'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -20
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 9
   end
   object Search_bt: TButton
-    Left = 386
-    Top = 195
-    Width = 127
-    Height = 46
+    Left = 356
+    Top = 208
+    Width = 111
+    Height = 35
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -978,11 +952,11 @@ object stkc_frm: Tstkc_frm
     Caption = 'Search'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -20
+    Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 10
   end
   object gd_carrier: TAdvStringGrid
     Left = 8
@@ -992,8 +966,10 @@ object stkc_frm: Tstkc_frm
     Cursor = crDefault
     DrawingStyle = gdsClassic
     ScrollBars = ssBoth
-    TabOrder = 12
+    TabOrder = 11
     HoverRowCells = [hcNormal, hcSelected]
+    OnClickCell = gd_carrierClickCell
+    OnRightClickCell = gd_carrierRightClickCell
     ActiveCellFont.Charset = DEFAULT_CHARSET
     ActiveCellFont.Color = clWindowText
     ActiveCellFont.Height = -13
@@ -1100,6 +1076,29 @@ object stkc_frm: Tstkc_frm
       22
       22
       37)
+  end
+  object lb_msg: TListBox
+    Left = 392
+    Top = 0
+    Width = 536
+    Height = 209
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ImeName = 'Microsoft IME 2010'
+    ItemHeight = 21
+    ParentFont = False
+    TabOrder = 12
+  end
+  object EZGEM1: TEZGEM
+    Left = 240
+    Top = 32
+    Width = 100
+    Height = 50
+    TabOrder = 13
+    ControlData = {00000100450800002204000000000000}
   end
   object MainMenu1: TMainMenu
     Left = 160
@@ -1214,30 +1213,6 @@ object stkc_frm: Tstkc_frm
       end
     end
   end
-  object Carrier_Grid_Popup: TPopupMenu
-    Left = 168
-    Top = 872
-    object oAGVPort1: TMenuItem
-      Caption = 'To AGV Port'
-      OnClick = oAGVPort1Click
-    end
-    object oPGVPort1: TMenuItem
-      Caption = 'To PGV Port'
-      OnClick = oPGVPort1Click
-    end
-    object FormTo1: TMenuItem
-      Caption = 'Form To...'
-      OnClick = FormTo1Click
-    end
-    object Lock1: TMenuItem
-      Caption = 'Lock'
-      OnClick = Lock1Click
-    end
-    object Unlock1: TMenuItem
-      Caption = 'Unlock'
-      Enabled = False
-    end
-  end
   object dbConnection: TADOConnection
     LoginPrompt = False
     Mode = cmShareDenyNone
@@ -1256,5 +1231,24 @@ object stkc_frm: Tstkc_frm
     OnTimer = logout_timerTimer
     Left = 112
     Top = 8
+  end
+  object Carrier_grid_menu: TPopupMenu
+    Left = 104
+    Top = 64
+    object btn_toagv: TMenuItem
+      Caption = 'to AGV Port'
+    end
+    object btn_topgv: TMenuItem
+      Caption = 'to PGV Port'
+    end
+    object btn_form: TMenuItem
+      Caption = 'Form to....'
+    end
+    object btn_lock: TMenuItem
+      Caption = 'Lock'
+    end
+    object btn_unlock: TMenuItem
+      Caption = 'Unlock'
+    end
   end
 end

@@ -44,7 +44,7 @@
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib;packEZGEM.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
 			<IncludePath>STKC\;G:\Project\ASE K5\STKC_Complete (2);$(IncludePath)</IncludePath>
@@ -86,6 +86,7 @@
 			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<LinkPackageStatics>packEZGEM.lib</LinkPackageStatics>
 			<ILINK_LibraryPath>G:\Project\git temp\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<IncludePath>G:\Project\git temp\STKC_Complete (2);$(IncludePath)</IncludePath>
 			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
@@ -134,6 +135,18 @@
 				<DependentOn>Change_AutoM_frm.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
+			<None Include="DATA\FORMAT.SML">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<None Include="DATA\VSP_ALID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<None Include="DATA\VSP_CEID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<None Include="DATA\VSP_SVID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
 			<CppCompile Include="DBModule.cpp">
 				<Form>DBManager</Form>
 				<DesignClass>TDataModule</DesignClass>
@@ -266,32 +279,32 @@
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>PngImage_1</ResourceId>
 			</RcItem>
-			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
-			<FormResources Include="Statistics_WorkTimeform.dfm"/>
-			<FormResources Include="STKC.dfm"/>
 			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
-			<FormResources Include="Operation_ShelfTestForm.dfm"/>
-			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
 			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
+			<FormResources Include="Statistics_WorkTimeform.dfm"/>
+			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
+			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
+			<FormResources Include="LinkStatusChange_frm.dfm"/>
+			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
+			<FormResources Include="Operation_ShelfTestForm.dfm"/>
+			<FormResources Include="STKC.dfm"/>
 			<FormResources Include="System_UserManagementform.dfm"/>
 			<FormResources Include="System_UserGroupingform.dfm"/>
 			<FormResources Include="System_login_frm.dfm"/>
-			<FormResources Include="System_Max_PoolLevelform.dfm"/>
 			<FormResources Include="System_Setting.dfm"/>
-			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
+			<FormResources Include="System_Max_PoolLevelform.dfm"/>
 			<FormResources Include="Change_AutoM_frm.dfm"/>
-			<FormResources Include="DBModule.dfm"/>
-			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
-			<FormResources Include="Carrier_FormTopopupConfirm_frm.dfm"/>
+			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
 			<FormResources Include="Carrier_FormTopopup_frm.dfm"/>
+			<FormResources Include="Carrier_FormTopopupConfirm_frm.dfm"/>
+			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
 			<FormResources Include="Carrier_LockComment_frm.dfm"/>
-			<FormResources Include="History_TransferCommandform.dfm"/>
-			<FormResources Include="LinkStatusChange_frm.dfm"/>
-			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
-			<FormResources Include="History_Operationform.dfm"/>
-			<FormResources Include="History_Alarmform.dfm"/>
-			<FormResources Include="History_Carrier_Historyform.dfm"/>
 			<FormResources Include="History_Eventform.dfm"/>
+			<FormResources Include="History_Carrier_Historyform.dfm"/>
+			<FormResources Include="History_TransferCommandform.dfm"/>
+			<FormResources Include="History_Operationform.dfm"/>
+			<FormResources Include="DBModule.dfm"/>
+			<FormResources Include="History_Alarmform.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

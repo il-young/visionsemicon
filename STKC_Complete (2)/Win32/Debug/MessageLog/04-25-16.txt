@@ -1,0 +1,90 @@
+!!!!!!!!!!!!
+!!!!
+04-25-16 오후 2:34:31 : STK S/W Reboot!!
+04-25-16 오후 2:37:25 : Stocker Server Reboot!!!
+04-25-16 오후 2:37:25 : Connected
+04-25-16 오후 2:46:21 : Stocker Server Reboot!!!
+04-25-16 오후 2:46:21 : Connected
+04-25-16 오후 2:46:38 : Stocker Server Reboot!!!
+04-25-16 오후 2:46:38 : Connected
+04-25-16 오후 2:46:57 : Stocker Server Reboot!!!
+04-25-16 오후 2:46:57 : Connected
+04-25-16 오후 2:47:11 : Stocker Server Reboot!!!
+04-25-16 오후 2:47:11 : Connected
+04-25-16 오후 2:47:23 : Stocker Server Reboot!!!
+04-25-16 오후 2:47:23 : Connected
+04-25-16 오후 2:48:09 : Stocker Server Reboot!!!
+04-25-16 오후 2:48:09 : MES Sercer Connected
+04-25-16 오후 2:48:09 : MES SERVER Disconnected
+04-25-16 오후 2:48:09 : MES Sercer Connected
+04-25-16 오후 2:48:50 : Stocker Server Reboot
+04-25-16 오후 2:48:50 : MES Server Connected
+04-25-16 오후 2:49:16 : Stocker Server Reboot
+04-25-16 오후 2:49:16 : MES Server Connected
+04-25-16 오후 2:49:28 : Stocker Server Reboot
+04-25-16 오후 2:49:28 : MES Server Connected
+04-25-16 오후 2:50:58 : Stocker Server Reboot
+04-25-16 오후 2:50:58 : MES Server Connected
+04-25-16 오후 4:14:01 : Stocker Server Reboot
+04-25-16 오후 4:14:01 : MES Server Connected
+04-25-16 오후 4:15:14 : Stocker Server Reboot
+04-25-16 오후 4:15:14 : MES Server Connected
+04-25-16 오후 4:19:45 : Stocker Server Reboot
+04-25-16 오후 4:19:45 : MES Server Connected
+04-25-16 오후 4:25:28 : Stocker Server Reboot
+04-25-16 오후 4:25:28 : MES Server Connected
+04-25-16 오후 4:26:23 : Stocker Server Reboot
+04-25-16 오후 4:26:23 : MES Server Connected
+04-25-16 오후 4:27:11 : Stocker Server Reboot
+04-25-16 오후 4:27:11 : MES Server Connected
+04-25-16 오후 4:27:44 : Stocker Server Reboot
+04-25-16 오후 4:27:44 : MES Server Connected
+04-25-16 오후 4:28:47 : Stocker Server Reboot
+04-25-16 오후 4:28:47 : MES Server Connected
+04-25-16 오후 4:29:09 : Stocker Server Reboot
+04-25-16 오후 4:29:09 : MES Server Connected
+04-25-16 오후 4:38:48 : Stocker Server Reboot
+04-25-16 오후 4:38:48 : MES Server Connected
+04-25-16 오후 4:41:18 : Stocker Server Reboot
+04-25-16 오후 4:41:18 : MES Server Connected
+04-25-16 오후 4:42:08 : Stocker Server Reboot
+04-25-16 오후 4:42:08 : MES Server Connected
+04-25-16 오후 4:42:56 : Stocker Server Reboot
+04-25-16 오후 4:42:56 : MES Server Connected
+04-25-16 오후 4:42:56 : LOCAL -> REMOTE
+04-25-16 오후 4:42:56 : REMODTE -> LOCAL
+04-25-16 오후 4:50:12 : Stocker Server Reboot
+04-25-16 오후 4:50:12 : MES Server Connected
+04-25-16 오후 4:50:12 : LOCAL -> REMOTE
+04-25-16 오후 4:50:12 : REMODTE -> LOCAL
+04-25-16 오후 4:50:12 : MES SERVER Disconnected
+04-25-16 오후 4:50:12 : OFFLINE
+04-25-16 오후 5:48:41 : Stocker Server Reboot
+04-25-16 오후 5:48:41 : STOKER SERVER CLOSE
+04-25-16 오후 5:57:05 : Stocker Server Reboot
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 1'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 1'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 2'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 3'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 4'
+04-25-16 오후 5:57:05 : Carrier Grid Click '2, 4'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 5'
+04-25-16 오후 5:57:05 : Carrier Grid Click '2, 5'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 6'
+04-25-16 오후 5:57:05 : Carrier Grid Click '2, 6'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 10'
+04-25-16 오후 5:57:05 : Carrier Grid Click '1, 11'
+04-25-16 오후 5:57:05 : STOKER SERVER CLOSE
+04-25-16 오후 7:06:45 : Stocker Server Reboot
+04-25-16 오후 7:06:45 : STOKER SERVER CLOSE
+04-25-16 오후 7:08:00 : Stocker Server Reboot
+04-25-16 오후 7:08:00 : STOKER SERVER CLOSE
+04-25-16 오후 7:08:42 : Stocker Server Reboot
+04-25-16 오후 7:08:42 : STOKER SERVER CLOSE
+04-25-16 오후 7:23:40 : Stocker Server Reboot
+04-25-16 오후 7:24:16 : Stocker Server Reboot
+04-25-16 오후 7:45:07 : Stocker Server Reboot
+04-25-16 오후 7:45:07 : STOKER SERVER CLOSE
+04-25-16 오후 7:47:49 : Stocker Server Reboot
+04-25-16 오후 7:49:50 : Stocker Server Reboot
+04-25-16 오후 7:49:50 : STOKER SERVER CLOSE

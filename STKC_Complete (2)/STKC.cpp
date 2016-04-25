@@ -27,7 +27,7 @@
 #include "System_Max_PoolLevelform.h"
 #include "Operation_ShelfTestForm.h"
 #include "Operation_Shelf_Position_Confirmation_form.h"
-#include "G_Define.h"
+
 
 
 //---------------------------------------------------------------------------
@@ -35,12 +35,18 @@
 #pragma link "AdvGrid"
 #pragma link "AdvObj"
 #pragma link "BaseGrid"
+#pragma link "EZGEMLib_OCX"
 #pragma resource "*.dfm"
 
 
 Tstkc_frm *stkc_frm;
 
 
+
+extern WideString GetBstr(const String sVal)
+{
+	return static_cast<WideString>(sVal);
+};
 
 //---------------------------------------------------------------------------
 __fastcall Tstkc_frm::Tstkc_frm(TComponent* Owner)
@@ -590,13 +596,17 @@ void __fastcall Tstkc_frm::logout_timerTimer(TObject *Sender)
 
 void __fastcall Tstkc_frm::logout()
 {
-	Now_User = "";
+	PNT_ListBox(STK_SRVinfo.SRV_USER  + " LogOut");
+
+	STK_SRVinfo.SRV_USER  = "";
 	logout_time = 0;
 	logout_cnt = 0;
 
 	logout_timer->Enabled = false;
 
 	stkc_frm->btn_login->Caption = "Login Here";
+
+	EZGEM1->GoOffline();
 }
 
 //---------------------------------------------------------------------------
@@ -605,7 +615,26 @@ void __fastcall Tstkc_frm::STKC_OnActive(TObject *Sender)
 {
 	Setting_Frm->Read_Setting();
 
-	gd_carrier->RemoveRows(0,10);
+	CarrierGrid_init();
+
+	EZGEM_Init();
+
+
+	lb_msg->Clear();
+
+	STK_SRVinfo.SRV_NOWDATE = FormatDateTime("MM/DD/YY", Now());;
+	STK_SRVinfo.SRV_NOWTIME = Time().TimeString();
+
+
+
+	EZGEM1->SendMsg(256);
+
+	PNT_ListBox("Stocker Server Reboot");
+}
+//---------------------------------------------------------------------------
+void __fastcall Tstkc_frm::CarrierGrid_init(void)
+{
+		gd_carrier->RemoveRows(0,10);
 	gd_carrier->RemoveCols(0,3);
 
 	int i, j, row, col;
@@ -634,6 +663,470 @@ void __fastcall Tstkc_frm::STKC_OnActive(TObject *Sender)
 
 	gd_carrier->RowHeights[0] = 25;
 
+
+	int a = 0;
+//	}
+//
+//	for (i=0; i < MAX; i++)  //  할당된 열을 우선 해제하고...
+//	{
+//	delete [] P[i];
+//	}
+//	delete [] P;
+
+
+
+
 }
 //---------------------------------------------------------------------------
+void __fastcall Tstkc_frm::EZGEM_Init()
+{
+	//---------------------------------------------------------------------------
+//EZGEM Setting
+	EZGEM1->T3 = Setting_Frm->tb_t3->Text.ToInt();
+	EZGEM1->T5 = Setting_Frm->tb_t5->Text.ToInt();
+	EZGEM1->T6 = Setting_Frm->tb_t6->Text.ToInt();
+	EZGEM1->T7 = Setting_Frm->tb_t7->Text.ToInt();
+	EZGEM1->T8 = Setting_Frm->tb_t8->Text.ToInt();
+	EZGEM1->EstablishCommRetryTimer = Setting_Frm->tb_t9->Text.ToInt();
+
+	if (Setting_Frm->cb_connect_mode->Text == "PASSIVE") {
+		EZGEM1->PassiveMode = true;
+	}
+	else	EZGEM1->PassiveMode = False;
+
+	EZGEM1->IP = Setting_Frm->AdvIPEdit2->IPAddress;
+	EZGEM1->Port = Setting_Frm->tb_remote_port->Text.ToInt() ;
+	EZGEM1->SecsI = False;
+	EZGEM1->DeviceID = Setting_Frm->tb_dev_num->Text.ToDouble() ;
+
+	EZGEM1->SetModelName(GetBstr(stkc_frm->STK_SRVinfo.SRV_MODELNAME).c_bstr());
+	EZGEM1->SetSoftwareRev(GetBstr(stkc_frm->STK_SRVinfo.SRV_VERSION).c_bstr());
+
+	EZGEM1->HostMode = true;
+
+	EZGEM1->AddRemoteCommand(GetBstr("ABORT").c_bstr() );
+	EZGEM1->AddRemoteCommand(GetBstr("CANCEL").c_bstr() );
+	EZGEM1->AddRemoteCommand(GetBstr("TRANSFER").c_bstr() );
+	EZGEM1->AddRemoteCommand(GetBstr("MOVE").c_bstr() );
+
+	AddSVIDs();
+	AddCEIDs();
+	//AddECIDs();
+	AddALIDs();
+
+	EZGEM1->SetFormatCodeALID(54);
+	EZGEM1->SetFormatCodeSVID(54);
+	EZGEM1->SetFormatCodeDATAID(52);
+	EZGEM1->SetFormatCodeCEID(54);
+	//EZGEM1->SetFormatCodeECID(ITEM_UINT4B);
+	EZGEM1->SetFormatCodeRPTID(54);
+	EZGEM1->SetFormatCodeTRACEID(54);
+
+	WideString sFile;
+	sFile = "LOG\\GEM.LOG";
+	EZGEM1->SetLogFile(GetBstr(sFile).c_bstr(),true);
+
+	EZGEM1->DisableSpooling();
+
+	sFile = "DATA\\FORMAT.SML";
+	EZGEM1->SetFormatFile(GetBstr(sFile).c_bstr() );
+
+	EZGEM1->SetLogRetention(30);
+	EZGEM1->SetFormatCheck(true);
+
+	//GemState->bEnabled = true;
+
+	EZGEM1->DisableAutoReply(6,1);
+	int res = EZGEM1->Start();
+
+
+//	if(res < 0)
+//		ShowMessage(GetErrorCode(res));
+
+}
+	//Add Status Variable ID
+//AddSVID(id,name,format,unit)
+void __fastcall Tstkc_frm::AddSVIDs(void)
+{
+	String sFile = "../../DATA\\VSP_SVID.TXT";
+	if(!FileExists(sFile))
+	{
+		ShowMessage("SVID Definition file does not exist.");
+		return;
+	}
+
+	boost::shared_ptr<TStringList> sLine (new TStringList());
+	boost::shared_ptr<TStringList> sData (new TStringList());
+	sLine->LoadFromFile(sFile);
+
+	for(int i=0; i<sLine->Count; i++)
+	{
+		sData->CommaText = sLine->Strings[i];
+
+		if(sData->Count != 3)
+			continue;
+		else
+			EZGEM1->AddSVID((long)(sData->Strings[0].ToIntDef(0) ), GetBstr(sData->Strings[1]).c_bstr(), GetBstr(sData->Strings[2]).c_bstr(), GetBstr("").c_bstr() );
+	}
+}
+
+//Add Collective Event ID
+//AddCEID(id,name,comment)
+void __fastcall Tstkc_frm::AddCEIDs(void)
+{
+	String sFile = "../../DATA\\VSP_CEID.TXT";
+	if(!FileExists(sFile))
+	{
+		ShowMessage("CEID Definition file does not exist.");
+		return;
+	}
+
+	boost::shared_ptr<TStringList> sLine (new TStringList());
+	boost::shared_ptr<TStringList> sData (new TStringList());
+	sLine->LoadFromFile(sFile);
+
+	for(int i=0; i<sLine->Count; i++)
+	{
+		sData->CommaText = sLine->Strings[i];
+
+		if(sData->Count < 2)
+			continue;
+		else
+		{
+			String sErrContents = "";
+			for(int j=1; j<sData->Count; j++)
+			{
+				sErrContents = sErrContents + sData->Strings[j];
+				sErrContents += " ";
+			}
+			EZGEM1->AddCEID((long)(sData->Strings[0].ToIntDef(0) ), GetBstr(sErrContents).c_bstr(), GetBstr("").c_bstr() );
+        }
+	}
+}
+
+//Add Equipment Constant ID
+//AddECID(id,name,format,unit)
+//void __fastcall Tstkc_frm::AddECIDs(void)
+//{
+//	WideString wsVal;
+//
+//	EZGEM1->add
+//
+//	EZGEM1->AddECID(ECID_PORT, GetBstr("PortNumber").c_bstr(), GetBstr("").c_bstr(), GetBstr("U2").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_PORT, GetBstr("2000").c_bstr(), GetBstr("10000").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_PORT, GetBstr(IntToStr(HsmsPara->nPort)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_DEVICEID,  GetBstr("DeviceID").c_bstr(),  GetBstr("").c_bstr(),  GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_DEVICEID, GetBstr("0").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_DEVICEID, GetBstr(IntToStr(HsmsPara->nDeiceId)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_T3, GetBstr("T3 Timeout").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_T3, GetBstr("1").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_T3, GetBstr(IntToStr(HsmsPara->nT3)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_T5, GetBstr("T5 Timeout").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_T5, GetBstr("1").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_T5, GetBstr(IntToStr(HsmsPara->nT5)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_T6,	GetBstr("T6 Timeout").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_T6, GetBstr("1").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_T6, GetBstr(IntToStr(HsmsPara->nT6)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_T7, GetBstr("T7 Timeout").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_T7, GetBstr("1").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_T7, GetBstr(IntToStr(HsmsPara->nT7)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_T8, GetBstr("T8 Timeout").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr());
+//	EZGEM1->SetEquipConstRange(ECID_T8, GetBstr("1").c_bstr(), GetBstr("255").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_T8, GetBstr(IntToStr(HsmsPara->nT8)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_LINKTEST, GetBstr("LinkTestInterVal").c_bstr(), GetBstr("second").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_LINKTEST, GetBstr("1").c_bstr(), GetBstr("255").c_bstr());
+//	EZGEM1->SetEquipConstValue(ECID_LINKTEST, GetBstr(IntToStr(HsmsPara->nLnkTest)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_RETRY, GetBstr("RetryLimit").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_RETRY, GetBstr("1").c_bstr(), GetBstr("255").c_bstr());
+//	EZGEM1->SetEquipConstValue(ECID_RETRY, GetBstr(IntToStr(HsmsPara->nRetry)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_DEFAULT_COMM_STATE, GetBstr("DefaultCommState").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_DEFAULT_COMM_STATE, GetBstr("1").c_bstr(), GetBstr("5").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_DEFAULT_COMM_STATE, GetBstr(IntToStr(static_cast<int>(Ecid->nDefaultCommState))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_DEFAULT_CONTROL_STATE, GetBstr("DefaultControlState").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_DEFAULT_CONTROL_STATE, GetBstr("1").c_bstr(), GetBstr("3").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_DEFAULT_CONTROL_STATE, GetBstr(IntToStr(Ecid->nDefaultControlState)).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_ESTABLISH_TIMEOUT, GetBstr("EstablishCommTimeOut").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_ESTABLISH_TIMEOUT, GetBstr("1").c_bstr(), GetBstr("60").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_ESTABLISH_TIMEOUT, GetBstr(IntToStr(static_cast<int>(Ecid->nCommReqeustTimeout))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_MDLN, GetBstr("MDLN").c_bstr(), GetBstr("").c_bstr(), GetBstr("A").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_MDLN, GetBstr(Ecid->sModelName).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_SOFTREV, GetBstr("SOFTREV").c_bstr(), GetBstr("").c_bstr(), GetBstr("A").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_SOFTREV, GetBstr(Ecid->sSoftRev).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_MAXSPOOL_TRANSMIT, GetBstr("MaxSpoolTransmit").c_bstr(), GetBstr("").c_bstr(), GetBstr("U2").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_MAXSPOOL_TRANSMIT, GetBstr("1").c_bstr(), GetBstr("8196").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_MAXSPOOL_TRANSMIT, GetBstr(IntToStr(static_cast<int>(Ecid->SPOOLINFO.nMaxSpoolTransmit))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_SPOOL_OVERWRITE, GetBstr("SpoolOverwrite").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_SPOOL_OVERWRITE, GetBstr("0").c_bstr(), GetBstr("1").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_SPOOL_OVERWRITE, GetBstr(IntToStr(static_cast<int>(Ecid->SPOOLINFO.bSpoolOverwrite))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_SPOOLING_MODE, GetBstr("SpoolingMode").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_SPOOLING_MODE, GetBstr("0").c_bstr(), GetBstr("1").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_SPOOLING_MODE, GetBstr(IntToStr(static_cast<int>(Ecid->SPOOLINFO.bSpoolEnabled))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_MAX_SPOOL_SIZE,	GetBstr("MaxSpoolCount").c_bstr(), GetBstr("").c_bstr(), GetBstr("U2").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_MAX_SPOOL_SIZE, GetBstr("1").c_bstr(), GetBstr("8196").c_bstr() );
+//	EZGEM1->SetEquipConstValue(ECID_MAX_SPOOL_SIZE, GetBstr(IntToStr(static_cast<int>(Ecid->SPOOLINFO.nMaxSpoolSize))).c_bstr() );
+//
+//	EZGEM1->AddECID(ECID_TIME_FORMAT, GetBstr("TimeFormat").c_bstr(), GetBstr("").c_bstr(), GetBstr("U1").c_bstr() );
+//	EZGEM1->SetEquipConstRange(ECID_TIME_FORMAT, GetBstr("12").c_bstr(), GetBstr("16").c_bstr() );
+//
+//
+//	if(Ecid->nTimeFormat == 12)
+//		EZGEM1->SetEquipConstValue(ECID_TIME_FORMAT, GetBstr("0").c_bstr() );
+//	else if (Ecid->nTimeFormat == 16)
+//		EZGEM1->SetEquipConstValue(ECID_TIME_FORMAT, GetBstr("1").c_bstr() );
+//}
+
+//Add Alarm ID
+//AddAlarmID(id,name,comment)
+void __fastcall Tstkc_frm::AddALIDs(void)
+{
+//	GetCurrentDir() + "\\DATA\\VSP_ALID.TXT"
+	String sFile = "../../DATA\\VSP_ALID.TXT";
+	if(!FileExists(sFile))
+	{
+		ShowMessage("ALID Definition file does not exist.");
+		return;
+	}
+
+	boost::shared_ptr<TStringList> sLine (new TStringList());
+	boost::shared_ptr<TStringList> sData (new TStringList());
+	sLine->LoadFromFile(sFile);
+
+	for(int i=0; i<sLine->Count; i++)
+	{
+		sData->Delimiter = '\t';
+		sData->DelimitedText = sLine->Strings[i];
+
+		if(sData->Count < 2)
+			continue;
+		else
+		{
+			String sErrContents = "";
+			for(int j=1; j<sData->Count; j++)
+			{
+				sErrContents = sErrContents + sData->Strings[j];
+				sErrContents += " ";
+			}
+
+			EZGEM1->AddAlarmID((long)(sData->Strings[0].ToIntDef(0) ), GetBstr(sData->Strings[1]).c_bstr(), GetBstr(sErrContents).c_bstr() );
+        }
+	}
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall Tstkc_frm::EZGEM1_OnConnected(TObject *Sender)
+{
+	//lb_msg->Items->Add("123456789012345678901234567890123456");
+	//lb_msg->Items->Add(Now().DateTimeString());
+	PNT_ListBox("MES Server Connected");
+
+	EZGEM1->GoOnlineRemote();
+	EZGEM1->EnableCommunication();
+	EZGEM1->GoOnlineRemote();
+	STK_SRVinfo.SRV_ONLINE_STATE = "ONLINE";
+
+	S1F13();
+}
+//---------------------------------------------------------------------------
+void __fastcall Tstkc_frm::S1F13(void)
+{
+//	if(GemState->bConnectedFg == true){
+		WideString ASK_MDLN = STK_SRVinfo.SRV_MODELNAME; //"TEST_MDLN";				//A[6]
+		WideString ASK_SOFTREV = STK_SRVinfo.SRV_VERSION;		//A[6]
+
+		long lMsgID;
+
+		AnsiString str;
+
+		lMsgID = EZGEM1->CreateMsg(1,13,1);
+
+		EZGEM1->OpenListItem(lMsgID);
+			EZGEM1->AddAsciiItem(lMsgID, GetBstr(ASK_MDLN).c_bstr(), ASK_MDLN.Length());
+			EZGEM1->AddAsciiItem(lMsgID, GetBstr(ASK_SOFTREV).c_bstr(), ASK_MDLN.Length());
+		EZGEM1->CloseListItem(lMsgID);
+
+		EZGEM1->SendMsg(lMsgID);
+
+//	}
+}
+
+
+//---------------------------------------------------------------------------
+void __fastcall Tstkc_frm::PNT_ListBox(String msg)
+{
+	String buf = Now().DateTimeString();
+
+	int a, b;
+
+	String str = ToUpper(msg);
+	a = buf.Length();
+	b = msg.Length();
+
+	String temp = "";
+
+	for (int i=0; i < 50-a-b-2  ; i++) {
+		temp += "_";
+	}
+	String aa =buf + " " + temp + " " + str;
+//	int bb = aa.Length();
+
+
+
+	lb_msg->Items->Add(buf + " " + temp + " " + str);
+	SaveMessage(msg);
+
+}
+
+
+void __fastcall Tstkc_frm::EZGEM1_OnDisConnected(TObject *Sender)
+{
+	STK_SRVinfo.SRV_ONLINE_STATE = "OFFLINE";
+	PNT_ListBox("MES SERVER Disconnected");
+}
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+
+
+void __fastcall Tstkc_frm::EZGEM1SecsMsgIn(TObject *Sender, short nStream, short nFunction,
+		  short nWbit, long lSysByte)
+{
+	//EZGEM11->EnableAutoReply(nStream,nFunction );
+	int a= 1;
+
+
+}
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+
+void __fastcall Tstkc_frm::pn_lrDblClick(TObject *Sender)
+{
+	if (STK_SRVinfo.SRV_ONLINE_STATE == "ONLINE")
+	{
+		if(STK_SRVinfo.SRV_LOCAL_REMOTE_STATE  == "REMOTE")
+		{
+			if (MessageDlg("REMODTE -> LOCAL?",mtConfirmation,TMsgDlgButtons() << mbYes << mbNo,0) == mrYes) {
+				EZGEM1->GoOnlineLocal();
+				STK_SRVinfo.SRV_LOCAL_REMOTE_STATE = "LOCAL";
+				PNT_ListBox("REMODTE -> LOCAL");
+				pn_lr->Caption = "ONLINE / LOCAL";
+			}
+		}
+		else
+		{
+			if (MessageDlg("LOCAL -> REMOTE?",mtConfirmation,TMsgDlgButtons() << mbYes << mbNo,0) == mrYes) {
+				EZGEM1->GoOnlineRemote();
+				STK_SRVinfo.SRV_LOCAL_REMOTE_STATE = "REMOTE";
+				PNT_ListBox("LOCAL -> REMOTE");
+				pn_lr->Caption = "ONLINE / REMOTE";
+			}
+		}
+	}
+	else
+	{
+		MessageDlg("OFFLINE",mtConfirmation,TMsgDlgButtons() << mbOK,0);
+		PNT_ListBox("OFFLINE");
+    }
+}
+
+//---------------------------------------------------------------------------
+  void __fastcall Tstkc_frm::SaveMessage(AnsiString msg)
+  {
+
+	AnsiString dir = GetCurrentDir();
+	char cA[255];
+	AnsiString str;
+	int FileHandle;
+
+	dir += "\\MessageLog\\";
+
+	msg += "\n";
+	msg = STK_SRVinfo.SRV_NOWDATE + " " + STK_SRVinfo.SRV_NOWTIME + " : " + msg;
+
+	str = dir + STK_SRVinfo.SRV_NOWDATE + ".txt";
+
+	FILE *log = fopen(str.c_str(),"a+");
+
+
+
+	if (!DirectoryExists(ExtractFilePath(str)))
+	{
+		ForceDirectories(ExtractFilePath(str));
+
+		log = fopen(str.c_str(), "w+");
+		fputs(msg.c_str(),log);
+		fclose(log);
+	}
+	else
+	{
+		if(FileExists(str.c_str())== false )
+		{
+			CreateFileA(str.c_str() , GENERIC_READ|GENERIC_WRITE, 0, NULL, OPEN_ALWAYS , FILE_ATTRIBUTE_NORMAL|FILE_FLAG_NO_BUFFERING|FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+			fputs(msg.c_str(),log);
+			fclose(log);
+		}
+		else
+		{
+			fputs(msg.c_str(),log);
+			fclose(log);
+		}
+	}
+}
+
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall Tstkc_frm::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	PNT_ListBox("STOKER SERVER CLOSE");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tstkc_frm::gd_carrierClickCell(TObject *Sender, int ARow, int ACol)
+
+{
+	String buf;
+
+	//PNT_ListBox("Carrier Grid Click '" + IntToStr(ARow) + ", " + IntToStr(ACol) + "'" );
+	//int a =0;
+
+   //	Carrier_Grid_Popup->Popup(ARow, ACol);
+
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall Tstkc_frm::gd_carrierRightClickCell(TObject *Sender, int ARow, int ACol)
+
+{
+	tagPOINT *pt;
+	GetCursorPos(pt) ;
+
+	Carrier_cell.x = ARow;
+	Carrier_cell.y = ACol;
+
+	Carrier_grid_menu->Popup(pt->x, pt->y   );
+}
+//---------------------------------------------------------------------------
+
 
