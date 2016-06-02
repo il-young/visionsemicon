@@ -9,10 +9,14 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.ComCtrls.hpp>
 #include "AdvEdit.hpp"
-#include "AdvIPEdit.hpp"
 #include <Vcl.Mask.hpp>
 
 #include "G_Define.h"
+#include "FolderDialog.hpp"
+#include <Vcl.Dialogs.hpp>
+#include "AdvDirectoryEdit.hpp"
+#include "AdvEdBtn.hpp"
+#include "AdvIPEdit.hpp"
 //---------------------------------------------------------------------------
 class TSetting_Frm : public TForm
 {
@@ -42,8 +46,6 @@ __published:	// IDE-managed Components
 	TEdit *tb_remote_port;
 	TButton *btn_cancel;
 	TButton *btn_ok;
-	TAdvIPEdit *AdvIPEdit1;
-	TAdvIPEdit *AdvIPEdit2;
 	TEdit *tb_col;
 	TEdit *tb_row;
 	TLabel *Label2;
@@ -54,6 +56,10 @@ __published:	// IDE-managed Components
 	TEdit *tb_model;
 	TLabel *Label8;
 	TEdit *tb_version;
+	TLabel *Label9;
+	TAdvDirectoryEdit *de_dbdir;
+	TAdvIPEdit *AdvIPEdit1;
+	TAdvIPEdit *AdvIPEdit2;
 	void __fastcall tb_t3Change(TObject *Sender);
 	void __fastcall tb_t5Change(TObject *Sender);
 	void __fastcall tb_t6Change(TObject *Sender);

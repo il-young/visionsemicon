@@ -48,13 +48,19 @@ void __fastcall TLogin_frm::btn_loginClick(TObject *Sender)
 
 		stkc_frm->PNT_ListBox(stkc_frm->STK_SRVinfo.SRV_USER  + " Login");
 
+		tb_id->Text = "";
+		tb_pw->Text = "";
 	}
 	else
 	{
+		stkc_frm->PNT_ListBox("Login Fail");
 		MessageDlg("Login Fail!" ,mtWarning, TMsgDlgButtons() << mbOK, 0);
-		//editPASS->Text = "";
-	}
 
+		//editPASS->Text = "";
+		tb_id->Text = "";
+		tb_pw->Text = "";
+	}
+	Login_frm->Close();
 }
 //---------------------------------------------------------------------------
 

@@ -4,12 +4,12 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'User Management'
-  ClientHeight = 461
-  ClientWidth = 736
+  ClientHeight = 603
+  ClientWidth = 962
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -14
   Font.Name = 'Tahoma'
   Font.Style = []
   Icon.Data = {
@@ -318,25 +318,33 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 17
   object Panel1: TPanel
     Left = 0
-    Top = 419
-    Width = 736
-    Height = 41
+    Top = 548
+    Width = 962
+    Height = 54
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     TabOrder = 0
     object System_User_Management_Add_bt: TAdvGlassButton
-      Left = 5
-      Top = 4
-      Width = 116
-      Height = 34
+      Left = 7
+      Top = 5
+      Width = 151
+      Height = 45
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       BackColor = clSilver
       Caption = 'Add'
       CornerRadius = 0
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -20
+      Font.Height = -27
       Font.Name = #47569#51008' '#44256#46357
       Font.Style = [fsBold]
       ForeColor = clWhite
@@ -347,18 +355,23 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       ShineColor = clWhite
       TabOrder = 0
       Version = '1.3.0.1'
+      OnClick = System_User_Management_Add_btClick
     end
     object System_User_Management_Delete_bt: TAdvGlassButton
-      Left = 134
-      Top = 4
-      Width = 116
-      Height = 34
+      Left = 175
+      Top = 5
+      Width = 152
+      Height = 45
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       BackColor = clSilver
       Caption = 'Delete'
       CornerRadius = 0
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -20
+      Font.Height = -27
       Font.Name = #47569#51008' '#44256#46357
       Font.Style = [fsBold]
       ForeColor = clWhite
@@ -369,18 +382,23 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       ShineColor = clWhite
       TabOrder = 1
       Version = '1.3.0.1'
+      OnClick = System_User_Management_Delete_btClick
     end
     object System_User_Management_Edit_bt: TAdvGlassButton
-      Left = 262
-      Top = 4
-      Width = 116
-      Height = 34
+      Left = 343
+      Top = 5
+      Width = 151
+      Height = 45
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       BackColor = clSilver
       Caption = 'Edit'
       CornerRadius = 0
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -20
+      Font.Height = -27
       Font.Name = #47569#51008' '#44256#46357
       Font.Style = [fsBold]
       ForeColor = clWhite
@@ -391,18 +409,23 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       ShineColor = clWhite
       TabOrder = 2
       Version = '1.3.0.1'
+      OnClick = System_User_Management_Edit_btClick
     end
     object System_User_Management_Accept_bt: TAdvGlassButton
-      Left = 390
-      Top = 4
-      Width = 116
-      Height = 34
+      Left = 510
+      Top = 5
+      Width = 152
+      Height = 45
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       BackColor = clSilver
       Caption = 'Accept'
       CornerRadius = 0
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -20
+      Font.Height = -27
       Font.Name = #47569#51008' '#44256#46357
       Font.Style = [fsBold]
       ForeColor = clWhite
@@ -415,16 +438,20 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       Version = '1.3.0.1'
     end
     object System_User_Management_ChangeName_bt: TAdvGlassButton
-      Left = 520
-      Top = 4
-      Width = 169
-      Height = 34
+      Left = 680
+      Top = 5
+      Width = 221
+      Height = 45
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       BackColor = clSilver
       Caption = 'Change Name'
       CornerRadius = 0
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -20
+      Font.Height = -27
       Font.Name = #47569#51008' '#44256#46357
       Font.Style = [fsBold]
       ForeColor = clWhite
@@ -435,14 +462,19 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       ShineColor = clWhite
       TabOrder = 4
       Version = '1.3.0.1'
+      OnClick = System_User_Management_ChangeName_btClick
     end
   end
   object System_UserManagement_LeftGrid: TAdvStringGrid
-    Left = 0
+    Left = -2
     Top = 0
-    Width = 369
-    Height = 420
+    Width = 482
+    Height = 548
     Cursor = crDefault
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Color = clWhite
     ColCount = 3
     DrawingStyle = gdsClassic
@@ -450,16 +482,17 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     RowCount = 25
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Tahoma'
     Font.Style = []
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
     ParentFont = False
     ScrollBars = ssBoth
     TabOrder = 1
     GridLineColor = 15527152
     GridFixedLineColor = 13947601
     HoverRowCells = [hcNormal, hcSelected]
+    OnCanEditCell = System_UserManagement_LeftGridCanEditCell
+    OnCheckBoxClick = System_UserManagement_LeftGridCheckBoxClick
     ActiveCellFont.Charset = DEFAULT_CHARSET
     ActiveCellFont.Color = clWindowText
     ActiveCellFont.Height = -11
@@ -512,6 +545,7 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
       'Larger than'
       'Smaller than'
       'Clear')
+    FixedColWidth = 30
     FixedRowHeight = 22
     FixedFont.Charset = DEFAULT_CHARSET
     FixedFont.Color = clWindowText
@@ -544,6 +578,7 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     PrintSettings.FooterFont.Name = 'Tahoma'
     PrintSettings.FooterFont.Style = []
     PrintSettings.PageNumSep = '/'
+    ScrollWidth = 21
     SearchFooter.Color = 16645370
     SearchFooter.ColorTo = 16247261
     SearchFooter.FindNextCaption = 'Find &next'
@@ -565,20 +600,28 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     SortSettings.HeaderMirrorColor = 16380385
     SortSettings.HeaderMirrorColorTo = 16182488
     Version = '7.5.1.1'
+    ColWidths = (
+      30
+      161
+      256)
   end
   object System_UserManagement_RightGrid: TAdvStringGrid
-    Left = 367
+    Left = 479
     Top = 0
-    Width = 369
-    Height = 420
+    Width = 483
+    Height = 548
     Cursor = crDefault
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ColCount = 2
     DrawingStyle = gdsClassic
     FixedCols = 0
     RowCount = 25
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
+    Font.Height = -15
     Font.Name = 'Tahoma'
     Font.Style = []
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
@@ -589,6 +632,7 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     GridFixedLineColor = 13947601
     HoverRowCells = [hcNormal, hcSelected]
     OnGetAlignment = System_UserManagement_RightGridGetAlignment
+    OnClickCell = System_UserManagement_RightGridClickCell
     ActiveCellFont.Charset = DEFAULT_CHARSET
     ActiveCellFont.Color = clWindowText
     ActiveCellFont.Height = -11
@@ -673,6 +717,7 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     PrintSettings.FooterFont.Name = 'Tahoma'
     PrintSettings.FooterFont.Style = []
     PrintSettings.PageNumSep = '/'
+    ScrollWidth = 21
     SearchFooter.Color = 16645370
     SearchFooter.ColorTo = 16247261
     SearchFooter.FindNextCaption = 'Find &next'
@@ -694,5 +739,14 @@ object System_UserManagement_frm: TSystem_UserManagement_frm
     SortSettings.HeaderMirrorColor = 16380385
     SortSettings.HeaderMirrorColorTo = 16182488
     Version = '7.5.1.1'
+  end
+  object GroupConnection: TADOConnection
+    Left = 392
+    Top = 272
+  end
+  object GroupQuery: TADOQuery
+    Parameters = <>
+    Left = 392
+    Top = 208
   end
 end

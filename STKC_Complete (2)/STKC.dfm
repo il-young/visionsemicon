@@ -4,8 +4,8 @@ object stkc_frm: Tstkc_frm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'STKC'
-  ClientHeight = 1275
-  ClientWidth = 1654
+  ClientHeight = 966
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -315,168 +315,28 @@ object stkc_frm: Tstkc_frm
     0000001F0000F8000000001F0000F8000000001F0000F8000000001F0000F800
     0000001F0000FC000000003F0000F2000000007F0000FFFFFFFFFFFF0000FFFF
     FFFFFFFF0000FFFFFFFFFFFF0000FFFFFFFFFFFF0000FFFFFFFFFFFF0000}
-  Menu = MainMenu1
+  Menu = Alarm_menu
   OldCreateOrder = False
   Position = poScreenCenter
   OnActivate = STKC_OnActive
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   DesignSize = (
-    1654
-    1275)
+    1280
+    966)
   PixelsPerInch = 120
   TextHeight = 17
-  object bottom: TPanel
-    Left = 0
-    Top = 1223
-    Width = 1654
-    Height = 52
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Align = alBottom
-    TabOrder = 0
-    object Image1: TImage
-      Left = 1527
-      Top = 1
-      Width = 126
-      Height = 50
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alRight
-      Picture.Data = {
-        0A544A504547496D616765150D0000FFD8FFE000104A46494600010101006000
-        600000FFDB004300020101010101020101010202020202040302020202050404
-        0304060506060605060606070908060709070606080B08090A0A0A0A0A06080B
-        0C0B0A0C090A0A0AFFDB004301020202020202050303050A0706070A0A0A0A0A
-        0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A0A
-        0A0A0A0A0A0A0A0A0A0A0A0A0AFFC0001108002C006003012200021101031101
-        FFC4001F0000010501010101010100000000000000000102030405060708090A
-        0BFFC400B5100002010303020403050504040000017D01020300041105122131
-        410613516107227114328191A1082342B1C11552D1F02433627282090A161718
-        191A25262728292A3435363738393A434445464748494A535455565758595A63
-        6465666768696A737475767778797A838485868788898A92939495969798999A
-        A2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6
-        D7D8D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F01000301
-        01010101010101010000000000000102030405060708090A0BFFC400B5110002
-        0102040403040705040400010277000102031104052131061241510761711322
-        328108144291A1B1C109233352F0156272D10A162434E125F11718191A262728
-        292A35363738393A434445464748494A535455565758595A636465666768696A
-        737475767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7
-        A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3
-        E4E5E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C03010002110311003F00FDC8
-        A39A3A9C0AF85FFE0ADDFF0005D1F80FFF0004C98DBE16786B468BC71F162EAD
-        3CEB7F0CC571B6D749461F24B7B20C95CF5118F988F415EA64F92E679FE3E383
-        C053752A4BA2EDDDBD925D5BD0CEA56A7461CD37647DD2EA22B77BDB9758608C
-        664B89A4091A8F52CC4015E0DF1CFF00E0A8BFF04EBFD9B2592D7E31FED81E0D
-        D3EEE3386D3ECB52179700FA7970EE35FCD1FED79FF056AFF8285FEDE5E21683
-        E2DFC76D6869F797212C7C1FE1591ECEC94B1C2C4B142774A4E40F98B126BEBB
-        FF0082787FC1AD5FB41FED0DA2D87C5BFDB2FC5B27C2FF000E5FA2DC5AF87E1B
-        7136B9791373B9D5BE5B7047F7C96E7A57EC35BC25C9F867011C5F14E62A95F6
-        8535CD26FB26F576F28DBCCF3639954C44F970F0BF9B3F407E217FC1D31FF04A
-        4F064D25B787B5CF1AF89648CE3769BE1C68E37FA34A45725A5FFC1D63FB26F8
-        96730782BF638F8CDAD0FE16D3B4B824DE3D70AE6BE8DFD9BFFE085DFF0004B9
-        FD98ED2DFF00E116FD9834DF126A50807FB6BC6CCDA8CEEDEBB5B118FA6DAFA9
-        3C31E04F00F826D92C7C13E00D07468635DB1C3A568D040147A0D8A2BE33198F
-        F0D70EF970782AF56DF6AA5550BF9DA317A7A9D51863A5ACA497A23F3E748FF8
-        38EBE1D6AA23907FC135FF0068A58246FF008F85F0AA3003D7EF66BB4D03FE0E
-        12FD8764916DFE267C31F8C9E0890B6247F107C37BC3145EECF1AB0AFBB06A57
-        C47FC7DC9FF7D54579E5EA5118353822BA8CFF00CB3BA85645FC981AF1279970
-        BD4D3EA128FF0086B3BFFE4D06BF03454F11FCFF0087FC13C2FE0A7FC14DBFE0
-        9EFF00B44DD47A67C25FDAE7C1D797F2602E97A86A02C6EB3E9E54FB5B35EEBE
-        59302DD465648645CC7346C19187B30E0D7947C61FD863F62DF8FD6B25AFC64F
-        D953C0BAE19060DD4BE1F8A1B81EEB2C415D4FB835E3507FC1343E24FECDB2B7
-        88BFE09C5FB5DF8A3C0AD1B6FF00F857BE3EBA935EF0CDDFFD32C4A7CFB507A6
-        E4638F4AE6961F21C56942ACE93ED512947FF03859AFFC02DE6573568EEAFE6B
-        FCBFE09F5D515E1DFB397ED77E27F1CF8F24FD9CBF6A1F84AFF0DFE2C5ADA35C
-        C3A4ADD7DA349F125BAFDEBBD2AEBA4CA3AB44712267915EE391DABC9C5616B6
-        12AF2555AEEACEE9AE8D35A34FBA348C9495D0D9A6B9B6B4B8B9B28F74F0DACB
-        25BAEDCEE9150951F9815FC667ED31E3AF1E7C4BFDA37C79E3CF8A3A8DD5D788
-        B52F176A126AD35E13E60944EEBB0E7A6D00281D8002BFB378E4786459636C32
-        B654D7E3BFFC16FBFE0DD9F127C7CF1BEB5FB63FEC17A6DB378935466BBF197C
-        3B69045FDA13E32D7564C7E51237568CE013C83926BF5FF05B8AB25E1BCEEB53
-        CC1A82AD18A8CDED169BD1BE8A57DF6BA573CDCD70F5711453874FC4F17FF835
-        13F601F877F1CBE25F8CBF6CAF89BA45AEA527806EA1D2FC176B790AC915B6A7
-        2A17376C872199171B73D09CFA57DC9FB21FFC1567C71E0FFD85FF00684F8E5F
-        B6B78A23D6BC55F047E23EADA02A436696EFA8B6EDBA7DA2C69C17772A063923
-        D6BF38FF00E0DFDFF828349FF04B2FDA9FC45FB297EDA1A06A9E08F0D78FAEA1
-        59AE75FB192DDB45D5A16DB1CB28603F72E0EC671C0E0F4AFBCB4AFF00823D7C
-        68F883FF00054FF147C6FF0017F88F48B8FD987C41E38B5F8896FA2E9DAA4732
-        F8835A8ADD45BEF8D7AC4AE4BE7254E01EF5EEF881428D7E2BC6D4CE66BD84A3
-        4EA5096EA50835CD4E9B575CD34DDD77B3D8CB06E51C3C1525AEA9AF37D5927E
-        D0BFB61FFC149BF677FD8F7F66DD23C67F14AD23F8E1F1E7E2859A6A8A9A2421
-        746D2676121B058FA7EEE2740643F3120D767FF055DFDB73F6A2F813FB5B7C3B
-        FD95FE1FFC7FD07E03F82FC4FE1B96FEFF00E3678ABC34750B3BAD4D18A2E9AA
-        4FEEE027018B311F7ABD0FF6BFFD8D7E3BFED2DFF0542FD9DFF6814D3B4E3F0B
-        7E12DB5F6A3AC5C497E04EDAA481846890632CA06DF9BB62BCFF00F6B6F057FC
-        142B55FDA3BE255AFC07D53E0B7ED09F0C7C4DA7C2755F84BF143C4B6F19F024
-        EA855E52A371589B963BB07E98AF87C0D6C97115B0D539297338549CD3E54A32
-        9CDA8C5369C39A11B38A9FBBD3768EA946AA52D5EE92FBB57F33B6F841FB57FE
-        D9FF000D3FE09EFF00177E367EDB9A3787FF00E122F86FA56A171E13F881E199
-        E2934BF19592425AD75289118AA6E6C657DC7BD79E784FFE0A67FB45FC09FF00
-        8238FC2DFDAABE3469B0FC40F8D9F162F21D3BC17A2B5B2DAC57B7D793B2DA89
-        153A471C603363AD70DACFEC15F18BE1CFFC106B58FD887E187ED0DF0F35FF00
-        1478EFC40F2B5F49E3382DF41D3ED67BB592E6C2CAE247219218D48080E739E0
-        57A97EDDDFB1FE9FF10FF616F83BA07ECEDF1C3C29A6F8DFF67DD7F4397C2775
-        25EC779A7DC6AD0C2911B09FCA63B4C8C4E3BE0838AA547877EB1CB5791A9E25
-        DDA8B8C553842CB4D5C6139BD6DD169A217356E5BABE91FC6FF9D8E27E377C7C
-        FF0082C1FF00C135EDBC07FB4C7ED7FF00B407807E267827C51E30D3F41F1D78
-        0746F0C8B1934092F5C2A1B3B807337964E0E7AE2B4BFE0B23FF000551F8D9FB
-        06FED6DF043E1F7C197FB6785EFACE6D7FE2A69B1E9CB349268A278E269198F3
-        12C68C58B0EE2A48BF678FDB83FE0A3BF1DBC33A9FFC149FC51F09FC13E01F83
-        3ADC7AFEA7F0BFE1DF8AD351B9D4F5688663B8D4A52DFE8D0A905B63E315D9EB
-        BFB2DF84BE397FC149FE217EDABF1EBC73E03B8F82BAE7C191E03F05EACBE2AB
-        5961BB69F3F6EE776C520671F313C7B5694AA64347194AA63E9D29CE9D3A8E71
-        A692849C9A54E0B9572B9C5372BAE895DB6825ED9C5A83695D5AFF008B1F2FC6
-        4D6BF6C4FF0082B86A3FB36E91E23825F861F0C7E17695E2FB0BAB2B54FB543A
-        DDDB892DEE22BAFBC8A61255A31F2B82735F6C33B336E7FBC7EF6D1D4D7C19FF
-        000447FF0082727C6EFD85B57F8BFE31F8EBE2ED3FC447C5DA959D9F80F5EB1D
-        5D6F4DE787ED548B62CE385014A80B93D2BEF3AF91E28FECFA398C70D819A9D2
-        A50845496D2972A72977BB93775D1A3A70FCEE9F34D59B0A012A7729C11C83E9
-        4515F366E79FFED09FB28FECC9FB58E80DE1AFDA4FE04786FC656ECBB564D5B4
-        D46B88FF00DD9400E3F3AE17F66FFD817C2DFB1C4ABA27ECC5F1B3C65A47838C
-        DB9FE1FF0088750FED5D360527916A67CC96FF0045381E95EF5457753CD31F4F
-        0BF565564E9BFB2DDE3F73D13F35664FB3839735B51C25789FCE800575E63DDC
-        80DDB3ED9AFCE9F077FC11DFF684B0F06FED19E189BC7FE0FF000AC7F1810378
-        7EDBC3F3DDDCBA4FF69F3E66B8BA95BCE48671FBB685588504915FA294569976
-        6F8CCAB9961DA5CCE2DDD5FE16A4B7D346BB797526A53854B737F573F3725FF8
-        22178EB52F80BE18F84976BE01B55D2AD7C45A95F6876F35DCBA65BEBD7F025B
-        DB4D08918B14862DCC58F57C102BB2F855FF000485F197C354B5F0A699E28F0F
-        E9DE196F8A9A2F88F53B5D36497CC7B1D374C16F11018E1AE5EEB33331E08C7A
-        57DE3457A53E2BCEAA41C65356776F4EADDF6F533FAB515D0FCEFF0002FF00C1
-        1E7E3B69BFB3B7C52F851E26F127C39B1F1478A17C8D1FC6DA1DBDD8D43C4D0F
-        DBCDE48BADCE5F732CC3113227DD5E87B549A1FF00C11AFE22EA3F0E349F07FC
-        4297E1F1B097C69AD78BF5AF00E8F1CE9E1FD33519B4DFB1E9D6B651B1DCD046
-        FF00BD90B7DE6E715FA19451FEB6E74EF69A577CDA25BB4A3F2D174D9ED60FAA
-        D1479EFEC93F056FFF0066EFD977C05F00F55D563BEBCF09F8761B0BEBC81898
-        E59872E63DDCECC93B41E8315E854515F3F5AB54C4569559EF26DBF56EECE84B
-        9558FFD9}
-    end
-  end
-  object Panel8: TPanel
-    Left = 935
-    Top = 0
-    Width = 394
-    Height = 127
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
-    TabOrder = 1
-  end
   object pn_lr: TPanel
-    Left = 949
-    Top = 9
-    Width = 361
+    Left = 783
+    Top = 0
+    Width = 281
     Height = 54
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    Caption = 'Online/Remote'
+    Caption = 'OFFLINE'
     Color = clGreen
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
@@ -485,14 +345,14 @@ object stkc_frm: Tstkc_frm
     Font.Style = []
     ParentBackground = False
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 0
     OnDblClick = pn_lrDblClick
   end
   object Panel6: TPanel
-    Left = 949
-    Top = 64
-    Width = 181
-    Height = 54
+    Left = 783
+    Top = 62
+    Width = 138
+    Height = 61
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -506,13 +366,13 @@ object stkc_frm: Tstkc_frm
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 1
   end
   object Panel7: TPanel
-    Left = 1130
-    Top = 64
-    Width = 180
-    Height = 54
+    Left = 924
+    Top = 62
+    Width = 140
+    Height = 63
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -526,7 +386,7 @@ object stkc_frm: Tstkc_frm
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 2
   end
   object Panel4: TPanel
     Left = 1339
@@ -537,37 +397,18 @@ object stkc_frm: Tstkc_frm
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    TabOrder = 5
-    object btn_login: TButton
-      Left = 9
-      Top = 3
-      Width = 288
-      Height = 54
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
-      Caption = 'Login Here'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -20
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 0
-      OnClick = btn_loginClick
-    end
+    TabOrder = 3
   end
   object PageControl1: TPageControl
     Left = -13
-    Top = 216
-    Width = 1667
-    Height = 366
+    Top = 124
+    Width = 1293
+    Height = 226
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Anchors = [akLeft, akRight]
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -575,21 +416,25 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 4
     object TabSheet1: TTabSheet
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = '   System   '
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       DesignSize = (
-        1659
-        327)
+        1285
+        187)
       object Panel2: TPanel
-        Left = 545
+        Left = 528
         Top = -7
-        Width = 534
-        Height = 351
+        Width = 457
+        Height = 199
         Margins.Left = 4
         Margins.Top = 4
         Margins.Right = 4
@@ -598,8 +443,8 @@ object stkc_frm: Tstkc_frm
         BorderStyle = bsSingle
         TabOrder = 0
         object Label2: TLabel
-          Left = 21
-          Top = 31
+          Left = 13
+          Top = 20
           Width = 194
           Height = 24
           Margins.Left = 4
@@ -615,8 +460,8 @@ object stkc_frm: Tstkc_frm
           ParentFont = False
         end
         object Label6: TLabel
-          Left = 229
-          Top = 31
+          Left = 213
+          Top = 52
           Width = 201
           Height = 33
           Margins.Left = 4
@@ -625,48 +470,23 @@ object stkc_frm: Tstkc_frm
           Margins.Bottom = 4
           Alignment = taCenter
           AutoSize = False
-          Caption = 'Crane'
+          Caption = 'AVG2'
           Color = clLime
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -20
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
-          ParentColor = False
-          ParentFont = False
-          Transparent = False
-        end
-        object Label7: TLabel
-          Left = 229
-          Top = 84
-          Width = 201
-          Height = 32
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
-          Align = alCustom
-          Alignment = taCenter
-          AutoSize = False
-          BiDiMode = bdLeftToRight
-          Caption = 'PLC'
-          Color = clLime
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -20
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentBiDiMode = False
           ParentColor = False
           ParentFont = False
           Transparent = False
         end
       end
       object Panel3: TPanel
-        Left = 1074
+        Left = 985
         Top = -7
-        Width = 584
-        Height = 351
+        Width = 300
+        Height = 199
         Margins.Left = 4
         Margins.Top = 4
         Margins.Right = 4
@@ -675,8 +495,8 @@ object stkc_frm: Tstkc_frm
         BorderStyle = bsSingle
         TabOrder = 1
         object Label3: TLabel
-          Left = 21
-          Top = 31
+          Left = 6
+          Top = 19
           Width = 194
           Height = 24
           Margins.Left = 4
@@ -692,8 +512,8 @@ object stkc_frm: Tstkc_frm
           ParentFont = False
         end
         object Label8: TLabel
-          Left = 229
-          Top = 31
+          Left = 44
+          Top = 67
           Width = 201
           Height = 33
           Margins.Left = 4
@@ -714,8 +534,8 @@ object stkc_frm: Tstkc_frm
           Transparent = False
         end
         object Label9: TLabel
-          Left = 229
-          Top = 84
+          Left = 45
+          Top = 117
           Width = 201
           Height = 32
           Margins.Left = 4
@@ -740,10 +560,10 @@ object stkc_frm: Tstkc_frm
         end
       end
       object Panel1: TPanel
-        Left = 0
+        Left = 8
         Top = -7
-        Width = 549
-        Height = 351
+        Width = 520
+        Height = 199
         Margins.Left = 4
         Margins.Top = 4
         Margins.Right = 4
@@ -752,8 +572,8 @@ object stkc_frm: Tstkc_frm
         BorderStyle = bsSingle
         TabOrder = 2
         object Label1: TLabel
-          Left = 21
-          Top = 31
+          Left = 9
+          Top = 19
           Width = 176
           Height = 24
           Margins.Left = 4
@@ -769,9 +589,9 @@ object stkc_frm: Tstkc_frm
           ParentFont = False
         end
         object Label4: TLabel
-          Left = 209
-          Top = 21
-          Width = 284
+          Left = 17
+          Top = 57
+          Width = 236
           Height = 54
           Margins.Left = 4
           Margins.Top = 4
@@ -791,9 +611,53 @@ object stkc_frm: Tstkc_frm
           Transparent = False
         end
         object Label5: TLabel
-          Left = 209
-          Top = 94
-          Width = 284
+          Left = 17
+          Top = 119
+          Width = 236
+          Height = 54
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'B9_STKA_01_P01'#13#10'(AGV Port)'
+          Color = clLime
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+        end
+        object Label7: TLabel
+          Left = 261
+          Top = 57
+          Width = 236
+          Height = 54
+          Margins.Left = 4
+          Margins.Top = 4
+          Margins.Right = 4
+          Margins.Bottom = 4
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'B9_STKA_01_A01'#13#10'(AGV Port)'
+          Color = clLime
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+        end
+        object Label10: TLabel
+          Left = 261
+          Top = 119
+          Width = 236
           Height = 54
           Margins.Left = 4
           Margins.Top = 4
@@ -823,9 +687,9 @@ object stkc_frm: Tstkc_frm
       ImageIndex = 1
       object Stocker_Grid: TStringGrid
         Left = 9
-        Top = 1
-        Width = 1640
-        Height = 319
+        Top = 4
+        Width = 1272
+        Height = 179
         Margins.Left = 4
         Margins.Top = 4
         Margins.Right = 4
@@ -847,9 +711,9 @@ object stkc_frm: Tstkc_frm
     end
   end
   object btn_date: TButton
-    Left = 1348
-    Top = 65
-    Width = 288
+    Left = 1072
+    Top = 62
+    Width = 199
     Height = 54
     Margins.Left = 4
     Margins.Top = 4
@@ -861,13 +725,13 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 5
   end
   object PageControl2: TPageControl
-    Left = -13
-    Top = 590
-    Width = 1667
-    Height = 639
+    Left = 0
+    Top = 354
+    Width = 1271
+    Height = 607
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -880,13 +744,141 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 6
     object TabSheet3: TTabSheet
       Margins.Left = 4
       Margins.Top = 4
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = '   Carrier   '
+      object gd_carrier: TAdvStringGrid
+        Left = 3
+        Top = -1
+        Width = 1260
+        Height = 566
+        Cursor = crDefault
+        DrawingStyle = gdsClassic
+        FixedColor = clMedGray
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        GradientEndColor = clSilver
+        GradientStartColor = clGray
+        ParentFont = False
+        ScrollBars = ssBoth
+        TabOrder = 0
+        OnDragDrop = gd_carrierDragDrop
+        OnEndDrag = gd_carrierEndDrag
+        HoverRowCells = [hcNormal, hcSelected]
+        OnGetCellColor = gd_carrierGetCellColor
+        OnRightClickCell = gd_carrierRightClickCell
+        ActiveCellFont.Charset = DEFAULT_CHARSET
+        ActiveCellFont.Color = clWindowText
+        ActiveCellFont.Height = -13
+        ActiveCellFont.Name = 'Tahoma'
+        ActiveCellFont.Style = [fsBold]
+        ControlLook.FixedGradientHoverFrom = clGray
+        ControlLook.FixedGradientHoverTo = clWhite
+        ControlLook.FixedGradientDownFrom = clGray
+        ControlLook.FixedGradientDownTo = clSilver
+        ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownHeader.Font.Color = clWindowText
+        ControlLook.DropDownHeader.Font.Height = -13
+        ControlLook.DropDownHeader.Font.Name = 'Tahoma'
+        ControlLook.DropDownHeader.Font.Style = []
+        ControlLook.DropDownHeader.Visible = True
+        ControlLook.DropDownHeader.Buttons = <>
+        ControlLook.DropDownFooter.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownFooter.Font.Color = clWindowText
+        ControlLook.DropDownFooter.Font.Height = -13
+        ControlLook.DropDownFooter.Font.Name = 'Tahoma'
+        ControlLook.DropDownFooter.Font.Style = []
+        ControlLook.DropDownFooter.Visible = True
+        ControlLook.DropDownFooter.Buttons = <>
+        Filter = <>
+        FilterDropDown.Font.Charset = DEFAULT_CHARSET
+        FilterDropDown.Font.Color = clWindowText
+        FilterDropDown.Font.Height = -13
+        FilterDropDown.Font.Name = 'Tahoma'
+        FilterDropDown.Font.Style = []
+        FilterDropDownClear = '(All)'
+        FilterEdit.TypeNames.Strings = (
+          'Starts with'
+          'Ends with'
+          'Contains'
+          'Not contains'
+          'Equal'
+          'Not equal'
+          'Larger than'
+          'Smaller than'
+          'Clear')
+        FixedRowHeight = 22
+        FixedFont.Charset = DEFAULT_CHARSET
+        FixedFont.Color = clWindowText
+        FixedFont.Height = -13
+        FixedFont.Name = 'Tahoma'
+        FixedFont.Style = [fsBold]
+        FloatFormat = '%.2f'
+        HoverButtons.Buttons = <>
+        HoverButtons.Position = hbLeftFromColumnLeft
+        PrintSettings.DateFormat = 'dd/mm/yyyy'
+        PrintSettings.Font.Charset = DEFAULT_CHARSET
+        PrintSettings.Font.Color = clWindowText
+        PrintSettings.Font.Height = -13
+        PrintSettings.Font.Name = 'Tahoma'
+        PrintSettings.Font.Style = []
+        PrintSettings.FixedFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FixedFont.Color = clWindowText
+        PrintSettings.FixedFont.Height = -13
+        PrintSettings.FixedFont.Name = 'Tahoma'
+        PrintSettings.FixedFont.Style = []
+        PrintSettings.HeaderFont.Charset = DEFAULT_CHARSET
+        PrintSettings.HeaderFont.Color = clWindowText
+        PrintSettings.HeaderFont.Height = -13
+        PrintSettings.HeaderFont.Name = 'Tahoma'
+        PrintSettings.HeaderFont.Style = []
+        PrintSettings.FooterFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FooterFont.Color = clWindowText
+        PrintSettings.FooterFont.Height = -13
+        PrintSettings.FooterFont.Name = 'Tahoma'
+        PrintSettings.FooterFont.Style = []
+        PrintSettings.PageNumSep = '/'
+        ScrollWidth = 21
+        SearchFooter.FindNextCaption = 'Find &next'
+        SearchFooter.FindPrevCaption = 'Find &previous'
+        SearchFooter.Font.Charset = DEFAULT_CHARSET
+        SearchFooter.Font.Color = clWindowText
+        SearchFooter.Font.Height = -13
+        SearchFooter.Font.Name = 'Tahoma'
+        SearchFooter.Font.Style = []
+        SearchFooter.HighLightCaption = 'Highlight'
+        SearchFooter.HintClose = 'Close'
+        SearchFooter.HintFindNext = 'Find next occurrence'
+        SearchFooter.HintFindPrev = 'Find previous occurrence'
+        SearchFooter.HintHighlight = 'Highlight occurrences'
+        SearchFooter.MatchCaseCaption = 'Match case'
+        SortSettings.DefaultFormat = ssAutomatic
+        Version = '7.5.1.1'
+        ColWidths = (
+          64
+          63
+          64
+          64
+          64)
+        RowHeights = (
+          22
+          22
+          22
+          22
+          22
+          22
+          22
+          22
+          22
+          37)
+      end
     end
     object TabSheet4: TTabSheet
       Margins.Left = 4
@@ -895,56 +887,127 @@ object stkc_frm: Tstkc_frm
       Margins.Bottom = 4
       Caption = '   Alarm   '
       ImageIndex = 1
-      object Alarm_Grid: TStringGrid
-        Left = 10
-        Top = 1
-        Width = 1639
-        Height = 591
-        Margins.Left = 4
-        Margins.Top = 4
-        Margins.Right = 4
-        Margins.Bottom = 4
-        Color = clWhite
-        ColCount = 7
-        DefaultColWidth = 150
-        DrawingStyle = gdsGradient
-        FixedColor = clRed
-        FixedCols = 0
-        RowCount = 17
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
+      object gd_Alarm: TAdvStringGrid
+        Left = 3
+        Top = 3
+        Width = 1257
+        Height = 562
+        Cursor = crDefault
+        DrawingStyle = gdsClassic
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
-        GradientEndColor = clRed
         ParentFont = False
+        ScrollBars = ssBoth
         TabOrder = 0
+        HoverRowCells = [hcNormal, hcSelected]
+        ActiveCellFont.Charset = DEFAULT_CHARSET
+        ActiveCellFont.Color = clWindowText
+        ActiveCellFont.Height = -13
+        ActiveCellFont.Name = 'Tahoma'
+        ActiveCellFont.Style = [fsBold]
+        ControlLook.FixedGradientHoverFrom = clGray
+        ControlLook.FixedGradientHoverTo = clWhite
+        ControlLook.FixedGradientDownFrom = clGray
+        ControlLook.FixedGradientDownTo = clSilver
+        ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownHeader.Font.Color = clWindowText
+        ControlLook.DropDownHeader.Font.Height = -13
+        ControlLook.DropDownHeader.Font.Name = 'Tahoma'
+        ControlLook.DropDownHeader.Font.Style = []
+        ControlLook.DropDownHeader.Visible = True
+        ControlLook.DropDownHeader.Buttons = <>
+        ControlLook.DropDownFooter.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownFooter.Font.Color = clWindowText
+        ControlLook.DropDownFooter.Font.Height = -13
+        ControlLook.DropDownFooter.Font.Name = 'Tahoma'
+        ControlLook.DropDownFooter.Font.Style = []
+        ControlLook.DropDownFooter.Visible = True
+        ControlLook.DropDownFooter.Buttons = <>
+        Filter = <>
+        FilterDropDown.Font.Charset = DEFAULT_CHARSET
+        FilterDropDown.Font.Color = clWindowText
+        FilterDropDown.Font.Height = -13
+        FilterDropDown.Font.Name = 'Tahoma'
+        FilterDropDown.Font.Style = []
+        FilterDropDownClear = '(All)'
+        FilterEdit.TypeNames.Strings = (
+          'Starts with'
+          'Ends with'
+          'Contains'
+          'Not contains'
+          'Equal'
+          'Not equal'
+          'Larger than'
+          'Smaller than'
+          'Clear')
+        FixedRowHeight = 22
+        FixedFont.Charset = DEFAULT_CHARSET
+        FixedFont.Color = clWindowText
+        FixedFont.Height = -13
+        FixedFont.Name = 'Tahoma'
+        FixedFont.Style = [fsBold]
+        FloatFormat = '%.2f'
+        HoverButtons.Buttons = <>
+        HoverButtons.Position = hbLeftFromColumnLeft
+        PrintSettings.DateFormat = 'dd/mm/yyyy'
+        PrintSettings.Font.Charset = DEFAULT_CHARSET
+        PrintSettings.Font.Color = clWindowText
+        PrintSettings.Font.Height = -13
+        PrintSettings.Font.Name = 'Tahoma'
+        PrintSettings.Font.Style = []
+        PrintSettings.FixedFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FixedFont.Color = clWindowText
+        PrintSettings.FixedFont.Height = -13
+        PrintSettings.FixedFont.Name = 'Tahoma'
+        PrintSettings.FixedFont.Style = []
+        PrintSettings.HeaderFont.Charset = DEFAULT_CHARSET
+        PrintSettings.HeaderFont.Color = clWindowText
+        PrintSettings.HeaderFont.Height = -13
+        PrintSettings.HeaderFont.Name = 'Tahoma'
+        PrintSettings.HeaderFont.Style = []
+        PrintSettings.FooterFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FooterFont.Color = clWindowText
+        PrintSettings.FooterFont.Height = -13
+        PrintSettings.FooterFont.Name = 'Tahoma'
+        PrintSettings.FooterFont.Style = []
+        PrintSettings.PageNumSep = '/'
+        ScrollWidth = 21
+        SearchFooter.FindNextCaption = 'Find &next'
+        SearchFooter.FindPrevCaption = 'Find &previous'
+        SearchFooter.Font.Charset = DEFAULT_CHARSET
+        SearchFooter.Font.Color = clWindowText
+        SearchFooter.Font.Height = -13
+        SearchFooter.Font.Name = 'Tahoma'
+        SearchFooter.Font.Style = []
+        SearchFooter.HighLightCaption = 'Highlight'
+        SearchFooter.HintClose = 'Close'
+        SearchFooter.HintFindNext = 'Find next occurrence'
+        SearchFooter.HintFindPrev = 'Find previous occurrence'
+        SearchFooter.HintHighlight = 'Highlight occurrences'
+        SearchFooter.MatchCaseCaption = 'Match case'
+        SortSettings.DefaultFormat = ssAutomatic
+        Version = '7.5.1.1'
+        ColWidths = (
+          64
+          20
+          20
+          20
+          20)
       end
     end
   end
-  object CarrierID_bt: TButton
-    Left = 238
-    Top = 208
-    Width = 110
-    Height = 35
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
-    Caption = 'Carrier ID'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -17
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 9
-  end
   object Search_bt: TButton
-    Left = 356
-    Top = 208
-    Width = 111
-    Height = 35
+    Left = 136
+    Top = 9
+    Width = 97
+    Height = 28
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -956,132 +1019,13 @@ object stkc_frm: Tstkc_frm
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 10
-  end
-  object gd_carrier: TAdvStringGrid
-    Left = 8
-    Top = 625
-    Width = 1638
-    Height = 590
-    Cursor = crDefault
-    DrawingStyle = gdsClassic
-    ScrollBars = ssBoth
-    TabOrder = 11
-    HoverRowCells = [hcNormal, hcSelected]
-    OnClickCell = gd_carrierClickCell
-    OnRightClickCell = gd_carrierRightClickCell
-    ActiveCellFont.Charset = DEFAULT_CHARSET
-    ActiveCellFont.Color = clWindowText
-    ActiveCellFont.Height = -13
-    ActiveCellFont.Name = 'Tahoma'
-    ActiveCellFont.Style = [fsBold]
-    ControlLook.FixedGradientHoverFrom = clGray
-    ControlLook.FixedGradientHoverTo = clWhite
-    ControlLook.FixedGradientDownFrom = clGray
-    ControlLook.FixedGradientDownTo = clSilver
-    ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
-    ControlLook.DropDownHeader.Font.Color = clWindowText
-    ControlLook.DropDownHeader.Font.Height = -13
-    ControlLook.DropDownHeader.Font.Name = 'Tahoma'
-    ControlLook.DropDownHeader.Font.Style = []
-    ControlLook.DropDownHeader.Visible = True
-    ControlLook.DropDownHeader.Buttons = <>
-    ControlLook.DropDownFooter.Font.Charset = DEFAULT_CHARSET
-    ControlLook.DropDownFooter.Font.Color = clWindowText
-    ControlLook.DropDownFooter.Font.Height = -13
-    ControlLook.DropDownFooter.Font.Name = 'Tahoma'
-    ControlLook.DropDownFooter.Font.Style = []
-    ControlLook.DropDownFooter.Visible = True
-    ControlLook.DropDownFooter.Buttons = <>
-    Filter = <>
-    FilterDropDown.Font.Charset = DEFAULT_CHARSET
-    FilterDropDown.Font.Color = clWindowText
-    FilterDropDown.Font.Height = -13
-    FilterDropDown.Font.Name = 'Tahoma'
-    FilterDropDown.Font.Style = []
-    FilterDropDown.TextChecked = 'Checked'
-    FilterDropDown.TextUnChecked = 'Unchecked'
-    FilterDropDownClear = '(All)'
-    FilterEdit.TypeNames.Strings = (
-      'Starts with'
-      'Ends with'
-      'Contains'
-      'Not contains'
-      'Equal'
-      'Not equal'
-      'Larger than'
-      'Smaller than'
-      'Clear')
-    FixedRowHeight = 22
-    FixedFont.Charset = DEFAULT_CHARSET
-    FixedFont.Color = clWindowText
-    FixedFont.Height = -13
-    FixedFont.Name = 'Tahoma'
-    FixedFont.Style = [fsBold]
-    FloatFormat = '%.2f'
-    HoverButtons.Buttons = <>
-    HoverButtons.Position = hbLeftFromColumnLeft
-    PrintSettings.DateFormat = 'dd/mm/yyyy'
-    PrintSettings.Font.Charset = DEFAULT_CHARSET
-    PrintSettings.Font.Color = clWindowText
-    PrintSettings.Font.Height = -13
-    PrintSettings.Font.Name = 'Tahoma'
-    PrintSettings.Font.Style = []
-    PrintSettings.FixedFont.Charset = DEFAULT_CHARSET
-    PrintSettings.FixedFont.Color = clWindowText
-    PrintSettings.FixedFont.Height = -13
-    PrintSettings.FixedFont.Name = 'Tahoma'
-    PrintSettings.FixedFont.Style = []
-    PrintSettings.HeaderFont.Charset = DEFAULT_CHARSET
-    PrintSettings.HeaderFont.Color = clWindowText
-    PrintSettings.HeaderFont.Height = -13
-    PrintSettings.HeaderFont.Name = 'Tahoma'
-    PrintSettings.HeaderFont.Style = []
-    PrintSettings.FooterFont.Charset = DEFAULT_CHARSET
-    PrintSettings.FooterFont.Color = clWindowText
-    PrintSettings.FooterFont.Height = -13
-    PrintSettings.FooterFont.Name = 'Tahoma'
-    PrintSettings.FooterFont.Style = []
-    PrintSettings.PageNumSep = '/'
-    ScrollWidth = 21
-    SearchFooter.FindNextCaption = 'Find &next'
-    SearchFooter.FindPrevCaption = 'Find &previous'
-    SearchFooter.Font.Charset = DEFAULT_CHARSET
-    SearchFooter.Font.Color = clWindowText
-    SearchFooter.Font.Height = -13
-    SearchFooter.Font.Name = 'Tahoma'
-    SearchFooter.Font.Style = []
-    SearchFooter.HighLightCaption = 'Highlight'
-    SearchFooter.HintClose = 'Close'
-    SearchFooter.HintFindNext = 'Find next occurrence'
-    SearchFooter.HintFindPrev = 'Find previous occurrence'
-    SearchFooter.HintHighlight = 'Highlight occurrences'
-    SearchFooter.MatchCaseCaption = 'Match case'
-    SortSettings.DefaultFormat = ssAutomatic
-    Version = '7.5.1.1'
-    ColWidths = (
-      64
-      63
-      64
-      64
-      64)
-    RowHeights = (
-      22
-      22
-      22
-      22
-      22
-      22
-      22
-      22
-      22
-      37)
+    TabOrder = 7
   end
   object lb_msg: TListBox
-    Left = 392
-    Top = 0
-    Width = 536
-    Height = 209
+    Left = 240
+    Top = -2
+    Width = 541
+    Height = 127
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -17
@@ -1090,19 +1034,77 @@ object stkc_frm: Tstkc_frm
     ImeName = 'Microsoft IME 2010'
     ItemHeight = 21
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 8
+  end
+  object Button1: TButton
+    Left = 136
+    Top = 52
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 9
+    OnClick = Button1Click
+  end
+  object tb_carrier_id: TEdit
+    Left = 8
+    Top = 8
+    Width = 121
+    Height = 29
+    Hint = 'Carrier ID'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ImeName = 'Microsoft IME 2010'
+    ParentFont = False
+    TabOrder = 10
+    Text = 'tb_carrier_id'
+  end
+  object btn_login: TButton
+    Left = 1072
+    Top = 0
+    Width = 199
+    Height = 54
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Login Here'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+    OnClick = btn_loginClick
   end
   object EZGEM1: TEZGEM
-    Left = 240
-    Top = 32
+    Left = 592
+    Top = 488
     Width = 100
     Height = 50
-    TabOrder = 13
+    TabOrder = 12
+    OnConnected = EZGEM1Connected
+    OnDisconnected = EZGEM1Disconnected
+    OnDateTimeSetRequest = EZGEM1DateTimeSetRequest
+    OnOnlineRequest = EZGEM1OnlineRequest
+    OnOfflineRequest = EZGEM1OfflineRequest
+    OnNewEquipConst = EZGEM1NewEquipConst
+    OnCommEstablished = EZGEM1CommEstablished
+    OnTerminalMessageSingle = EZGEM1TerminalMessageSingle
+    OnTerminalMessageMulti = EZGEM1TerminalMessageMulti
+    OnMsgRequested = EZGEM1MsgRequested
+    OnOnlineLocal = EZGEM1OnlineLocal
+    OnOnlineRemote = EZGEM1OnlineRemote
+    OnSecsMsgIn = EZGEM1SecsMsgIn
+    OnSecsMsgOut = EZGEM1SecsMsgOut
     ControlData = {00000100450800002204000000000000}
   end
-  object MainMenu1: TMainMenu
-    Left = 160
-    Top = 808
+  object Alarm_menu: TMainMenu
+    Left = 560
+    Top = 355
     object Change1: TMenuItem
       Caption = '  Change  '
       object AutoManual1: TMenuItem
@@ -1217,24 +1219,25 @@ object stkc_frm: Tstkc_frm
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 32
-    Top = 8
+    Left = 248
+    Top = 355
   end
   object dbQuery: TADOQuery
     Parameters = <>
-    Left = 32
-    Top = 64
+    Left = 296
+    Top = 355
   end
   object logout_timer: TTimer
     Enabled = False
     Interval = 60000
     OnTimer = logout_timerTimer
-    Left = 112
-    Top = 8
+    Left = 480
+    Top = 355
   end
   object Carrier_grid_menu: TPopupMenu
-    Left = 104
-    Top = 64
+    OnPopup = Carrier_grid_menuPopup
+    Left = 520
+    Top = 355
     object btn_toagv: TMenuItem
       Caption = 'to AGV Port'
     end
@@ -1245,10 +1248,36 @@ object stkc_frm: Tstkc_frm
       Caption = 'Form to....'
     end
     object btn_lock: TMenuItem
-      Caption = 'Lock'
+      Caption = '&Lock'
+      OnClick = btn_lockClick
     end
     object btn_unlock: TMenuItem
-      Caption = 'Unlock'
+      Caption = '&Unlock'
+      OnClick = btn_unlockClick
     end
+  end
+  object SystemConnection: TADOConnection
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 376
+    Top = 355
+  end
+  object SystemQuery: TADOQuery
+    Parameters = <>
+    Left = 408
+    Top = 355
+  end
+  object Thread_Connetion: TADOConnection
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 624
+    Top = 355
+  end
+  object ez: TADOQuery
+    Parameters = <>
+    Left = 672
+    Top = 355
   end
 end

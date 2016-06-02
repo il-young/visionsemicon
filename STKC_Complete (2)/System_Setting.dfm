@@ -789,7 +789,7 @@ object Setting_Frm: TSetting_Frm
     Top = 8
     Width = 620
     Height = 417
-    ActivePage = ts_maintenance
+    ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Parameter'
@@ -1093,90 +1093,8 @@ object Setting_Frm: TSetting_Frm
         ImeName = 'Microsoft IME 2010'
         NumbersOnly = True
         ParentFont = False
-        TabOrder = 10
-        Text = '5001'
-      end
-      object AdvIPEdit1: TAdvIPEdit
-        Left = 445
-        Top = 254
-        Width = 140
-        Height = 24
-        Alignment = taCenter
-        Color = clWindow
-        Enabled = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ImeName = 'Microsoft IME 2010'
-        MaxLength = 3
-        ParentFont = False
         TabOrder = 7
-        Visible = True
-        AutoFocus = False
-        Flat = False
-        FlatLineColor = clBlack
-        FlatParentColor = True
-        ShowModified = False
-        FocusColor = clWindow
-        FocusBorder = False
-        FocusFontColor = clBlack
-        LabelAlwaysEnabled = False
-        LabelPosition = lpLeftTop
-        LabelMargin = 4
-        LabelTransparent = False
-        LabelFont.Charset = DEFAULT_CHARSET
-        LabelFont.Color = clWindowText
-        LabelFont.Height = -13
-        LabelFont.Name = 'Tahoma'
-        LabelFont.Style = []
-        ModifiedColor = clRed
-        SelectFirstChar = False
-        Version = '1.1.0.2'
-        IPAddress = '127.0.0.1'
-        IPAddressType = ipv4
-      end
-      object AdvIPEdit2: TAdvIPEdit
-        Left = 445
-        Top = 314
-        Width = 140
-        Height = 24
-        Alignment = taCenter
-        Color = clWindow
-        Enabled = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ImeName = 'Microsoft IME 2010'
-        MaxLength = 3
-        ParentFont = False
-        TabOrder = 9
-        Visible = True
-        AutoFocus = False
-        Flat = False
-        FlatLineColor = clBlack
-        FlatParentColor = True
-        ShowModified = False
-        FocusColor = clWindow
-        FocusBorder = False
-        FocusFontColor = clBlack
-        LabelAlwaysEnabled = False
-        LabelPosition = lpLeftTop
-        LabelMargin = 4
-        LabelTransparent = False
-        LabelFont.Charset = DEFAULT_CHARSET
-        LabelFont.Color = clWindowText
-        LabelFont.Height = -13
-        LabelFont.Name = 'Tahoma'
-        LabelFont.Style = []
-        ModifiedColor = clRed
-        SelectFirstChar = False
-        Version = '1.1.0.2'
-        IPAddress = '127.0.0.1'
-        IPAddressType = ipv4
+        Text = '5001'
       end
       object tb_dev_num: TEdit
         Left = 464
@@ -1190,9 +1108,79 @@ object Setting_Frm: TSetting_Frm
         Font.Style = [fsBold]
         ImeName = 'Microsoft IME 2010'
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 9
         TextHint = '1~120'
         OnChange = tb_t3Change
+      end
+      object AdvIPEdit1: TAdvIPEdit
+        Left = 445
+        Top = 254
+        Width = 140
+        Height = 24
+        Alignment = taCenter
+        Color = clWindow
+        Enabled = True
+        ImeName = 'Microsoft IME 2010'
+        MaxLength = 3
+        TabOrder = 10
+        Visible = True
+        AutoFocus = False
+        Flat = False
+        FlatLineColor = clBlack
+        FlatParentColor = True
+        ShowModified = False
+        FocusColor = clWindow
+        FocusBorder = False
+        FocusFontColor = clBlack
+        LabelAlwaysEnabled = False
+        LabelPosition = lpLeftTop
+        LabelMargin = 4
+        LabelTransparent = False
+        LabelFont.Charset = DEFAULT_CHARSET
+        LabelFont.Color = clWindowText
+        LabelFont.Height = -13
+        LabelFont.Name = 'Tahoma'
+        LabelFont.Style = []
+        ModifiedColor = clRed
+        SelectFirstChar = False
+        Version = '1.1.0.2'
+        IPAddress = '0.0.0.0'
+        IPAddressType = ipv4
+      end
+      object AdvIPEdit2: TAdvIPEdit
+        Left = 445
+        Top = 319
+        Width = 140
+        Height = 24
+        Alignment = taCenter
+        Color = clWindow
+        Enabled = True
+        ImeName = 'Microsoft IME 2010'
+        MaxLength = 3
+        TabOrder = 11
+        Visible = True
+        AutoFocus = False
+        Flat = False
+        FlatLineColor = clBlack
+        FlatParentColor = True
+        ShowModified = False
+        FocusColor = clWindow
+        FocusBorder = False
+        FocusFontColor = clBlack
+        LabelAlwaysEnabled = False
+        LabelPosition = lpLeftTop
+        LabelMargin = 4
+        LabelTransparent = False
+        LabelFont.Charset = DEFAULT_CHARSET
+        LabelFont.Color = clWindowText
+        LabelFont.Height = -13
+        LabelFont.Name = 'Tahoma'
+        LabelFont.Style = []
+        ModifiedColor = clRed
+        SelectFirstChar = False
+        Version = '1.1.0.2'
+        IPAddress = '0.0.0.0'
+        IPAddressType = ipv4
       end
     end
     object ts_maintenance: TTabSheet
@@ -1244,6 +1232,19 @@ object Setting_Frm: TSetting_Frm
         Width = 94
         Height = 24
         Caption = 'VERSION'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -20
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 16
+        Top = 126
+        Width = 155
+        Height = 24
+        Caption = 'DB DIRECTORY'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -20
@@ -1306,6 +1307,43 @@ object Setting_Frm: TSetting_Frm
         ImeName = 'Microsoft IME 2010'
         ParentFont = False
         TabOrder = 3
+      end
+      object de_dbdir: TAdvDirectoryEdit
+        Left = 177
+        Top = 126
+        Width = 336
+        Height = 24
+        EmptyTextStyle = []
+        Flat = False
+        LabelFont.Charset = DEFAULT_CHARSET
+        LabelFont.Color = clWindowText
+        LabelFont.Height = -13
+        LabelFont.Name = 'Tahoma'
+        LabelFont.Style = []
+        Lookup.Font.Charset = DEFAULT_CHARSET
+        Lookup.Font.Color = clWindowText
+        Lookup.Font.Height = -17
+        Lookup.Font.Name = 'Arial'
+        Lookup.Font.Style = []
+        Lookup.Separator = ';'
+        Color = clWindow
+        ImeName = 'Microsoft IME 2010'
+        ReadOnly = False
+        TabOrder = 4
+        Visible = True
+        Version = '1.3.5.0'
+        ButtonStyle = bsButton
+        ButtonWidth = 18
+        Etched = False
+        Glyph.Data = {
+          CE000000424DCE0000000000000076000000280000000C0000000B0000000100
+          0400000000005800000000000000000000001000000000000000000000000000
+          8000008000000080800080000000800080008080000080808000C0C0C0000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00F00000000FFF
+          00000088888880FF00000B088888880F00000BB08888888000000BBB00000000
+          00000BBBBBBB0B0F00000BBB00000B0F0000F000BBBBBB0F0000FF0BBBBBBB0F
+          0000FF0BBB00000F0000FFF000FFFFFF0000}
+        BrowseDialogText = 'Select Directory'
       end
     end
   end

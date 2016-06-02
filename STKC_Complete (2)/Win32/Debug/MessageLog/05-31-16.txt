@@ -1,0 +1,285 @@
+05-31-16 오전 9:01:19 : Stocker Server Reboot
+05-31-16 오전 9:01:19 : STOKER SERVER CLOSE
+05-31-16 오전 9:04:56 : Stocker Server Reboot
+05-31-16 오전 9:04:56 : STOKER SERVER CLOSE
+05-31-16 오전 9:10:35 : Stocker Server Reboot
+05-31-16 오전 9:10:35 : MES Server Connected
+05-31-16 오전 9:10:35 : 2016-05-31 09:10:36 (HOST<-EQ) S1F13
+05-31-16 오전 9:10:35 : 2016-05-31 09:10:36 (HOST->EQ) S1F14
+05-31-16 오전 9:10:35 : GEM ESTABLISHED
+05-31-16 오전 9:10:35 : REMOTE
+05-31-16 오전 9:10:35 : STOKER SERVER CLOSE
+05-31-16 오전 9:15:36 : Stocker Server Reboot
+05-31-16 오전 9:15:36 : MES Server Connected
+05-31-16 오전 9:15:36 : 2016-05-31 09:15:37 (HOST<-EQ) S1F13
+05-31-16 오전 9:15:36 : (HOST->EQ) S1F14
+05-31-16 오전 9:15:36 : GEM ESTABLISHED
+05-31-16 오전 9:15:36 : REMOTE
+05-31-16 오전 9:17:09 : Stocker Server Reboot
+05-31-16 오전 9:17:09 : MES Server Connected
+05-31-16 오전 9:17:09 : (HOST<-EQ) S1F13
+05-31-16 오전 9:17:09 : (HOST->EQ) S1F14
+05-31-16 오전 9:17:09 : GEM ESTABLISHED
+05-31-16 오전 9:17:09 : REMOTE
+05-31-16 오전 9:17:32 : Stocker Server Reboot
+05-31-16 오전 9:17:32 : MES Server Connected
+05-31-16 오전 9:17:32 : (HOST<-EQ) S1F13
+05-31-16 오전 9:17:32 : (HOST->EQ) S1F14
+05-31-16 오전 9:17:32 : GEM ESTABLISHED
+05-31-16 오전 9:17:32 : REMOTE
+05-31-16 오후 4:47:55 : Stocker Server Reboot
+05-31-16 오후 4:47:55 : MES Server Connected
+05-31-16 오후 4:47:55 : (HOST<-EQ) S1F13
+05-31-16 오후 4:47:55 : (HOST->EQ) S1F14
+05-31-16 오후 4:47:55 : GEM ESTABLISHED
+05-31-16 오후 4:47:55 : REMOTE
+05-31-16 오후 4:47:55 : MES SERVER Disconnected
+05-31-16 오후 4:50:55 : Stocker Server Reboot
+05-31-16 오후 4:50:55 : MES Server Connected
+05-31-16 오후 4:50:55 : (HOST<-EQ) S1F13
+05-31-16 오후 4:50:55 : (HOST->EQ) S1F14
+05-31-16 오후 4:50:55 : GEM ESTABLISHED
+05-31-16 오후 4:50:55 : REMOTE
+05-31-16 오후 4:51:50 : Stocker Server Reboot
+05-31-16 오후 4:51:50 : MES Server Connected
+05-31-16 오후 4:51:50 : MES SERVER Disconnected
+05-31-16 오후 4:54:11 : Stocker Server Reboot
+05-31-16 오후 4:54:11 : MES Server Connected
+05-31-16 오후 4:54:11 : (HOST<-EQ) S1F13
+05-31-16 오후 4:54:11 : (HOST->EQ) S1F14
+05-31-16 오후 4:54:11 : GEM ESTABLISHED
+05-31-16 오후 4:54:11 : REMOTE
+05-31-16 오후 4:55:20 : Stocker Server Reboot
+05-31-16 오후 4:55:20 : MES Server Connected
+05-31-16 오후 4:55:20 : (HOST<-EQ) S1F13
+05-31-16 오후 4:55:20 : (HOST->EQ) S1F14
+05-31-16 오후 4:55:20 : GEM ESTABLISHED
+05-31-16 오후 4:55:20 : REMOTE
+05-31-16 오후 4:56:48 : Stocker Server Reboot
+05-31-16 오후 4:56:48 : MES Server Connected
+05-31-16 오후 4:56:48 : (HOST<-EQ) S1F13
+05-31-16 오후 4:56:48 : (HOST->EQ) S1F14
+05-31-16 오후 4:56:48 : GEM ESTABLISHED
+05-31-16 오후 4:56:48 : REMOTE
+05-31-16 오후 5:07:44 : Stocker Server Reboot
+05-31-16 오후 5:07:44 : MES Server Connected
+05-31-16 오후 5:07:44 : STOKER SERVER CLOSE
+05-31-16 오후 5:14:20 : Stocker Server Reboot
+05-31-16 오후 5:14:20 : MES Server Connected
+05-31-16 오후 5:19:42 : Stocker Server Reboot
+05-31-16 오후 5:19:42 : MES Server Connected
+05-31-16 오후 5:19:42 : (HOST<-EQ) S1F13
+05-31-16 오후 5:19:42 : (HOST->EQ) S1F14
+05-31-16 오후 5:19:42 : GEM ESTABLISHED
+05-31-16 오후 5:19:42 : REMOTE
+05-31-16 오후 5:23:17 : Stocker Server Reboot
+05-31-16 오후 5:23:17 : MES Server Connected
+05-31-16 오후 5:23:17 : (HOST<-EQ) S1F13
+05-31-16 오후 5:23:17 : (HOST->EQ) S1F14
+05-31-16 오후 5:23:17 : GEM ESTABLISHED
+05-31-16 오후 5:23:17 : REMOTE
+05-31-16 오후 5:23:52 : Stocker Server Reboot
+05-31-16 오후 5:23:52 : MES Server Connected
+05-31-16 오후 5:23:52 : (HOST<-EQ) S1F13
+05-31-16 오후 5:23:52 : (HOST->EQ) S1F14
+05-31-16 오후 5:23:52 : GEM ESTABLISHED
+05-31-16 오후 5:23:52 : REMOTE
+05-31-16 오후 5:23:52 : LOCAL -> REMOTE
+05-31-16 오후 5:26:04 : Stocker Server Reboot
+05-31-16 오후 5:26:04 : MES Server Connected
+05-31-16 오후 5:26:04 : (HOST<-EQ) S1F13
+05-31-16 오후 5:26:04 : (HOST->EQ) S1F14
+05-31-16 오후 5:26:04 : GEM ESTABLISHED
+05-31-16 오후 5:26:04 : REMOTE
+05-31-16 오후 5:28:50 : Stocker Server Reboot
+05-31-16 오후 5:28:50 : MES Server Connected
+05-31-16 오후 5:28:50 : (HOST<-EQ) S1F13
+05-31-16 오후 5:28:50 : (HOST->EQ) S1F14
+05-31-16 오후 5:28:50 : GEM ESTABLISHED
+05-31-16 오후 5:28:50 : REMOTE
+05-31-16 오후 5:28:50 : MES SERVER Disconnected
+05-31-16 오후 5:32:44 : Stocker Server Reboot
+05-31-16 오후 5:33:17 : Stocker Server Reboot
+05-31-16 오후 5:39:00 : Stocker Server Reboot
+05-31-16 오후 5:39:00 : STOKER SERVER CLOSE
+05-31-16 오후 5:40:00 : Stocker Server Reboot
+05-31-16 오후 5:40:00 : MES Server Connected
+05-31-16 오후 5:40:00 : (HOST<-EQ) S1F13
+05-31-16 오후 5:40:00 : (HOST->EQ) S1F14
+05-31-16 오후 5:40:00 : GEM ESTABLISHED
+05-31-16 오후 5:40:00 : REMOTE
+05-31-16 오후 7:15:22 : Stocker Server Reboot
+05-31-16 오후 7:15:22 : MES Server Connected
+05-31-16 오후 7:15:22 : (HOST<-EQ) S1F13
+05-31-16 오후 7:15:22 : (HOST->EQ) S1F14
+05-31-16 오후 7:15:22 : GEM ESTABLISHED
+05-31-16 오후 7:15:22 : REMOTE
+05-31-16 오후 7:15:22 : (HOST<-EQ) S1F13
+05-31-16 오후 7:15:22 : (HOST->EQ) S1F14
+05-31-16 오후 7:15:22 : (HOST<-EQ) S1F13
+05-31-16 오후 7:15:22 : (HOST->EQ) S1F14
+05-31-16 오후 7:15:22 : (HOST<-EQ) S1F13
+05-31-16 오후 7:15:22 : (HOST->EQ) S1F14
+05-31-16 오후 7:15:22 : (HOST<-EQ) S1F13
+05-31-16 오후 7:15:22 : (HOST->EQ) S1F14
+05-31-16 오후 7:15:22 : MES SERVER Disconnected
+05-31-16 오후 7:15:22 : STOKER SERVER CLOSE
+05-31-16 오후 7:16:24 : Stocker Server Reboot
+05-31-16 오후 7:16:24 : STOKER SERVER CLOSE
+05-31-16 오후 7:16:45 : Stocker Server Reboot
+05-31-16 오후 7:16:45 : MES Server Connected
+05-31-16 오후 7:16:45 : (HOST<-EQ) S1F13
+05-31-16 오후 7:16:45 : (HOST->EQ) S1F14
+05-31-16 오후 7:16:45 : GEM ESTABLISHED
+05-31-16 오후 7:16:45 : REMOTE
+05-31-16 오후 7:25:54 : Stocker Server Reboot
+05-31-16 오후 7:25:54 : MES Server Connected
+05-31-16 오후 7:25:54 : STOKER SERVER CLOSE
+05-31-16 오후 7:35:12 : Stocker Server Reboot
+05-31-16 오후 7:35:12 : MES Server Connected
+05-31-16 오후 7:35:12 : (HOST<-EQ) S1F13
+05-31-16 오후 7:35:12 : (HOST->EQ) S1F14
+05-31-16 오후 7:35:12 : GEM ESTABLISHED
+05-31-16 오후 7:35:12 : REMOTE
+05-31-16 오후 7:35:46 : Stocker Server Reboot
+05-31-16 오후 7:35:46 : MES Server Connected
+05-31-16 오후 7:37:13 : Stocker Server Reboot
+05-31-16 오후 7:37:33 : Stocker Server Reboot
+05-31-16 오후 7:39:33 : Stocker Server Reboot
+05-31-16 오후 7:39:33 : MES Server Connected
+05-31-16 오후 7:39:33 : STOKER SERVER CLOSE
+05-31-16 오후 8:06:50 : Stocker Server Reboot
+05-31-16 오후 8:06:50 : MES Server Connected
+05-31-16 오후 8:06:50 : GEM ESTABLISHED
+05-31-16 오후 8:06:50 : REMOTE
+05-31-16 오후 8:07:28 : Stocker Server Reboot
+05-31-16 오후 8:07:28 : MES Server Connected
+05-31-16 오후 8:07:28 : GEM ESTABLISHED
+05-31-16 오후 8:07:28 : REMOTE
+05-31-16 오후 8:23:10 : Stocker Server Reboot
+05-31-16 오후 8:23:10 : STOKER SERVER CLOSE
+05-31-16 오후 8:25:09 : Stocker Server Reboot
+05-31-16 오후 8:25:45 : Stocker Server Reboot
+05-31-16 오후 8:25:45 : MES Server Connected
+05-31-16 오후 8:25:45 : (HOST<-EQ) S1F13
+05-31-16 오후 8:25:45 : (HOST->EQ) S1F14
+05-31-16 오후 8:25:45 : GEM ESTABLISHED
+05-31-16 오후 8:25:45 : REMOTE
+05-31-16 오후 8:25:45 : (HOST<-EQ) S1F13
+05-31-16 오후 8:25:45 : (HOST->EQ) S1F14
+05-31-16 오후 8:31:03 : Stocker Server Reboot
+05-31-16 오후 8:31:03 : MES Server Connected
+05-31-16 오후 8:31:03 : (HOST<-EQ) S1F13
+05-31-16 오후 8:31:03 : (HOST->EQ) S1F14
+05-31-16 오후 8:31:03 : GEM ESTABLISHED
+05-31-16 오후 8:31:03 : REMOTE
+05-31-16 오후 8:34:37 : Stocker Server Reboot
+05-31-16 오후 8:34:37 : MES Server Connected
+05-31-16 오후 8:34:37 : (HOST<-EQ) S1F13
+05-31-16 오후 8:34:37 : (HOST->EQ) S1F14
+05-31-16 오후 8:34:37 : GEM ESTABLISHED
+05-31-16 오후 8:34:37 : REMOTE
+05-31-16 오후 8:34:58 : Stocker Server Reboot
+05-31-16 오후 8:34:58 : STOKER SERVER CLOSE
+05-31-16 오후 8:35:12 : Stocker Server Reboot
+05-31-16 오후 9:08:27 : Stocker Server Reboot
+05-31-16 오후 9:08:46 : Stocker Server Reboot
+05-31-16 오후 9:12:45 : Stocker Server Reboot
+05-31-16 오후 9:12:45 : MES Server Connected
+05-31-16 오후 9:12:45 : (HOST<-EQ) S1F13
+05-31-16 오후 9:12:45 : (HOST->EQ) S1F14
+05-31-16 오후 9:12:45 : GEM ESTABLISHED
+05-31-16 오후 9:12:45 : REMOTE
+05-31-16 오후 9:12:45 : (HOST<-EQ) S1F13
+05-31-16 오후 9:12:45 : (HOST->EQ) S1F14
+05-31-16 오후 9:12:45 : MES SERVER Disconnected
+05-31-16 오후 9:21:30 : Stocker Server Reboot
+05-31-16 오후 9:21:30 : MES Server Connected
+05-31-16 오후 9:21:30 : (HOST<-EQ) S1F13
+05-31-16 오후 9:21:30 : (HOST->EQ) S1F14
+05-31-16 오후 9:21:30 : GEM ESTABLISHED
+05-31-16 오후 9:21:30 : REMOTE
+05-31-16 오후 9:21:30 : CARRIER UNLOCK COL:9 ROW:1
+05-31-16 오후 9:21:30 : STOKER SERVER CLOSE
+05-31-16 오후 9:28:42 : Stocker Server Reboot
+05-31-16 오후 9:29:36 : Stocker Server Reboot
+05-31-16 오후 9:29:36 : MES Server Connected
+05-31-16 오후 9:29:36 : (HOST<-EQ) S1F13
+05-31-16 오후 9:29:36 : (HOST->EQ) S1F14
+05-31-16 오후 9:29:36 : GEM ESTABLISHED
+05-31-16 오후 9:29:36 : REMOTE
+05-31-16 오후 9:29:36 : (HOST<-EQ) S9F1
+05-31-16 오후 9:29:36 : (HOST<-EQ) S9F1
+05-31-16 오후 9:29:36 : (HOST<-EQ) S9F1
+05-31-16 오후 9:29:36 : (HOST<-EQ) S9F1
+05-31-16 오후 9:34:06 : Stocker Server Reboot
+05-31-16 오후 9:34:06 : MES Server Connected
+05-31-16 오후 9:34:06 : (HOST<-EQ) S1F13
+05-31-16 오후 9:34:06 : (HOST->EQ) S1F14
+05-31-16 오후 9:34:06 : GEM ESTABLISHED
+05-31-16 오후 9:34:06 : REMOTE
+05-31-16 오후 9:34:06 : (HOST<-EQ) S9F1
+05-31-16 오후 9:34:06 : (HOST<-EQ) S9F1
+05-31-16 오후 9:34:06 : (HOST<-EQ) S9F1
+05-31-16 오후 9:34:06 : (HOST<-EQ) S9F1
+05-31-16 오후 9:34:06 : (HOST<-EQ) S9F1
+05-31-16 오후 9:36:12 : Stocker Server Reboot
+05-31-16 오후 9:36:12 : MES Server Connected
+05-31-16 오후 9:36:12 : (HOST<-EQ) S1F13
+05-31-16 오후 9:36:12 : (HOST->EQ) S1F14
+05-31-16 오후 9:36:12 : GEM ESTABLISHED
+05-31-16 오후 9:36:12 : REMOTE
+05-31-16 오후 9:36:12 : (HOST<-EQ) S9F1
+05-31-16 오후 9:36:12 : (HOST<-EQ) S9F1
+05-31-16 오후 9:36:12 : (HOST<-EQ) S9F1
+05-31-16 오후 9:38:39 : Stocker Server Reboot
+05-31-16 오후 9:38:39 : MES Server Connected
+05-31-16 오후 9:38:39 : (HOST<-EQ) S1F13
+05-31-16 오후 9:38:39 : (HOST->EQ) S1F14
+05-31-16 오후 9:38:39 : GEM ESTABLISHED
+05-31-16 오후 9:38:39 : REMOTE
+05-31-16 오후 9:38:39 : (HOST<-EQ) S9F1
+05-31-16 오후 9:39:56 : Stocker Server Reboot
+05-31-16 오후 9:39:56 : MES Server Connected
+05-31-16 오후 9:39:56 : (HOST<-EQ) S9F1
+05-31-16 오후 9:39:56 : (HOST<-EQ) S1F13
+05-31-16 오후 9:39:56 : (HOST->EQ) S1F14
+05-31-16 오후 9:39:56 : GEM ESTABLISHED
+05-31-16 오후 9:39:56 : REMOTE
+05-31-16 오후 9:39:56 : (HOST<-EQ) S9F1
+05-31-16 오후 9:39:56 : MES SERVER Disconnected
+05-31-16 오후 9:39:56 : MES Server Connected
+05-31-16 오후 9:39:56 : MES SERVER Disconnected
+05-31-16 오후 9:39:56 : MES Server Connected
+05-31-16 오후 9:39:56 : MES SERVER Disconnected
+05-31-16 오후 9:39:56 : MES Server Connected
+05-31-16 오후 9:39:56 : MES SERVER Disconnected
+05-31-16 오후 9:39:56 : MES Server Connected
+05-31-16 오후 9:39:56 : (HOST<-EQ) S1F13
+05-31-16 오후 9:39:56 : (HOST<-EQ) S1F13
+05-31-16 오후 9:39:56 : (HOST->EQ) S1F14
+05-31-16 오후 9:39:56 : GEM ESTABLISHED
+05-31-16 오후 9:39:56 : REMOTE
+05-31-16 오후 9:39:56 : (HOST->EQ) S1F14
+05-31-16 오후 9:39:56 : (HOST<-EQ) S1F13
+05-31-16 오후 9:39:56 : (HOST->EQ) S1F14
+05-31-16 오후 9:39:56 : (HOST<-EQ) S9F1
+05-31-16 오후 9:46:50 : Stocker Server Reboot
+05-31-16 오후 9:46:50 : MES Server Connected
+05-31-16 오후 9:46:50 : (HOST<-EQ) S1F13
+05-31-16 오후 9:46:50 : MES SERVER Disconnected
+05-31-16 오후 9:46:50 : MES Server Connected
+05-31-16 오후 9:46:50 : (HOST<-EQ) S1F13
+05-31-16 오후 9:46:50 : (HOST->EQ) S1F14
+05-31-16 오후 9:46:50 : GEM ESTABLISHED
+05-31-16 오후 9:46:50 : REMOTE
+05-31-16 오후 9:50:02 : Stocker Server Reboot
+05-31-16 오후 9:50:24 : Stocker Server Reboot
+05-31-16 오후 9:51:02 : Stocker Server Reboot
+05-31-16 오후 9:51:02 : STOKER SERVER CLOSE
+05-31-16 오후 9:51:28 : Stocker Server Reboot
+05-31-16 오후 9:51:28 : MES Server Connected
+05-31-16 오후 9:51:28 : (HOST<-EQ) S1F13
+05-31-16 오후 9:51:28 : (HOST->EQ) S1F14
+05-31-16 오후 9:51:28 : GEM ESTABLISHED
+05-31-16 오후 9:51:28 : REMOTE

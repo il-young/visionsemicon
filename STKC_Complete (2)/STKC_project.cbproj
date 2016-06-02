@@ -40,14 +40,14 @@
 			<VerInfo_Locale>1042</VerInfo_Locale>
 			<_TCHARMapping>wchar_t</_TCHARMapping>
 			<ProjectType>CppVCLApplication</ProjectType>
-			<ILINK_LibraryPath>STKC\;G:\Project\ASE K5\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_LibraryPath>C:\Users\user\Documents\tmssoftware\TMS Component Pack\BuilderXE2\;C:\Users\user\Documents\RAD Studio\9.0\Imports\;STKC\;C:\Users\user\Documents\tmssoftware;G:\Project\git temp\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib;packEZGEM.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclimg.lib;tmsdxe2.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vcldb.lib;VclSmp.lib;Tee.lib;packEZGEM.lib;bdertl.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
-			<IncludePath>STKC\;G:\Project\ASE K5\STKC_Complete (2);$(IncludePath)</IncludePath>
+			<IncludePath>C:\Users\user\Documents\tmssoftware\TMS Component Pack\BuilderXE2\;C:\Users\user\Documents\RAD Studio\9.0\Imports\;STKC\;C:\Users\user\Documents\tmssoftware\TMS Component Pack;C:\Users\user\Documents\tmssoftware;G:\Project\git temp\STKC_Complete (2);$(IncludePath)</IncludePath>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
 			<DynamicRTL>true</DynamicRTL>
 			<UsePackages>true</UsePackages>
@@ -59,7 +59,7 @@
 			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win32)'!=''">
-			<PackageImports>vacommPkgDXE2;vcldbx;TeeDB;Rave100VCL;vclib;Tee;inetdbbde;DBXOdbcDriver;DBXSybaseASEDriver;ibxpress;vclimg;TeeUI;vclactnband;FMXTee;vcldsnap;bindcompvcl;vcldb;vclie;tmsxlsdxe2;vcltouch;DBXDb2Driver;bcbsmp;websnap;vclribbon;VclSmp;vcl;DataSnapConnectors;CodeSiteExpressPkg;CloudService;DBXMSSQLDriver;FmxTeeUI;dsnapcon;tmsexdxe2;tmsdxe2;vclx;tmswizdxe2;webdsnap;bdertl;adortl;bcbie;$(PackageImports)</PackageImports>
+			<PackageImports>vacommPkgDXE2;vcldbx;TeeDB;Rave100VCL;vclib;Tee;inetdbbde;DBXOdbcDriver;DBXSybaseASEDriver;ibxpress;vclimg;TeeUI;vclactnband;FMXTee;vcldsnap;bindcompvcl;vcldb;vclie;tmsxlsdxe2;vcltouch;DBXDb2Driver;bcbsmp;websnap;vclribbon;VclSmp;vcl;DataSnapConnectors;CodeSiteExpressPkg;CloudService;DBXMSSQLDriver;FmxTeeUI;dsnapcon;tmsexdxe2;tmsdxe2;vclx;tmswizdxe2;webdsnap;bdertl;adortl;bcbie;packEZGEM;bcboffice2k;intrawebdb_120_160;Intraweb_120_160;$(PackageImports)</PackageImports>
 			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
 			<IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -86,12 +86,9 @@
 			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-			<LinkPackageStatics>packEZGEM.lib</LinkPackageStatics>
-			<ILINK_LibraryPath>G:\Project\git temp\STKC_Complete (2);$(ILINK_LibraryPath)</ILINK_LibraryPath>
-			<IncludePath>G:\Project\git temp\STKC_Complete (2);$(IncludePath)</IncludePath>
 			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-			<LinkPackageImports>rtl.bpi;vcl.bpi;vclimg.bpi;tmsdxe2.bpi;adortl.bpi;dbrtl.bpi;vclx.bpi;xmlrtl.bpi;vclactnband.bpi;vcldb.bpi;VclSmp.bpi;Tee.bpi</LinkPackageImports>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;vclimg.bpi;tmsdxe2.bpi;adortl.bpi;dbrtl.bpi;vclx.bpi;xmlrtl.bpi;vclactnband.bpi;vcldb.bpi;VclSmp.bpi;Tee.bpi;packEZGEM.bpi;bdertl.bpi</LinkPackageImports>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -99,6 +96,30 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_OCX.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_OCX.h</DependentOn>
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_TLB.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZGEMLib_TLB.h</DependentOn>
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLib_OCX.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLib_OCX.h</DependentOn>
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLib_TLB.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLib_TLB.h</DependentOn>
+				<BuildOrder>42</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLIGHTLib_OCX.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLIGHTLib_OCX.h</DependentOn>
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLIGHTLib_TLB.cpp">
+				<DependentOn>C:\Users\user\Documents\RAD Studio\9.0\Imports\EZNETLIGHTLib_TLB.h</DependentOn>
+				<BuildOrder>42</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="Carrier_FormTopopupConfirm_frm.cpp">
 				<Form>Carrier_FormTopopup_Confirm_frm</Form>
 				<FormType>dfm</FormType>
@@ -138,6 +159,15 @@
 			<None Include="DATA\FORMAT.SML">
 				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
 			</None>
+			<None Include="DATA\STK_ALID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<None Include="DATA\STK_CEID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
+			<None Include="DATA\STK_SVID.txt">
+				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
+			</None>
 			<None Include="DATA\VSP_ALID.txt">
 				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
 			</None>
@@ -153,6 +183,15 @@
 				<DependentOn>DBModule.h</DependentOn>
 				<BuildOrder>30</BuildOrder>
 			</CppCompile>
+			<None Include="Define.h">
+				<BuildOrder>47</BuildOrder>
+			</None>
+			<None Include="DefineInfo.h">
+				<BuildOrder>45</BuildOrder>
+			</None>
+			<None Include="DefineMsg.h">
+				<BuildOrder>48</BuildOrder>
+			</None>
 			<None Include="G_Define.h">
 				<BuildOrder>28</BuildOrder>
 			</None>
@@ -189,6 +228,10 @@
 				<FormType>dfm</FormType>
 				<DependentOn>LinkStatusChange_frm.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="NodeList.cpp">
+				<DependentOn>NodeList.h</DependentOn>
+				<BuildOrder>44</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="Operation_ContinuousTestingBt_form.cpp">
 				<Form>Operation_ContinuousTestingBt_frm</Form>
@@ -271,6 +314,14 @@
 				<DependentOn>System_UserManagementform.h</DependentOn>
 				<BuildOrder>16</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="TCPIPModule.cpp">
+				<DependentOn>TCPIPModule.h</DependentOn>
+				<BuildOrder>46</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="THDB_Loading.cpp">
+				<DependentOn>THDB_Loading.h</DependentOn>
+				<BuildOrder>34</BuildOrder>
+			</CppCompile>
 			<None Include="User.MDB">
 				<VirtualFolder>{BBFFDF5F-E5D8-48E7-AEA0-B5503BDC1B14}</VirtualFolder>
 			</None>
@@ -279,32 +330,32 @@
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>PngImage_1</ResourceId>
 			</RcItem>
-			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
-			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
-			<FormResources Include="Statistics_WorkTimeform.dfm"/>
-			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
-			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
-			<FormResources Include="LinkStatusChange_frm.dfm"/>
 			<FormResources Include="Operation_ShelfTest_OnceTestBtform.dfm"/>
 			<FormResources Include="Operation_ShelfTestForm.dfm"/>
-			<FormResources Include="STKC.dfm"/>
+			<FormResources Include="Operation_Shelf_Position_Confirmation_form.dfm"/>
+			<FormResources Include="Statistics_Time_statistics_processform.dfm"/>
+			<FormResources Include="Operation_SpecifyTesBtform.dfm"/>
+			<FormResources Include="Operation_ContinuousTestingBt_form.dfm"/>
+			<FormResources Include="History_Operationform.dfm"/>
+			<FormResources Include="History_Eventform.dfm"/>
+			<FormResources Include="History_TransferCommandform.dfm"/>
+			<FormResources Include="LinkStatusChange_frm.dfm"/>
 			<FormResources Include="System_UserManagementform.dfm"/>
 			<FormResources Include="System_UserGroupingform.dfm"/>
-			<FormResources Include="System_login_frm.dfm"/>
 			<FormResources Include="System_Setting.dfm"/>
+			<FormResources Include="STKC.dfm"/>
+			<FormResources Include="Statistics_WorkTimeform.dfm"/>
 			<FormResources Include="System_Max_PoolLevelform.dfm"/>
-			<FormResources Include="Change_AutoM_frm.dfm"/>
-			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
+			<FormResources Include="System_login_frm.dfm"/>
+			<FormResources Include="History_Carrier_Historyform.dfm"/>
 			<FormResources Include="Carrier_FormTopopup_frm.dfm"/>
 			<FormResources Include="Carrier_FormTopopupConfirm_frm.dfm"/>
-			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
 			<FormResources Include="Carrier_LockComment_frm.dfm"/>
-			<FormResources Include="History_Eventform.dfm"/>
-			<FormResources Include="History_Carrier_Historyform.dfm"/>
-			<FormResources Include="History_TransferCommandform.dfm"/>
-			<FormResources Include="History_Operationform.dfm"/>
+			<FormResources Include="Carrier_ToPGVPortPopup_frm.dfm"/>
+			<FormResources Include="Carrier_ToAGVPortPopup_frm.dfm"/>
 			<FormResources Include="DBModule.dfm"/>
 			<FormResources Include="History_Alarmform.dfm"/>
+			<FormResources Include="Change_AutoM_frm.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
@@ -358,8 +409,6 @@
 						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
 					</ProjectProperties>
 					<Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_120_160.bpl">IntraWeb 12.0 Design Package for RAD Studio XE2</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
 					</Excluded_Packages>
 					<Folders>

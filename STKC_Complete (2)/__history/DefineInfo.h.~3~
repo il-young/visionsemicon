@@ -1,0 +1,745 @@
+#include <deque.h>
+
+//---------------------------------------------------------------------------
+//Msg Carrrier Information Structure
+//---------------------------------------------------------------------------
+#ifndef CarrierStruct
+typedef struct CarrierStruct
+{
+	//Target Load Port Type
+	unsigned char msg_Carrier_LP_Type;
+	//Target Load Port ID
+	unsigned char msg_Carrier_LP_ID;
+	// Carrier Status
+	unsigned char msg_Carrier_Status;
+	// Carrier ID
+	unsigned char msg_Carrier_ID;
+}stCarrier;
+#define CarrierStruct
+#endif
+
+//---------------------------------------------------------------------------
+//Msg Load Port Information Structure
+//---------------------------------------------------------------------------
+#ifndef LoadPortStruct
+typedef struct LoadPortStruct
+{
+	//Load Port Type
+	unsigned char msg_LoadPort_Type;
+	//Load Port ID
+	unsigned char msg_LoadPort_ID;
+	//Load Port Status
+	unsigned char msg_LoadPort_Status;
+	//Carrier Quantity in Load Port
+	unsigned char msg_LoadPort_Carrier_Quantity;
+}stLoadPort;
+#define LoadPortStruct
+#endif
+
+//-----------------------------------------------------------------------------
+//AGV Position Structure
+//-----------------------------------------------------------------------------
+#ifndef agvPosition
+typedef struct agvPosition
+{
+	unsigned short CurrentNode;
+	unsigned short NextNode;
+	unsigned short TargetNode;
+	deque<unsigned short> NodeList;
+	bool FrontFlag;
+}stagvPos;
+#define agvPosition
+#endif
+//-----------------------------------------------------------------------------
+//AGV Safety Information Structure
+//-----------------------------------------------------------------------------
+#ifndef agvSafety
+typedef struct agvSafety
+{
+	unsigned char KeySwitch;
+	unsigned char EMOSwitch;
+	unsigned char StartSwitch;
+	unsigned char ResetSwitch;
+	unsigned char Bumper;
+
+	unsigned char VoltageMetaHigh;
+	unsigned char VoltageMetaLow;
+
+	unsigned char MotorError0;
+	unsigned char MotorError1;
+
+	unsigned char RearPBS_A;
+	unsigned char RearPBS_B;
+	unsigned char RearPBS_C;
+
+	unsigned char FrontPBS_A;
+	unsigned char FrontPBS_B;
+	unsigned char FrontPBS_C;
+
+	unsigned char BatteryAbsence;
+
+}stagvSafety;
+#define agvSafety
+#endif
+//----------------------------------------------------------------------------
+// agv Motor Driving Structure
+//----------------------------------------------------------------------------
+#ifndef agvMotorDriving
+typedef struct agvPotenitInform
+{
+	unsigned char Y_TagetVoltage;
+	double Y_Voltage;
+	double X_Voltage;
+	double Y_OffSet;
+	double X_OffSet;
+}stMotorDriving;
+#define agvMotorDriving
+#endif
+//----------------------------------------------------------------------------
+// agv Load Port Information Structure
+//----------------------------------------------------------------------------
+#ifndef agvLoadPortInformStruct
+typedef struct agvLoadPortInformStruct
+{
+	//Load Port Type
+	unsigned char LoadPort_Type;
+	//Load Port ID
+	unsigned char LoadPort_ID;
+	//Load Port Status
+	unsigned char LoadPort_Status;
+	//Carrier Quantity in Load Port
+	unsigned char LoadPort_Carrier_Quantity;
+}stagvLoadPort;
+#define agvLoadPortInformStruct
+#endif
+//----------------------------------------------------------------------------
+// agv Carrier(Foup, Cassette, etc....) Inforamtion Structure
+//----------------------------------------------------------------------------
+#ifndef lgvCarrierInformStruct
+typedef struct lgvCarrierInformStruct
+{
+	//Target Load Port Type
+	unsigned char Carrier_LP_Type;
+	//Target Load Port ID
+	unsigned char Carrier_LP_ID;
+	// Carrier Status
+	unsigned char Carrier_Status;
+	// Carrier ID
+	unsigned char Carrier_ID;
+}stlgvCarrier;
+#define lgvCarrierInformStruct
+#endif
+//----------------------------------------------------------------------------
+// agv RF PIO Inform Structure
+//----------------------------------------------------------------------------
+#ifndef agvRFPIO
+typedef struct agvRFPIO
+{
+	unsigned char RFPIO_0;
+	unsigned char RFPIO_1;
+	unsigned char RFPIO_2;
+	unsigned char RFPIO_3;
+
+	unsigned char ChangeNumber;
+
+	unsigned char RFPIO_GO;
+	unsigned char RFPIO_SELECT;
+}stRFPIO;
+#define agvRFPIO
+#endif
+//---------------------------------------------------------------------------
+// AGV Load Part Absence Sensor Inform Structure
+//---------------------------------------------------------------------------
+#ifndef agvLoadAbsence
+typedef struct agvLoadAbsence
+{
+	unsigned char FoupLeft;   //TB1 X026
+	unsigned char FoupRight;  //TB1 X025
+	unsigned char FoupFront;  //TB2 X121
+	unsigned char FoupRear;   //TB2 X122
+	unsigned char CassetteFront; //TB2 X119
+	unsigned char CassetteRear; //TB2 X120
+
+}stAbsence;
+#define agvLoadAbsence
+#endif
+//----------------------------------------------------------------------------
+// AGV Magenetic Position Sensor Information Structure
+//---------------------------------------------------------------------------
+#ifndef agvMagPosSensor
+typedef struct agvMagPosSensor
+{
+	unsigned short PosSensor;
+	unsigned char DerailMent;
+
+}stMagPos;
+#define agvMagPosSensor
+#endif
+//----------------------------------------------------------------------------
+// AGV Mark Sensor Information Structure
+//----------------------------------------------------------------------------
+#ifndef agvMarkSensor
+typedef struct agvMarkSensor
+{
+	unsigned char SPole_R;
+	unsigned char NPole_R;
+
+	unsigned char SPole_L;
+    unsigned char NPole_L;
+
+}stMarkPos;
+#define agvMarkSensor
+#endif
+
+//----------------------------------------------------------------------------
+//MES-ACS COMMNAD Info Structure
+//----------------------------------------------------------------------------
+#ifndef CP_COMMNADINFO
+typedef struct CP_COMMNADINFO
+{
+	WideString CommandID;
+	long Priority;
+	long Replace;
+
+	short CPACK;
+	//	Command Enhanced Parameter Acknowledge.
+	//	If a specific value of CPNAME is defined to have a CEPVAL that is a LIST,
+	//	then CEPACK shall have the same structure as the corresponding list format of
+	//	CEPVAL as used in S2,F63. Otherwise CEPACK will a 1 byte integer. Enumerated:
+	//	0	=  no error
+	//	1	=  Parameter Name (CPNAME) does notexist
+	//	2	=  Illegal value specified for CEPVAL
+	//	3	=  Illegal format specified for CEPVAL
+	//	4	= Parameter name (CPNAME) not valid as used
+}stCP_COMMNADINFO;
+#define CP_COMMNADINFO
+#endif
+
+//----------------------------------------------------------------------------
+//MES-ACS TRANSFER Info Structure
+//----------------------------------------------------------------------------
+#ifndef CP_TRANSFERINFO
+typedef struct CP_TRANSFERINFO
+{
+	WideString Rule;
+	WideString AgvID;
+	WideString CarrierID;
+	WideString Source;
+	WideString Dest;
+	long Idr;
+	long Movement;
+
+	short CPACK;
+	//	Command Enhanced Parameter Acknowledge.
+	//	If a specific value of CPNAME is defined to have a CEPVAL that is a LIST,
+	//	then CEPACK shall have the same structure as the corresponding list format of
+	//	CEPVAL as used in S2,F63. Otherwise CEPACK will a 1 byte integer. Enumerated:
+	//	0	=  no error
+	//	1	=  Parameter Name (CPNAME) does notexist
+	//	2	=  Illegal value specified for CEPVAL
+	//	3	=  Illegal format specified for CEPVAL
+	//	4	= Parameter name (CPNAME) not valid as used
+}stCP_TRANSFERINFO;
+#define CP_TRANSFERINFO
+#endif
+
+//---------------------------------------------------------------------------
+//Alarm Log Information Structure
+//---------------------------------------------------------------------------
+#ifndef AlarmLogStruct
+typedef struct AlarmLogStruct
+{
+	//ALARMLOG_ID
+	WideString ALARMLOG_ID;
+	//ALARMLOG_DATA
+	WideString ALARMLOG_DATA;
+	//ALARMLOG_DATETIME
+	WideString ALARMLOG_DATETIME;
+}stAlarmLogInfo;
+#define AlarmLogStruct
+#endif
+
+//---------------------------------------------------------------------------
+//SecsGem Log Information Structure
+//---------------------------------------------------------------------------
+#ifndef SecsGemLogStruct
+typedef struct SecsGemLogStruct
+{
+	//SECSGEMLOG_ID
+	WideString SECSGEMLOG_ID;
+	//SECSGEMLOG_DATA
+	WideString SECSGEMLOG_DATA;
+	//SECSGEMLOG_DATETIME
+	WideString SECSGEMLOG_DATETIME;
+}stSecsGemLogInfo;
+#define SecsGemLogStruct
+#endif
+
+//---------------------------------------------------------------------------
+//Transport Log Information Structure
+//---------------------------------------------------------------------------
+#ifndef TransportLogStruct
+typedef struct TransportLogStruct
+{
+	//TRANSPORTLOG_ID
+	WideString TRANSPORTLOG_ID;
+	//TRANSPORTLOG_DATA
+	WideString TRANSPORTLOG_DATA;
+	//TRANSPORTLOG_DATETIME
+	WideString TRANSPORTLOG_DATETIME;
+}stTransportLogInfo;
+#define TransportLogStruct
+#endif
+
+//---------------------------------------------------------------------------
+//Operation Log Information Structure
+//---------------------------------------------------------------------------
+#ifndef OperationLogStruct
+typedef struct OperationLogStruct
+{
+	//OPERATIONLOG_ID
+	WideString OPERATIONLOG_ID;
+	//OPERATIONLOG_DATA
+	WideString OPERATIONLOG_DATA;
+	//OPERATIONLOG_DATETIME
+	WideString OPERATIONLOG_DATETIME;
+}stOperationLogInfo;
+#define OperationLogStruct
+#endif
+
+//-------
+// SECS Info
+//-------
+#ifndef SECSInfo
+typedef struct SECSInfo
+{
+	AnsiString SECS_TYPE;
+	AnsiString SECS_IP;
+	AnsiString SECS_PORT;
+	AnsiString SECS_T3;
+	AnsiString SECS_T4;
+	AnsiString SECS_T5;
+	AnsiString SECS_T6;
+	AnsiString SECS_T7;
+	AnsiString SECS_T8;
+       	AnsiString SECS_T9;
+        AnsiString SECS_LIP;
+        AnsiString SECS_LPORT;
+        AnsiString SECS_RIP;
+        AnsiString SECS_RPORT;
+        AnsiString DB_DIR;
+        AnsiString SECS_DEV_NUM;
+        AnsiString SECS_MODELNAME;
+        AnsiString SECS_VERSION;
+
+}stSECSInfo;
+#define SECSInfo
+#endif
+
+//----------------------------------------------------------------------------
+// TransportCommand Info Structure
+//----------------------------------------------------------------------------
+#ifndef TransportCommandStructure
+typedef struct TransportCommandStructure
+{
+	WideString TRANSPORT_ISSUEDATE;   	//메시지 생성 시간
+	WideString TRANSPORT_STATUS;		//현재 상태
+	WideString TRANSPORT_CARRIERID;   	//현재 운반중인 케리어 아이디
+	WideString TRANSPORT_SOURCE;		//시작 장소
+	WideString TRANSPORT_DESTINATION; 	//도착 도착
+	WideString TRANSPORT_PRIORITY;   	//우선 순위
+	WideString TRANSPORT_TYPE;   		//운반 item 타입 (메거진 OR 케리어)
+	WideString TRANSPORT_COMMANDID;  	//운반 명령 ID
+	WideString TRANSPORT_AGVID;  		//할당된 AGV ID
+}stTransportCommandInfo;
+#define TransportCommandStructure
+#endif
+
+//-------
+// Carrier Info Structure
+//-------
+#ifndef CarrierStructure
+typedef struct CarrierStructure
+{
+	WideString CARRIER_ID;				//운반중인 케리어 아이디
+	WideString CARRIER_LOCATION;    	//케리어 위치(AGV 혹의 장비)
+	WideString CARRIER_STATUS;      	//현재 상태
+	WideString CARRIER_ENTERDATE;   	//AGVS 진입 시간
+}stCarrierInfo;
+#define CarrierStructure
+#endif
+
+//-------
+// Port Info Structure
+//-------
+#ifndef PortStructure
+typedef struct PortStructure
+{
+	WideString PORT_ID;				//포트 ID
+	WideString PORT_STATUS;      	//포트 상태
+	WideString PORT_TYPE;        	//포트 Type(stocker,eq)
+	WideString PORT_ENTERDATE;   	//마지막 LOAD 시간
+	WideString PORT_MODIFIER;    	//마지막 수정 ID
+	WideString PORT_UPDATEDATE;    	//마지막 수정 시간
+	WideString PORT_HOLDREASON;    	//포트가 홀드된 상태?
+}stPortInfo;
+#define PortStructure
+#endif
+
+//-------
+// AGV Info Structure
+//-------
+#ifndef AgvStructure
+typedef struct AgvStructure
+{
+	WideString AGV_ID;				//AGV ID
+	WideString AGV_IP;      		//AGV IP
+	WideString AGV_STATE;        	//AGV 상태
+	WideString AGV_BATTERY;   		//AGV 베터리 상태
+	WideString AGV_ERROR;    		//AGV 에러 상태
+	WideString AGV_POINT;    		//AGV 위치
+	WideString AGV_DESTINATION;    	//AGV 도착지
+	WideString AGV_CARRIERID;    	//AGV 옮기고 있는 케리어 ID
+}stAGVInfo;
+#define AgvStructure
+#endif
+
+//-------
+// User Info Structure
+//-------
+#ifndef UserInfo
+typedef struct UserInfo
+{
+	AnsiString USER_ID;
+	AnsiString USER_PASS;
+	AnsiString USER_GROUP;
+	AnsiString USER_DESCRIPTIONS;
+	AnsiString USER_LOGOUTTIME;
+}stUserInfo;
+#define UserInfo
+#endif
+
+//-------
+// UserGroup Info Structure
+//-------
+#ifndef UserGroupInfo
+typedef struct UserGroupInfo
+{
+	AnsiString USERGROUP_ID;
+	AnsiString USERGROUP_NAME;
+	AnsiString USERGROUP_DESCRIPTIONS;
+}stUserGroupInfo;
+#define UserGroupInfo
+#endif
+
+//-------
+// Node Info Structure
+//-------
+#ifndef NodeInfo
+typedef struct NodeInfo
+{
+	AnsiString NODE_NO;
+	AnsiString NODE_STATUS;
+}stNodeInfo;
+#define NodeInfo
+#endif
+
+//----------------------------------------------------------------------------
+//MES-ACS Job Info Structure
+//----------------------------------------------------------------------------
+#ifndef JobStructure
+typedef struct JobStructure
+{
+	long Job_DATAID;
+	WideString Job_OBJSPEC;
+	WideString Job_RCMD;				//Remote Command
+
+	stCP_COMMNADINFO Job_CommandInfo;
+	stCP_TRANSFERINFO Job_TransferInfo;
+}stJob;
+#define JobStructure
+#endif
+
+//---------------------------------------------------------------------------
+//AGV Information
+//---------------------------------------------------------------------------
+#ifndef agvInformation
+typedef struct agvInformation
+{
+	AnsiString ip;
+	bool isConn;
+
+	unsigned char agvDeviceID;
+
+	unsigned char agvCommand;
+	unsigned char agvStatus;
+
+	unsigned char CurrentNode;
+	unsigned char NextNode;
+	unsigned char TargetNode;
+
+	stLoadPort stLoadPortInfo;
+	stCarrier stCarrierInfo;
+
+	unsigned long SafetyData;
+	stagvSafety stSafetyInfo;
+
+	bool isRun_MES_CM_TRANSFER;
+	bool isRun_MES_CM_MOVE;
+	bool isRun_MES_CM_CANCEL;
+	bool isRun_MES_CM_ABORT;
+
+	unsigned char Work_Step;
+
+	bool isRun_INITIAL_LOCATION;
+	bool isRun_MOVE_TO_TARGET;
+	bool isRun_MOVE_TO_LOAD;
+	bool isRun_MOVE_TO_UNLOAD;
+	bool isRun_ONLY_LOAD;
+	bool isRun_ONLY_UNLOAD;
+	bool isRun_ONLY_BATTERY_CHARGE;
+	bool isRun_ONLY_BATTERY_EXCHANGE;
+	bool isRun_MOVE_TO_BATTERY_CHARGE;
+	bool isRun_MOVE_TO_BATTERY_EXCHANGE;
+	bool isRun_CANCEL;
+	bool isRun_ABORT;
+
+	bool isState_MOVE_MOVE;
+	bool isState_MOVE_ERROR_STOP;
+	bool isState_RFPIO_MACHINE_ERROR;
+	bool isState_RFPIO_MACHINE_RUN;
+	bool isState_ARRIVAL_TARGET_NODE;
+	bool isState_WORK_STANDBY;
+	bool isState_WORK_STANDBY_ERROR;
+	bool isState_BATTERY_LOW;
+	bool isState_BATTERY_FULL;
+	bool isState_TRAFFIC_MOVING_STOP;
+	bool isState_PACKAGE_MISMATCH;
+	bool isState_NODE_LIST_ERROR;
+	bool isState_SEMI_MOVE_MOVE;
+	bool isState_SEMI_MOVE_ERROR_STOP;
+	bool isState_BATTERY_CHARGE_START;
+	bool isState_BATTERY_CHARGE_CANCEL;
+	bool isState_BATTERY_CHARGE_COMP;
+	bool isState_BATTERY_CHANGE_START;
+	bool isState_BATTERY_CHANGE_CANCEL;
+	bool isState_BATTERY_CHANGE_COMP;
+	bool isState_MISMATCH_AGV_NUMBER;
+
+	deque<unsigned short> NodeList;
+	unsigned char Direction;
+
+	stJob stJobInfo;
+}stagvInform;
+#define agvInformation
+#endif
+
+//---------------------------------------------------------------------------
+//BatteryEQ Information
+//---------------------------------------------------------------------------
+#ifndef BatteryEQInfo
+typedef struct BatteryEQInfo
+{
+	AnsiString ip;
+	bool isConn;
+}stBatteryEQInfo;
+#define BatteryEQInfo
+#endif
+
+//----------------------------------------------------------------------------
+//AGV Total NodeList Structure
+//----------------------------------------------------------------------------
+#ifndef TotalNodeList
+typedef struct TotalNodeList
+{
+	deque<unsigned short> dqNodeNumber;
+	deque<unsigned char> dqNodeDirection;
+	deque<unsigned char> dqNodeSpeed;
+	deque<unsigned char> dqNodeDistSensorFlag;
+	deque<unsigned char> dqNodeWorkNode;
+
+}stTotalNodeList;
+#define TotalNodeList
+#endif
+
+//---------------------------------------------------------------------------
+//Safety Sensor
+//---------------------------------------------------------------------------
+#define SAFETY_SENSOR_OFF 0x00
+#define SAFETY_SENSOR_ON 0x01
+//---------------------------------------------------------------------------
+//Magnetic Position Sensor
+//---------------------------------------------------------------------------
+#define AGV_FRONT_DIRECTION 0x01
+#define AGV_REAR_DIRECTION 0x02
+
+//---------------------------------------------------------------------------
+//AGV Position Sensor Mask
+//---------------------------------------------------------------------------
+#define AGV_STAIGHT_MOVE 0x01
+#define AGV_LEFT_MOVE 0x02
+#define AGV_RIGHT_MOVE 0x03
+#define AGV_NONE_MOVE 0x04
+
+//---------------------------------------------------------------------------
+//AGV Move Flag
+//---------------------------------------------------------------------------
+#define AGV_MOVE_START 0x01
+#define AGV_MOVE_STOP 0x02
+
+//---------------------------------------------------------------------------
+//AGV Semi Control On/Off
+//---------------------------------------------------------------------------
+#define AGV_SEMIAUTO_ON 0x01
+#define AGV_SEMIAUTO_OFF 0x02
+
+//---------------------------------------------------------------------------
+//AGV Moving Speed
+//---------------------------------------------------------------------------
+#define SPEED_S	('S')
+#define SPEED_0	(0)
+#define SPEED_1	(1)
+#define SPEED_2	(2)
+#define SPEED_3	(3)
+#define SPEED_CURVE	(4)
+#define SPEED_CURVE_UP (5)
+
+//---------------------------------------------------------------------------
+//AGV Control Voltage
+//---------------------------------------------------------------------------
+#define DRV_SPEED_STOP_VOL	(0.0)
+#define DRV_SPEED_0_VOL	(0.9) // 250  RPM
+#define DRV_SPEED_1_VOL	(1.8) // 500  RPM
+#define DRV_SPEED_2_VOL	(3.6) // 1000 RPM
+#define DRV_SPEED_3_VOL (6.3) // 1750 RPM
+#define DRV_SPEED_CURVE         (1.8)  // 500 RPM
+#define DRV_SPEED_SPIN_VOL      (0.2)
+#define DRV_SPEED_CH_VOL        (0.1)  //Step Down and Step Up
+
+//---------------------------------------------------------------------------
+//Recieve Traffic Stop Command
+//---------------------------------------------------------------------------
+#define TRAFFIC_CONTROL_ON 0x01
+#define TRAFFIC_CONTROL_OFF 0x02
+
+//---------------------------------------------------------------------------
+//AGV Start Load Sequence
+//---------------------------------------------------------------------------
+#define LOAD_START 0x01
+#define LOAD_STOP 0X02
+
+//---------------------------------------------------------------------------
+//AGV Start  Unload Sequence
+//---------------------------------------------------------------------------
+#define UNLOAD_START 0x01
+#define UNLOAD_STOP 0x02
+
+//--------------------------------------------------------------------------
+//AGV Start
+//--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
+//AGV Initial Find Location Seqeunce
+//--------------------------------------------------------------------------
+#define INITIAL_LOCATION_START 0x01
+#define INITIAL_LOCATION_STOP 0x02
+
+//--------------------------------------------------------------------------
+//AGV Battery Change Job Sequence
+//--------------------------------------------------------------------------
+#define BATTERY_CHARGE_START 0x01
+#define BATTERY_CHARGE_STOP 0x02
+
+//--------------------------------------------------------------------------
+//AGV Battery Exchange Job Sequence
+//--------------------------------------------------------------------------
+#define BATTERY_EXCHANGE_START 0x01
+#define BATTERY_EXCHANGE_STOP 0x02
+
+//--------------------------------------------------------------------------
+//AGV RF PIO Sequence Start
+//--------------------------------------------------------------------------
+#define RFPIO_CHECK_START 0x01
+#define RFPIO_CHECK_STOP 0x02
+
+//--------------------------------------------------------------------------
+//Find Target Node
+//--------------------------------------------------------------------------
+#define FIND_TARGET_NODE_SUCCESS 0x01
+#define FIND_TARGET_NODE_FAIL 0x02
+
+//--------------------------------------------------------------------------
+//Initial Complete (Off)
+//--------------------------------------------------------------------------
+#define MOVE_FLAG_OFF 0x01
+#define RFPIO_FLAG_OFF 0x02
+#define LOAD_FLAG_OFF 0x03
+#define UNLOAAD_FLAG_OFF 0x04
+#define BATTERY_FLAG_OFF 0x05
+
+//--------------------------------------------------------------------------
+//RFPIO Using Define Variable
+//--------------------------------------------------------------------------
+#define RFPIO_ON 0x01
+#define RFPIO_OFF 0x02
+
+//--------------------------------------------------------------------------
+//Moving Error Stop
+//--------------------------------------------------------------------------
+#define MOVING_ERROR_STOP_ON 0x01
+#define MOVING_ERROR_STOP_OFF 0x02
+
+//--------------------------------------------------------------------------
+//Select RF PIO
+//--------------------------------------------------------------------------
+#define SELECT_RFPIO_RIGHT 0x01
+#define SELECT_RFPIO_LEFT 0x02
+
+//--------------------------------------------------------------------------
+//Job Progress Define
+//--------------------------------------------------------------------------
+#define JOB_PROGRESS_EMPTY 0x00
+#define JOB_PROGRESS_INITLOCATION 0x01
+#define JOB_PROGRESS_MOVE_TO_TARGET 0x02
+#define JOB_PROGRESS_MOVE_TO_LOAD 0x03
+#define JOB_PROGRESS_MOVE_TO_UNLOAD 0x04
+#define JOB_PROGRESS_ONLY_LOAD 0x05
+#define JOB_PROGRESS_ONLY_UNLOAD 0x06
+#define JOB_PROGRESS_ONLY_BATTERY_CHARGER 0x07
+#define JOB_PROGRESS_ONLY_BATTERY_EXCHANGE 0x08
+#define JOB_PROGRESS_MOVE_TO_BATTERY_CHARGER 0x09
+#define JOB_PROGRESS_MOVE_TO_BATTERY_EXCHANGE 0x0A
+
+//--------------------------------------------------------------------------
+// Use RFPIO
+//--------------------------------------------------------------------------
+#define RFPIO_A_SIDE_ON 0x01
+#define RFPIO_B_SIDE_ON 0x02
+#define RFPIO_BOTH_SIDE_OFF 0x03
+#define RFPIO_BOTH_SIDE_ON 0x04
+#define RFPIO_MAX_COUNT (10)
+
+#define RFPIO_READY_STATUS 0x01  //Go Load Or Unload
+#define RFPIO_RUN_STATUS 0x02    //Wait Load Or Unload
+#define RFPIO_ERROR_STATUS 0x03  //Error Machine -> Notification Machine Error
+
+//---------------------------------------------------------------------------
+// Use Traffic
+//---------------------------------------------------------------------------
+#define TRAFFIC_STOP_COUNT (10)
+#define TRAFFIC_STOP_OVER (11)
+
+//-----------------------------------------------------------------------------
+// Control For Melody and Tower Lamp
+//-----------------------------------------------------------------------------
+#define CTRL_MD_TW_RUN 0x01
+#define CTRL_MD_TW_READY 0x02
+#define CTRL_MD_TW_ERROR 0x03
+
+//----------------------------------------------------------------------------
+// Use Cancel Job with Run Process
+//----------------------------------------------------------------------------
+#define RUN_JOB_CANCEL_ON 0x01
+#define RUN_JOB_CANCEL_OFF 0x02
+#define RUN_JOB_MAC_COUNT (10)
+#define RUN_JOB_CANCEL_OVER (11)

@@ -1,0 +1,20 @@
+Start
+C	8	N	9	T	1	E
+C	13	N	37	T	2	E
+C	26	N	35	T	1	E
+C	5	N	6	T	3	E
+C	24	N	5	T	3	E
+C	32	N	33	T	3	E
+C	19	N	20	T	3	E
+C	38	N	31	T	3	E
+C	36	N	12	T	4	E
+C	17	N	16	T	1	E
+C	12	N	36	T	2	E
+C	35	N	26	T	3	E
+C	20	N	19	T	3	E
+C	33	N	32	T	3	E
+C	31	N	38	T	1	E
+C	37	N	13	T	4	E
+C	25	N	24	T	3	E
+C	6	N	5	T	3	E
+End

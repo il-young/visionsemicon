@@ -20,8 +20,8 @@ __fastcall TSystem_UserManagement_frm::TSystem_UserManagement_frm(TComponent* Ow
 //---------------------------------------------------------------------------
 void __fastcall TSystem_UserManagement_frm::FormCreate(TObject *Sender)
 {
-	System_UserManagement_LeftGrid->AddCheckBoxColumn(0,false,false);
-	System_UserManagement_LeftGrid->AddCheckBox(0,0,false,false);
+	//System_UserManagement_LeftGrid->AddCheckBoxColumn(0,false,false);
+
 	//-----------------------------------------------------------------------
 	System_UserManagement_LeftGrid->Cells[0][0] = " ";
 	System_UserManagement_LeftGrid->Cells[1][0] = " Function";
@@ -40,6 +40,19 @@ void __fastcall TSystem_UserManagement_frm::FormCreate(TObject *Sender)
 	System_UserManagement_LeftGrid->Cells[1][7] = " 007";
 	System_UserManagement_LeftGrid->Cells[1][8] = " 008";
 
+	System_UserManagement_LeftGrid->AddCheckBox(0,0,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,1,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,2,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,3,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,4,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,5,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,6,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,7,false,false);
+	System_UserManagement_LeftGrid->AddCheckBox(0,8,false,false);
+
+
+
+
 	System_UserManagement_LeftGrid->Cells[2][1] = " Change";
 	System_UserManagement_LeftGrid->Cells[2][2] = " Log";
 	System_UserManagement_LeftGrid->Cells[2][3] = " History";
@@ -51,24 +64,22 @@ void __fastcall TSystem_UserManagement_frm::FormCreate(TObject *Sender)
 	//-----------------------------------------------------------------------
 	//-----------------------------------------------------------------------
 
-	//System_UserManagement_RightGrid->AddCheckBoxColumn(0,false,false);
-	System_UserManagement_RightGrid->AddCheckBox(0,1,false,false);
-	System_UserManagement_RightGrid->AddCheckBox(0,2,false,false);
-	System_UserManagement_RightGrid->AddCheckBox(0,3,false,false);
-	System_UserManagement_RightGrid->AddCheckBox(0,4,false,false);
-	System_UserManagement_RightGrid->AddCheckBox(0,5,false,false);
+
 	//-----------------------------------------------------------------------
 	System_UserManagement_RightGrid->Cells[0][0] = " Reserved";
 	System_UserManagement_RightGrid->Cells[1][0] = " User Group";
 	//-----------------------------------------------------------------------
-	System_UserManagement_RightGrid->ColWidths[0] = 80;
-	System_UserManagement_RightGrid->ColWidths[1] = 268;
+	System_UserManagement_RightGrid->ColWidths[0] = 20;
+	System_UserManagement_RightGrid->ColWidths[1] = 300;
 	//-----------------------------------------------------------------------
-	System_UserManagement_RightGrid->Cells[1][1] = " Administrator";
-	System_UserManagement_RightGrid->Cells[1][2] = " Guest";
-	System_UserManagement_RightGrid->Cells[1][3] = " Operator";
-	System_UserManagement_RightGrid->Cells[1][4] = " Monitor";
-	System_UserManagement_RightGrid->Cells[1][5] = " Demo";
+//	System_UserManagement_RightGrid->Cells[1][1] = " Administrator";
+//	System_UserManagement_RightGrid->Cells[1][2] = " Guest";
+//	System_UserManagement_RightGrid->Cells[1][3] = " Operator";
+//	System_UserManagement_RightGrid->Cells[1][4] = " Monitor";
+//	System_UserManagement_RightGrid->Cells[1][5] = " Demo";
+
+	DB_Connect();
+	Read_Group();
 }
 //---------------------------------------------------------------------------
 
@@ -99,6 +110,386 @@ void __fastcall TSystem_UserManagement_frm::System_UserManagement_RightGridGetAl
 	{
 		HAlign =taCenter;
 	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TSystem_UserManagement_frm::DB_Connect(void)
+{
+	if(GroupConnection->Connected)
+		GroupConnection->Close();
+
+	GroupConnection->LoginPrompt = false;
+
+	String strConn  = "Provider=Microsoft.Jet.OLEDB.4.0;";
+	strConn += "Data Source=" + GetCurrentDir() + "\\User.MDB";
+	strConn += ";Persist Security Info=False;";
+	strConn += "Jet OLEDB:Database";
+
+	GroupConnection->ConnectionString = strConn;
+
+
+
+
+
+	try
+	{
+		GroupConnection->Open();
+		if(GroupConnection->State == (TObjectStates() << stOpen))
+		{
+			GroupConnection->Connected = true;
+
+		}
+	}
+	catch(Exception *e)
+	{
+
+	}
+
+}
+
+//---------------------------------------------------------------------------
+void __fastcall TSystem_UserManagement_frm::Read_Group(void)
+{
+	int a=0;
+	int i,j;
+
+	String temp;
+
+	String str ="SELECT * from tblGroup";
+
+	GroupQuery->Connection = GroupConnection;
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Open();
+
+	a = GroupQuery->RecordCount;
+
+
+
+
+	for (i = 1 ; i < a; i++)
+
+	try
+	{
+		System_UserManagement_RightGrid->ClearAll();
+
+
+		for(i = 1 ; i <= a ; i ++)
+		{
+			str ="SELECT * from tblGroup WHERE [G_NO] = " + IntToStr(i) + "" ;
+			GroupQuery->Close();
+			GroupQuery->SQL->Clear();
+			GroupQuery->SQL->Add(str);
+			GroupQuery->Open();
+
+			temp = GroupQuery->FieldByName("G_NAME")->AsString;
+
+
+
+			System_UserManagement_RightGrid->Cells[1][i] = temp;
+			System_UserManagement_RightGrid->AddCheckBox(0,i,false,false);
+
+
+		}
+
+
+	}
+	catch(Exception *e)
+	{
+
+	}
+
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::Click_Group(int col, int row)
+{
+	int a=0;
+	int i,j;
+
+	System_UserManagement_LeftGrid->UnCheckAll(0);
+	System_UserManagement_RightGrid->UnCheckAll(0);
+
+	String str ;
+
+	try
+	{
+
+		System_UserManagement_RightGrid->SetCheckBoxState(0,row,true);
+
+		str ="SELECT * from tblGroup WHERE [G_NAME] = '" + System_UserManagement_RightGrid->Cells[col][row] + "'" ;
+		GroupQuery->Close();
+		GroupQuery->SQL->Clear();
+		GroupQuery->SQL->Add(str);
+		GroupQuery->Open();
+
+		if (GroupQuery->FieldByName("G_CHANGE")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,1,true);
+		}
+
+		if (GroupQuery->FieldByName("G_LOG")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,2,true);
+		}
+
+		if (GroupQuery->FieldByName("G_HISTORY")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,3,true);
+		}
+
+		if (GroupQuery->FieldByName("G_STATISTICS")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,4,true);
+		}
+
+		if (GroupQuery->FieldByName("G_OPERATION")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,5,true);
+		}
+
+		if (GroupQuery->FieldByName("G_SYSTEM")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,6,true);
+		}
+
+		if (GroupQuery->FieldByName("G_REMOTE")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,7,true);
+		}
+
+		if (GroupQuery->FieldByName("G_LOCK")->AsString == "1")
+		{
+			System_UserManagement_LeftGrid->SetCheckBoxState(0,8,true);
+		}
+
+
+
+
+	}
+	catch(Exception *e)
+	{
+		ShowMessage(e->Message );
+    }
+
+}
+
+
+
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_UserManagement_LeftGridCheckBoxClick(TObject *Sender,
+          int ACol, int ARow, bool State)
+{
+	if (ACol == 0 && ARow == 0 && State == true)
+	{
+		System_UserManagement_LeftGrid->CheckAll(0);
+	}
+	else if ((ACol == 0 && ARow == 0 && State == false))
+	{
+		System_UserManagement_LeftGrid->UnCheckAll(0);
+	}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_UserManagement_RightGridClickCell(TObject *Sender,
+		  int ARow, int ACol)
+{
+	Click_Group(ACol, ARow);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_UserManagement_LeftGridCanEditCell(TObject *Sender,
+          int ARow, int ACol, bool &CanEdit)
+{
+	if(ACol == 0 )
+		CanEdit = true;
+	else
+		CanEdit = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_User_Management_Add_btClick(TObject *Sender)
+
+{
+	bool G_CHANGE, G_LOG, G_HISTORY, G_STATISTICS, G_OPERATION, G_SYSTEM, G_REMOTE, G_LOCK;
+	String str,temp;
+
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,1,G_CHANGE);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,2,G_LOG);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,3,G_HISTORY);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,4,G_STATISTICS);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,5,G_OPERATION);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,6,G_SYSTEM);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,7,G_REMOTE);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,8,G_LOCK);
+
+
+	temp = System_UserManagement_RightGrid->GetSelectionAsText();
+
+	str = "INSERT INTO tblGroup ([G_NAME], [G_CHANGE], [G_LOG], [G_HISTORY], [G_STATISTICS], [G_OPERATION], [G_SYSTEM], [G_REMOTE], [G_LOCK])";
+	str += " VALUES ('";
+	str += temp + "', '" + booltointstr(G_CHANGE) + "', '" + booltointstr(G_LOG) + "', '" + booltointstr(G_HISTORY) + "', '";
+	str += booltointstr(G_STATISTICS) + "', '" +  booltointstr(G_OPERATION) + "', '" + booltointstr(G_SYSTEM) + "', '";
+	str += booltointstr(G_REMOTE) + "', '" + booltointstr(G_LOCK) + "')" ;
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	tbldup();
+	Read_Group();
+	stkc_frm->PNT_ListBox("ADD GROUP '" + temp +"'");
+}
+
+String __fastcall TSystem_UserManagement_frm::booltointstr(bool b)
+{
+	if (b == true)
+	{
+		return "1";
+	}
+	else
+		return "0";
+}
+
+
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_User_Management_Edit_btClick(TObject *Sender)
+
+{
+	bool G_CHANGE, G_LOG, G_HISTORY, G_STATISTICS, G_OPERATION, G_SYSTEM, G_REMOTE, G_LOCK;
+	String str,temp;
+
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,1,G_CHANGE);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,2,G_LOG);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,3,G_HISTORY);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,4,G_STATISTICS);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,5,G_OPERATION);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,6,G_SYSTEM);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,7,G_REMOTE);
+	System_UserManagement_LeftGrid->GetCheckBoxState(0,8,G_LOCK);
+
+
+	temp = System_UserManagement_RightGrid->GetSelectionAsText();
+
+
+	str = "UPDATE tblGroup SET [G_CHANGE] = '" + booltointstr(G_CHANGE) + "'";
+	str += ", [G_LOG] ='" + booltointstr(G_LOG) + "'";
+	str += ", [G_HISTORY] ='" + booltointstr(G_HISTORY) + "'";
+	str += ", [G_STATISTICS] = '" + booltointstr(G_STATISTICS) + "'";
+	str += ", [G_OPERATION] = '" + booltointstr(G_OPERATION) + "'";
+	str += ", [G_SYSTEM] = '" + booltointstr(G_SYSTEM) + "'";
+	str += ", [G_REMOTE] = '" + booltointstr(G_REMOTE) + "'";
+	str += ", [G_LOCK] = '" + booltointstr(G_LOCK) + "'";
+	str += " WHERE [G_NAME] ='" + temp + "'";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	stkc_frm->PNT_ListBox("EDIT GROUP '" + temp + "'");
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::tbldup(void)
+{
+//	G_CHANGE, G_LOG, G_HISTORY, G_STATISTICS, G_OPERATION, G_SYSTEM, G_REMOTE, G_LOCK
+
+
+	String str;
+	str = "SELECT * INTO[TEMP] FROM [tblGroup] WHERE 1=2 ";  //, tblGroup.G_CHANGE, tblGroup.G_LOG, tblGroup.G_HISTORY, tblGroup.G_STATISTICS, tblGroup.G_OPERATION, tblGroup.G_SYSTEM, tblGroup.G_REMOTE,tblGroup.G_LOCK INTO[TEMP] FROM [tblGroup] ";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	str = "INSERT INTO [TEMP] SELECT tblGroup.G_NAME, tblGroup.G_CHANGE, tblGroup.G_LOG, tblGroup.G_HISTORY, tblGroup.G_STATISTICS, tblGroup.G_OPERATION, tblGroup.G_SYSTEM, tblGroup.G_REMOTE,tblGroup.G_LOCK FROM [tblGroup] ";//"INSERT tblGroup.G_CHANGE, tblGroup.G_LOG, tblGroup.G_HISTORY, tblGroup.G_STATISTICS, tblGroup.G_OPERATION, tblGroup.G_SYSTEM, tblGroup.G_REMOTE,tblGroup.G_LOCK INTO[TEMP] FROM [tblGroup] ";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	str = "DROP TABLE[tblGroup]";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	str = "SELECT * INTO[tblGroup] FROM [TEMP]";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	str = "DROP TABLE[TEMP]";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+}
+
+
+void __fastcall TSystem_UserManagement_frm::System_User_Management_Delete_btClick(TObject *Sender)
+
+{
+	String str, temp;
+	temp = System_UserManagement_RightGrid->GetSelectionAsText();
+
+	str = "DELETE * from tblGroup WHERE [G_NAME] = '" + temp + "'";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+
+	tbldup();
+	Read_Group();
+	stkc_frm->PNT_ListBox("DELETE GROUP '" + temp + "'");
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystem_UserManagement_frm::System_User_Management_ChangeName_btClick(TObject *Sender)
+
+{
+	int col, row;
+	String str, temp, buff;
+	col = System_UserManagement_RightGrid->Col;
+	row = System_UserManagement_RightGrid->Row;
+
+	buff = System_UserManagement_RightGrid->GetSelectionAsText();
+
+	str ="SELECT * from tblGroup WHERE [G_NO] = " + IntToStr(row) + "" ;
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Open();
+
+	temp = GroupQuery->FieldByName("G_NAME")->AsString;
+
+	str = "UPDATE tblGroup SET [G_NAME] = '" + buff + "' WHERE [G_NO] = " + row + ";";
+	GroupQuery->Close();
+	GroupQuery->SQL->Clear();
+	GroupQuery->SQL->Add(str);
+	GroupQuery->Prepared = true;
+	GroupQuery->ExecSQL();
+
+	tbldup();
+	Read_Group();
+	stkc_frm->PNT_ListBox("CHANGE GROUP NAME '" + temp + "'->'" + buff +"'");
 }
 //---------------------------------------------------------------------------
 

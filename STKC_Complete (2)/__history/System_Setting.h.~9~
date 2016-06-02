@@ -1,0 +1,76 @@
+//---------------------------------------------------------------------------
+
+#ifndef System_SettingH
+#define System_SettingH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include "AdvEdit.hpp"
+#include "AdvIPEdit.hpp"
+#include <Vcl.Mask.hpp>
+
+#include "G_Define.h"
+//---------------------------------------------------------------------------
+class TSetting_Frm : public TForm
+{
+__published:	// IDE-managed Components
+	TPageControl *pc_panel;
+	TTabSheet *TabSheet1;
+	TTabSheet *ts_maintenance;
+	TComboBox *cb_connect_mode;
+	TEdit *tb_local_port;
+	TLabel *lb_local_port;
+	TLabel *lb_local_ip;
+	TLabel *lb_connect_mode;
+	TLabel *Label1;
+	TLabel *lb_t9;
+	TLabel *lb_t7;
+	TLabel *lb_t6;
+	TLabel *lb_t5;
+	TLabel *lb_t3;
+	TEdit *tb_t3;
+	TEdit *tb_t5;
+	TEdit *tb_t6;
+	TEdit *tb_t7;
+	TEdit *tb_t8;
+	TEdit *tb_t9;
+	TLabel *Label4;
+	TLabel *Label5;
+	TEdit *tb_remote_port;
+	TButton *btn_cancel;
+	TButton *btn_ok;
+	TAdvIPEdit *AdvIPEdit1;
+	TAdvIPEdit *AdvIPEdit2;
+	TEdit *tb_col;
+	TEdit *tb_row;
+	TLabel *Label2;
+	TLabel *Label3;
+	TLabel *Label6;
+	TEdit *tb_dev_num;
+	TLabel *Label7;
+	TEdit *tb_model;
+	TLabel *Label8;
+	TEdit *tb_version;
+	void __fastcall tb_t3Change(TObject *Sender);
+	void __fastcall tb_t5Change(TObject *Sender);
+	void __fastcall tb_t6Change(TObject *Sender);
+	void __fastcall tb_t7Change(TObject *Sender);
+	void __fastcall tb_t8Change(TObject *Sender);
+	void __fastcall tb_t9Change(TObject *Sender);
+	void __fastcall btn_cancelClick(TObject *Sender);
+	void __fastcall Settingfrm_OnActivate(TObject *Sender);
+	void __fastcall btn_okClick(TObject *Sender);
+	void __fastcall Settingfrm_maintenance(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TSetting_Frm(TComponent* Owner);
+	void __fastcall TSetting_Frm::DBCarrierInit();
+	void __fastcall Read_Setting();
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TSetting_Frm *Setting_Frm;
+//---------------------------------------------------------------------------
+#endif

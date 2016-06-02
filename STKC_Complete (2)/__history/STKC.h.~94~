@@ -1,0 +1,431 @@
+//---------------------------------------------------------------------------
+
+#ifndef STKCH
+#define STKCH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Imaging.jpeg.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.ComCtrls.hpp>
+//#include "AdvGrid.hpp"
+//#include "AdvObj.hpp"
+//#include "BaseGrid.hpp"
+#include <Vcl.Grids.hpp>
+#include <Data.DB.hpp>
+#include <Data.Win.ADODB.hpp>
+#include "EZGEMLib_OCX.h"
+#include <Vcl.OleCtrls.hpp>
+
+#include "G_Define.h"
+#include "AdvGrid.hpp"
+#include "Advobj.hpp"
+#include "BaseGrid.hpp"
+
+class CHsmsPara
+{
+	public:
+	CHsmsPara()
+	{
+		sHostIP = "";
+		ZeroMemory(this, sizeof(*this));
+	}
+	~CHsmsPara() {}
+
+	__property int nDeiceId		= {read = FnDeiceId,		write = SetDeiceId	};
+	__property int nPort		= {read = FnPort,		write = SetPort 	};
+	__property int nLnkTest		= {read = FnLnkTest,		write = SetLnkTest 	};
+	__property int nRetry		= {read = FnRetry,		write = SetRetry 	};
+	__property int nT3		= {read = FnT3,			write = SetT3 		};
+	__property int nT5		= {read = FnT5,			write = SetT5 		};
+	__property int nT6		= {read = FnT6,			write = SetT6 		};
+	__property int nT7		= {read = FnT7,			write = SetT7 		};
+	__property int nT8		= {read = FnT8,			write = SetT8 		};
+	__property int nT9		= {read = FnT9,			write = SetT9 		};
+	__property int nCTOut		= {read = FnCTOut,		write = SetCTOut 	};
+	__property bool bPassiveMode	= {read = FbPassiveMode,	write = SetPassiveMode	};
+	__property AnsiString sHostIP	= {read = FsHostIP,		write = SetHostIP	};
+
+	private:
+	CHsmsPara(const CHsmsPara& rhs) {}
+
+	int FnDeiceId;
+	int FnPort;
+	int FnLnkTest;
+	int FnRetry;
+	int FnT3;
+	int FnT5;
+	int FnT6;
+	int FnT7;
+	int FnT8;
+	int FnT9;
+	int FnCTOut;
+	bool FbPassiveMode;
+	AnsiString FsHostIP;
+
+	void SetDeiceId(const int nVal)		{ FnDeiceId = nVal;	}
+	void SetPort(const int nVal) 		{ FnPort = nVal;	}
+	void SetLnkTest(const int nVal)		{ FnLnkTest = nVal;	}
+	void SetRetry(const int nVal) 		{ FnRetry = nVal;	}
+	void SetT3(const int nVal) 		{ FnT3 = nVal;		}
+	void SetT5(const int nVal) 		{ FnT5 = nVal;		}
+	void SetT6(const int nVal) 		{ FnT6 = nVal;		}
+	void SetT7(const int nVal) 		{ FnT7 = nVal;		}
+	void SetT8(const int nVal) 		{ FnT8 = nVal;		}
+	void SetT9(const int nVal) 		{ FnT9 = nVal;		}
+	void SetCTOut(const int nVal) 		{ FnCTOut = nVal;	}
+	void SetPassiveMode(const bool bVal)	{ FbPassiveMode = bVal;	}
+	void SetHostIP(const AnsiString sVal)	{ FsHostIP = sVal;	}
+
+};
+
+typedef boost::shared_ptr<CHsmsPara> HsmsParaPtr;
+
+class CEzGemState
+{
+public:
+	CEzGemState()
+	{
+		ZeroMemory(this, sizeof(*this));
+	}
+	~CEzGemState() {}
+
+	///////// Control State
+	__property int  nControlState		= {read = FnControlState,		write = SetControlState 	};
+	__property int  nPrevControlState	= {read = FnPrevControlState,		write = SetPrevControlState 	};
+	__property int  nLatestControlState	= {read = FnLatestControlState,		write = SetLatestControlState 	};
+
+	///////// Process State
+	__property int  nProcessState		= {read = FnProcessState,		write = SetProcessState 	};
+	__property int  nPrevProcessState	= {read = FnPrevProcessState,		write = SetPrevProcessState 	};
+	__property int  nDispFg			= {read = FnDispFg,			write = SetDispFg 		};
+	__property int  nSoftChkCnt		= {read = FnSoftChkCnt,			write = SetSoftChkCnt 		};
+	__property int  nTime500msCnt		= {read = FnTime500msCnt,		write = SetTime500msCnt 	};
+	__property bool bConnectedFg		= {read = FbConnectedFg,		write = SetConnectedFg 		};
+	__property bool bDoorOpenFg		= {read = FbDoorOpenFg,			write = SetDoorOpenFg 		};
+	__property bool bEstablish		= {read = FbEstablish,			write = SetEstablish 		};
+	__property bool bEnabled		= {read = FbEnabled,			write = SetEnabled 		};
+
+private:
+	CEzGemState(const CEzGemState& rhs) {}
+
+	///////// Control State
+	int  FnControlState;
+	int  FnPrevControlState;
+	int  FnLatestControlState;
+
+	///////// Process State
+	int  FnProcessState;
+	int  FnPrevProcessState;
+	int  FnDispFg;
+	int  FnSoftChkCnt;
+	int  FnTime500msCnt;
+	bool FbConnectedFg;
+	bool FbDoorOpenFg;
+	bool FbEstablish;
+	bool FbEnabled;
+
+	///////// Control State
+	void SetControlState(const int nVal)		{ FnControlState = nVal;	}
+	void SetPrevControlState(const int nVal)	{ FnPrevControlState = nVal;	}
+	void SetLatestControlState(const int nVal)	{ FnLatestControlState = nVal;	}
+
+	///////// Process State
+	void SetProcessState(const int nVal)		{ FnProcessState = nVal;	}
+	void SetPrevProcessState(const int nVal)	{ FnPrevProcessState = nVal;	}
+	void SetDispFg(const int nVal)			{ FnDispFg = nVal;		}
+	void SetSoftChkCnt(const int nVal)		{ FnSoftChkCnt = nVal;		}
+	void SetTime500msCnt(const int nVal)		{ FnTime500msCnt = nVal;	}
+	void SetConnectedFg(const bool bVal)		{ FbConnectedFg = bVal;		}
+	void SetDoorOpenFg(const bool bVal)		{ FbDoorOpenFg = bVal;		}
+	void SetEstablish(const bool bVal)		{ FbEstablish = bVal;		}
+	void SetEnabled(const bool bVal)		{ FbEnabled = bVal;		}
+};
+
+typedef boost::shared_ptr<CEzGemState> GemStatePtr;
+
+
+//---------------------------------------------------------------------------
+
+struct _SPOOLINFO
+{
+	bool bSpoolEnabled;
+	UINT nMaxSpoolSize;
+	UINT nMaxSpoolTransmit;
+	bool bSpoolOverwrite;
+};
+
+class CEcidVar
+{
+	public:
+	CEcidVar()
+	{
+		ZeroMemory(this, sizeof(*this));
+	}
+	~CEcidVar() {}
+
+	_SPOOLINFO SPOOLINFO;
+
+	// Equipment Constant
+	__property UINT nDefaultCommState 	= {read = FnDefaultCommState, 	write = SetDefaultCommState	};
+	__property int  nDefaultControlState	= {read = FnDefaultControlState,write = SetDefaultControlState 	};
+	__property UINT nCommReqeustTimeout 	= {read = FnCommReqeustTimeout, write = SetCommReqeustTimeout	};
+	__property UINT nTimeFormat		= {read = FnTimeFormat,		write = SetTimeFormat		};
+	__property bool	bJobInfoConfirm		= {read = FbJobInfoConfirm,	write = SetJobInfoConfirm	};
+	__property String sModelName		= {read = FsModelName, 		write = SetModelName		};
+	__property String sSoftRev		= {read = FsSoftRev,		write = SetSoftRev		};
+
+	private:
+	CEcidVar(const CEcidVar& rhs) {}
+
+	// Equipment Constant
+	UINT FnDefaultCommState;
+	int  FnDefaultControlState;
+	UINT FnCommReqeustTimeout;
+	UINT FnTimeFormat;	// 12, 16
+	bool FbJobInfoConfirm;
+	String FsModelName;
+	String FsSoftRev;
+
+	// Equipment Constant
+	void SetDefaultCommState(const UINT nVal)	{ FnDefaultCommState = nVal;	}
+	void SetDefaultControlState(const int nVal)	{ FnDefaultControlState = nVal;	}
+	void SetCommReqeustTimeout(const UINT nVal)	{ FnCommReqeustTimeout = nVal;	}
+	void SetTimeFormat(const UINT nVal)		{ FnTimeFormat = nVal;		}
+	void SetJobInfoConfirm(const UINT nVal)		{ FbJobInfoConfirm = nVal;	}
+	void SetModelName(const String sVal)		{ FsModelName = sVal;		}
+	void SetSoftRev(const String sVal)		{ FsSoftRev = sVal;		}
+};
+
+typedef boost::shared_ptr<CEcidVar> EcidPtr;
+
+
+
+class Tstkc_frm : public TForm
+{
+__published:	// IDE-managed Components
+	TMainMenu *Alarm_menu;
+	TMenuItem *Change1;
+	TMenuItem *Log1;
+	TMenuItem *History1;
+	TMenuItem *Statistics1;
+	TMenuItem *Operation1;
+	TMenuItem *System1;
+	TPanel *pn_lr;
+	TPanel *Panel6;
+	TPanel *Panel7;
+	TPanel *Panel4;
+	TPageControl *PageControl1;
+	TTabSheet *TabSheet1;
+	TPanel *Panel2;
+	TLabel *Label2;
+	TLabel *Label6;
+	TPanel *Panel3;
+	TLabel *Label3;
+	TLabel *Label8;
+	TLabel *Label9;
+	TPanel *Panel1;
+	TLabel *Label1;
+	TLabel *Label4;
+	TLabel *Label5;
+	TTabSheet *TabSheet2;
+	TButton *btn_date;
+	TPageControl *PageControl2;
+	TTabSheet *TabSheet3;
+	TTabSheet *TabSheet4;
+	TButton *Search_bt;
+	TStringGrid *Stocker_Grid;
+	TMenuItem *AutoManual1;
+	TMenuItem *LinkStatusChange1;
+	TMenuItem *Selectconnectedequipment1;
+	TMenuItem *CraneOffOnline1;
+	TMenuItem *PLCOffOnline1;
+	TMenuItem *AGVPort01OffOnline1;
+	TMenuItem *PGVPort02OffOnline1;
+	TMenuItem *Event1;
+	TMenuItem *Operation2;
+	TMenuItem *HostCommunication1;
+	TMenuItem *LogFolder1;
+	TMenuItem *Alarm1;
+	TMenuItem *Event2;
+	TMenuItem *ransferCommand1;
+	TMenuItem *Operation3;
+	TMenuItem *CarrierHistory1;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *UserManagement1;
+	TMenuItem *UserGrouping1;
+	TMenuItem *MaxPoolLevel1;
+	TMenuItem *N3;
+	TMenuItem *N4;
+	TMenuItem *Setting1;
+	TADOConnection *dbConnection;
+	TADOQuery *dbQuery;
+	TTimer *logout_timer;
+	TListBox *lb_msg;
+	TPopupMenu *Carrier_grid_menu;
+	TMenuItem *btn_toagv;
+	TMenuItem *btn_topgv;
+	TMenuItem *btn_form;
+	TMenuItem *btn_lock;
+	TMenuItem *btn_unlock;
+	TButton *Button1;
+	TAdvStringGrid *gd_carrier;
+	TADOConnection *SystemConnection;
+	TADOQuery *SystemQuery;
+	TAdvStringGrid *gd_Alarm;
+	TEdit *tb_carrier_id;
+	TButton *btn_login;
+	TLabel *Label7;
+	TLabel *Label10;
+	TADOConnection *Thread_Connetion;
+	TADOQuery *ez;
+	TEZGEM *EZGEM1;
+	void __fastcall Carrier_GridGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
+          TBrush *ABrush, TFont *AFont);
+	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall AutoManual1Click(TObject *Sender);
+	void __fastcall LinkStatusChange1Click(TObject *Sender);
+	void __fastcall oAGVPort1Click(TObject *Sender);
+	void __fastcall oPGVPort1Click(TObject *Sender);
+	void __fastcall FormTo1Click(TObject *Sender);
+	void __fastcall Lock1Click(TObject *Sender);
+	void __fastcall Event1Click(TObject *Sender);
+	void __fastcall Operation2Click(TObject *Sender);
+	void __fastcall HostCommunication1Click(TObject *Sender);
+	void __fastcall LogFolder1Click(TObject *Sender);
+	void __fastcall Alarm1Click(TObject *Sender);
+	void __fastcall Event2Click(TObject *Sender);
+	void __fastcall ransferCommand1Click(TObject *Sender);
+	void __fastcall Operation3Click(TObject *Sender);
+	void __fastcall CarrierHistory1Click(TObject *Sender);
+	void __fastcall N2Click(TObject *Sender);
+	void __fastcall N1Click(TObject *Sender);
+	void __fastcall UserManagement1Click(TObject *Sender);
+	void __fastcall UserGrouping1Click(TObject *Sender);
+	void __fastcall MaxPoolLevel1Click(TObject *Sender);
+	void __fastcall N3Click(TObject *Sender);
+	void __fastcall N4Click(TObject *Sender);
+	void __fastcall Setting1Click(TObject *Sender);
+	void __fastcall btn_loginClick(TObject *Sender);
+	void __fastcall logout_timerTimer(TObject *Sender);
+
+	void __fastcall logout();
+	void __fastcall STKC_OnActive(TObject *Sender);
+	void __fastcall EZGEM1_OnConnected(TObject *Sender);
+	void __fastcall EZGEM1_OnDisConnected(TObject *Sender);
+	void __fastcall EZGEM1SecsMsgIn(TObject *Sender, short nStream, short nFunction,
+		  short nWbit, long lSysByte);
+	void __fastcall pn_lrDblClick(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall gd_carrierRightClickCell(TObject *Sender, int ARow, int ACol);
+	void __fastcall EZGEM1Connected(TObject *Sender);
+	void __fastcall EZGEM1Disconnected(TObject *Sender);
+	void __fastcall gd_carrierGetCellColor(TObject *Sender, int ARow, int ACol, TGridDrawState AState,
+		  TBrush *ABrush, TFont *AFont);
+	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall btn_lockClick(TObject *Sender);
+	void __fastcall Carrier_grid_menuPopup(TObject *Sender);
+	void __fastcall btn_unlockClick(TObject *Sender);
+	void __fastcall EZGEM1OfflineRequest(TObject *Sender, long lMsgId);
+	void __fastcall EZGEM1OnlineRequest(TObject *Sender, long lMsgId);
+	void __fastcall gd_carrierDragDrop(TObject *Sender, TObject *Source, int X, int Y);
+	void __fastcall gd_carrierEndDrag(TObject *Sender, TObject *Target, int X, int Y);
+	void __fastcall FormDestroy(TObject *Sender);
+	void __fastcall EZGEM1CommEstablished(TObject *Sender);
+	void __fastcall EZGEM1DateTimeSetRequest(TObject *Sender, long lMsgId, BSTR strNewDateTime);
+	void __fastcall EZGEM1OnlineLocal(TObject *Sender);
+	void __fastcall EZGEM1OnlineRemote(TObject *Sender);
+	void __fastcall EZGEM1NewEquipConst(TObject *Sender, long lMsgId, short nCount);
+	void __fastcall EZGEM1RemoteCommand(TObject *Sender, long lMsgId, BSTR strCommand,
+          short nParamCount);
+	void __fastcall EZGEM1SecsMsgOut(TObject *Sender, short nStream, short nFunction,
+          short nWbit, long lSysByte);
+	void __fastcall EZGEM1TerminalMessageMulti(TObject *Sender, long lMsgId, short nCode,
+          short nCount);
+	void __fastcall EZGEM1TerminalMessageSingle(TObject *Sender, long lMsgId, BSTR strCommand,
+          short nParamCount);
+	void __fastcall EZGEM1MsgRequested(TObject *Sender, long lMsgId);
+
+
+
+
+
+
+
+
+private:	// User declarations
+
+	void __fastcall UdpateGemState(void);
+public:		// User declarations
+	stSRVInfo STK_SRVinfo;
+	stCarrierXY Carrier_cell;
+	String Err_Code_Str_arr[86];
+	GemStatePtr GemState;
+       	HsmsParaPtr	HsmsPara;
+        TCPIPManager *_TCPIPManager;        	//TCPIP 모듈
+	NodeList *_NodeListManager;         	//경로 결정 모듈
+ 	deque<stJob> m_Jobs;           		//MES에서 받은 명령 리스트
+	deque<unsigned short> m_TrraficNodes;	//트레픽 걸린 노드
+	deque<stBatteryEQInfo> m_BatteryEQs;	//BatteryEQ 리스트
+        deque<stagvInform> m_AGVs;		//AGV 리스트
+	EcidPtr	Ecid;
+	bool run;
+
+	__fastcall Tstkc_frm(TComponent* Owner);
+	int logout_time;
+	int logout_cnt;
+        String __fastcall GetErrorCode(const short ret);
+	void __fastcall Tstkc_frm::PNT_ListBox(String msg);			// 전각 문자만 쓸것.!!!!
+	void __fastcall Tstkc_frm::CarrierGrid_init(void);			// Carrier Grid 초기화
+	void __fastcall Tstkc_frm::SaveMessage(AnsiString msg);
+	void __fastcall Tstkc_frm::EZGEM_Init();
+	void __fastcall AddSVIDs(void);
+	void __fastcall AddCEIDs(void);
+	void __fastcall AddECIDs(void);
+	void __fastcall AddALIDs(void);
+	void __fastcall S1F13(void);
+
+	void __fastcall SystemDB_Connect(void);
+	void __fastcall AlarmGrid_init(void);
+	//void __fastcall Alarm_List_Load(void);
+	void __fastcall Init_Err_Code(void);
+        void __fastcall UpdateEcidPara(void);
+        unsigned char InitialAGVInformStructure(void);
+        unsigned char InitialJobInformStructure(void);
+        bool __fastcall InsertTransferCommandInfo(stJob jInfo);
+
+
+	void __fastcall OnS1F2(long lMsgId);
+        void __fastcall OnS1F14(long lMsgId);
+        void __fastcall OnS2F18(long lMsgId);
+        void __fastcall OnS2F49W(long lMsgId);
+        void __fastcall OnS3F17W(long lMsgId);
+        void __fastcall OnS5F2(long lMsgID);
+        void __fastcall OnS6F2(long lMsgID);
+        void __fastcall OnS6F12(long lMsgID);
+        void __fastcall OnS10F2(long lMsgID);
+
+
+
+};
+
+
+typedef enum
+{
+	CONTROL_EQUIPMENT_OFFLINE 	= 1,
+	CONTROL_ATTEMPT_ONLINE    	= 2,
+	CONTROL_HOST_OFFLINE   	 	= 3,
+	CONTROL_ONLINE_LOCAL   		= 4,
+	CONTROL_ONLINE_REMOTE       	= 5
+}CONTROL_STATE;
+
+//---------------------------------------------------------------------------
+extern PACKAGE Tstkc_frm *stkc_frm;
+//---------------------------------------------------------------------------
+#endif
+
+

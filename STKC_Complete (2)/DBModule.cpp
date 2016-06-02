@@ -12,10 +12,70 @@
 TDBManager *DBManager;
 //---------------------------------------------------------------------------
 __fastcall TDBManager::TDBManager(TComponent* Owner)
-	: TDataModule(Owner)
-{
+	  : TDataModule(Owner)
+  {
 
+  }
+
+
+
+bool __fastcall TDBManager::ALDB_Connect()
+{
+	if(ALConnection->Connected)
+		ALConnection->Close();
+	ALConnection->LoginPrompt = false;
+
+	String strConn  = "Provider=Microsoft.Jet.OLEDB.4.0;";
+	strConn += "Data Source=" + GetCurrentDir() + "\\System_Infomation.MDB";
+	strConn += ";Persist Security Info=False;";
+	strConn += "Jet OLEDB:Database";
+
+	ALConnection->ConnectionString = strConn;
+
+	try
+	{
+		ALConnection->Open();
+		if(ALConnection->State == (TObjectStates() << stOpen))
+		{
+			ALConnection->Connected = true;
+
+		}
+	}
+	catch(Exception *e)
+	{
+		return false;
+	}
 }
+
+bool __fastcall TDBManager::CADB_Connect()
+{
+	if(CAConnection->Connected)
+		CAConnection->Close();
+	CAConnection->LoginPrompt = false;
+
+	String strConn  = "Provider=Microsoft.Jet.OLEDB.4.0;";
+	strConn += "Data Source=" + GetCurrentDir() + "\\System_Infomation.MDB";
+	strConn += ";Persist Security Info=False;";
+	strConn += "Jet OLEDB:Database";
+
+	CAConnection->ConnectionString = strConn;
+
+	try
+	{
+		CAConnection->Open();
+		if(CAConnection->State == (TObjectStates() << stOpen))
+		{
+			CAConnection->Connected = true;
+
+		}
+	}
+	catch(Exception *e)
+	{
+		return false;
+	}
+}
+
+
 
 bool __fastcall TDBManager::ConnectDB()
 {
@@ -27,6 +87,12 @@ bool __fastcall TDBManager::ConnectDB()
 	strConn += "Data Source=" + GetCurrentDir() + "\\User.MDB";
 	strConn += ";Persist Security Info=False;";
 	strConn += "Jet OLEDB:Database";
+
+//	String strConn  = "Provider=Microsoft.Jet.OLEDB.4.0;";
+//	strConn += "Data Source=" + GetCurrentDir() + "\\System_Infomation.MDB";
+//	strConn += ";Persist Security Info=False;";
+//	strConn += "Jet OLEDB:Database";
+
 
 	dbConnection->ConnectionString = strConn;
 
@@ -233,92 +299,123 @@ bool __fastcall TDBManager::DeleteUser(AnsiString ID)
 		return false;
 	}
 }
-// Carrier 정보 얻기
-__fastcall TDBManager::GetCarrierinfo()
+// 개별 Carrier 정보 얻기
+
+stCARRIERInfo __fastcall TDBManager::GetCarrierinfo(int row, int col)
+{
+	try
+	{
+	stCARRIERInfo info;
+
+	if(!stkc_frm->SystemConnection->Connected)
+	{
+
+    }
+
+
+
+	stkc_frm->SystemQuery->Connection = stkc_frm->SystemConnection;
+	stkc_frm->SystemQuery->Close();
+	stkc_frm->SystemQuery->SQL->Clear();
+	stkc_frm->SystemQuery->SQL->Add("SELECT * from tblCarrier WHERE [C_X] = '"+ IntToStr(row) + "' AND [C_Y] = '" + IntToStr(col) + "'" );
+	stkc_frm->SystemQuery->Open();
+	//stkc_frm->SystemQuery->ExecSQL();
+
+	info.ST = stkc_frm->SystemQuery->FieldByName("C_ST")->AsString;
+	info.Date = stkc_frm->SystemQuery->FieldByName("C_DATE")->AsString;
+	info.LOT = stkc_frm->SystemQuery->FieldByName("C_LOT")->AsString;
+
+	return info;
+	}
+	catch(Exception *e)
+	{
+		//return info;
+//		if(e->Message == "비동기로 실행하는 동안에는 작업을 수행할 수 없습니다")
+//		{
+//			GetCarrierinfo(row, col);
+//        }
+
+	}
+
+}
+
+
+// 모든 Carrier 정보 얻기
+__fastcall TDBManager::GetAllCarrierinfo()
 {
 	int i,j,row, col;
-	String str;
+	int str;
+	String buf;
 	col = StrToInt(Setting_Frm->tb_col->Text );
 	row = StrToInt(Setting_Frm->tb_row->Text );
 
-//	try
-//	{
-		if(!dbConnection->Connected)
-
-
-		dbQuery->Connection = dbConnection;
-		dbQuery->Close();
-		dbQuery->SQL->Clear();
-		dbQuery->SQL->Add("SELECT * from tblCarrier");
-		dbQuery->Open();
-
-		if(dbQuery->RecordCount > 0)
+	try
+	{
+		if(!CAConnection->Connected)
 		{
-			dbQuery->First();
 
-			for (i=0; i < row-1 ; i++)
+		}
+
+
+		CAQuery->Connection = CAConnection;
+		CAQuery->Close();
+		CAQuery->SQL->Clear();
+		CAQuery->SQL->Add("SELECT * from tblCarrier");
+		CAQuery->Open();
+
+		if(CAQuery->RecordCount > 0)
+		{
+			CAQuery->First();
+
+			for (i=1; i <= col ; i++)
 			{
-				for (j=0; j < col-1; j++)
+				for (j=1; j <= row; j++)
 				{
-//					dbQuery->Close();
-//					dbQuery->SQL->Clear();
-//					dbQuery->SQL->Add("SELECT [C_X] = " + i + "[C_Y] = " + j + " from tblCarrier");
-//					dbQuery->Open();
-//					stkc_frm->gd_carrier->Cells[i][j] = dbQuery->SQL->FieldByName("C_ST")->AsString;
-//
-					str = dbQuery->SQL->FieldByName("C_ST");
-//					switch (str)
-//					{
-//						case 0 :
-//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Alarm_Str;
-//							stkc_frm->gd_carrier->Canvas->FloodFill(i, j, clRed,);
-//						case 1 :
-//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Complete_Str;
-//						case 2 :
-//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Idel_Str;
-//						case 3 :
-//							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Offline_Str;
+
+					str = -1;
+					buf = "SELECT * from tblCarrier WHERE [C_X] = '"+ IntToStr(i) + "' AND [C_Y] = '" + IntToStr(j) +"'";// + "' & [C_Y] = '" + IntToStr(j) +"'" ;
+					CAQuery->Close();
+					CAQuery->SQL->Clear();
+					CAQuery->SQL->Add(buf);
+					CAQuery->Open();
+
+
+					str = CAQuery->FieldByName("C_ST")->AsInteger;
+					int d = 0;
+					switch (str)
+					{
+						case 0 :
+							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Alarm_Str;
+							break;
+						case 1 :
+							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Complete_Str;
+							break;
+						case 2 :
+							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Idel_Str;
+							break;
+						case 3 :
+							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Offline_Str;
+							break;
+						case 4 :
+							stkc_frm->gd_carrier->Cells[i][j] = Carrier_ST_Lock_Str;
+							break;
 					}
 				}
 			}
+		}
 
 
 
-
-//			info.SECS_TYPE = dbQuery->FieldByName("S_MODE")->AsString;
-//			info.SECS_LIP = dbQuery->FieldByName("S_LIP")->AsString;
-//			info.SECS_LPORT = dbQuery->FieldByName("S_LPORT")->AsString;
-//			info.SECS_RIP = dbQuery->FieldByName("S_RIP")->AsString;
-//			info.SECS_RPORT = dbQuery->FieldByName("S_RPORT")->AsString;
-//			info.SECS_T3 = dbQuery->FieldByName("S_T3")->AsString;
-//			info.SECS_T5 = dbQuery->FieldByName("S_T5")->AsString;
-//			info.SECS_T6 = dbQuery->FieldByName("S_T6")->AsString;
-//			info.SECS_T7 = dbQuery->FieldByName("S_T7")->AsString;
-//			info.SECS_T8 = dbQuery->FieldByName("S_T8")->AsString;
-//			info.SECS_T9 = dbQuery->FieldByName("S_T9")->AsString;
-//
-//			info.SECS_COL = dbQuery->FieldByName("S_COL")->AsInteger ;
-//			info.SECS_ROW = dbQuery->FieldByName("S_ROW")->AsInteger ;
-//			info.SECS_DEV_NUM = dbQuery->FieldByName("S_DEVICE_NUMBER")->AsInteger ;
-//			info.SECS_MODELNAME = dbQuery->FieldByName("S_MODELNAME")->AsAnsiString ;
-//			info.SECS_VERSION = dbQuery->FieldByName("S_VERSION")->AsAnsiString;
- //		}
-
-//		if(dbQuery->RecordCount > 0)
-//		{
-//			//return info;
-//		}
-//		else
-//		{
-//		   //	return info;
-//		}
-//	}
-//	catch(Exception *e)
-//	{
-//		//return info;
-//	}
+	}
+	catch(Exception *e)
+	{
+		//return info;
+		ShowMessage(e->Message );
+	}
 
 }
+
+
 
 
 //SECS 정보 얻기
@@ -341,6 +438,7 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 	info.SECS_DEV_NUM = "";
 	info.SECS_MODELNAME = "";
 	info.SECS_VERSION = "";
+	info.DB_DIR = "";
 
 	try
 	{
@@ -374,6 +472,7 @@ stSECSInfo __fastcall TDBManager::SelectSECSInfo()
 			info.SECS_DEV_NUM = dbQuery->FieldByName("S_DEVICE_NUMBER")->AsInteger ;
 			info.SECS_MODELNAME = dbQuery->FieldByName("S_MODELNAME")->AsAnsiString ;
 			info.SECS_VERSION = dbQuery->FieldByName("S_VERSION")->AsAnsiString;
+			info.DB_DIR = dbQuery->FieldByName("S_DBDIR")->AsAnsiString;
 		}
 
 		if(dbQuery->RecordCount > 0)
@@ -411,7 +510,8 @@ bool __fastcall TDBManager::EditSECS(stSECSInfo info)
 	Value += "[S_ROW] = "	+ info.SECS_ROW +",";
 	Value += "[S_DEVICE_NUMBER] =" + info.SECS_DEV_NUM + ",";
 	Value += "[S_MODELNAME] = '" + info.SECS_MODELNAME+ "',";
-	Value += "[S_VERSION]= '" + info.SECS_VERSION + "'"  ;
+	Value += "[S_VERSION]= '" + info.SECS_VERSION + "',"  ;
+	Value += "[S_DBDIR]= '" + info.DB_DIR + "'"  ;
 	String WHERE = " WHERE [S_NO]= 1;";
 
 	dbQuery->Connection = dbConnection;
@@ -444,3 +544,265 @@ void __fastcall TDBManager::InitCarrierDB()
 
 
 }
+//CarrierDB 초기화
+void __fastcall TDBManager::CarrierDB_Init(int col, int row)
+{
+	int i, j;
+	String str ;
+	CAQuery->Connection = CAConnection;
+	CAQuery->Close();
+	CAQuery->SQL->Clear();
+	CAQuery->SQL->Add("DELETE * from tblCarrier");
+	CAQuery->ExecSQL();
+
+
+
+	for (i=1 ; i <= col ; i++)
+	{
+		for(j=1 ; j <= row ; j++)
+		{
+			str = "INSERT INTO tblCarrier ([C_X], [C_Y], [C_ST], [C_DATE], [C_LOT]) VALUES ('"+ IntToStr(i) + "', '" + IntToStr(j) + "', '" + Carrier_ST_Idel + "', '" + FormatDateTime("MM/DD/YY hh:mm", Now()) + "', ' ')";
+			CAQuery->Close();
+			CAQuery->SQL->Clear();
+			CAQuery->SQL->Add(str);
+			CAQuery->ExecSQL();
+		}
+	}
+}
+
+
+void __fastcall TDBManager::btntest()
+{
+//	int i,j;
+//	String str;
+//	dbQuery->Connection = dbConnection;
+//
+//	for (i=1 ; i <= 16 ; i++)
+//	{
+//		for(j=1 ; j <= 16 ; j++)
+//		{
+//
+//			dbQuery->Close();
+//			dbQuery->SQL->Clear();
+//			dbQuery->SQL->Add(str);
+////			dbQuery->Open();
+//			dbQuery->ExecSQL();
+//		}
+//	}
+
+	stERR_INFO info;
+	info.ERR_ID  = "1";
+	info.ERR_Code = "1";
+	info.ERR_Loc = "1";
+	info.ERR_Name = "TEST";
+	info.ERR_DETAILS = "!!!";
+	info.ERR_START_TIME = Now().DateTimeString();
+	info.ERR_OVER_TIME = Now().DateTimeString();
+
+	Alram_Insert(info);
+
+}
+
+
+void __fastcall TDBManager::Carrier_Lock(int col, int row)
+{
+	String str, temp;
+        int buff;
+        str = "SELECT * FROM [tblCarrier] WHERE [C_X] ='" + IntToStr(col) + "' AND [C_Y] = '" + IntToStr(row) + "'" ;
+       	stkc_frm->SystemQuery->Connection = stkc_frm->SystemConnection;
+	stkc_frm->SystemQuery->Close();
+	stkc_frm->SystemQuery->SQL->Clear();
+	stkc_frm->SystemQuery->SQL->Add(str);
+	stkc_frm->SystemQuery->Prepared = true;
+	stkc_frm->SystemQuery->Open();
+        stkc_frm->SystemQuery->ExecSQL();
+
+	buff = stkc_frm->SystemQuery->FieldByName("C_ST")->AsInteger ;
+
+
+        if (buff == Carrier_ST_Complete)
+        {
+		ShowMessage("Carrier State is FULL");
+        }
+        else if(buff == Carrier_ST_Offline )
+        {
+		ShowMessage("Carrier State is OFF-LINE");
+        }
+        else if(buff == Carrier_ST_Lock )
+        {
+		ShowMessage("Carrier State is LOCK");
+        }
+        else
+        {
+            str = "UPDATE tblCarrier SET [C_ST] = '4' WHERE [C_X] ='" + IntToStr(col) + "' AND [C_Y] = '" + IntToStr(row) + "'" ;
+            stkc_frm->SystemQuery->Connection = stkc_frm->SystemConnection;
+            stkc_frm->SystemQuery->Close();
+            stkc_frm->SystemQuery->SQL->Clear();
+            stkc_frm->SystemQuery->SQL->Add(str);
+            stkc_frm->SystemQuery->Prepared = true;
+            stkc_frm->SystemQuery->ExecSQL();
+
+            stkc_frm->gd_carrier->Cells[col][row] = Carrier_ST_Lock_Str;
+            stkc_frm->PNT_ListBox("CARRIER LOCK COL:" + IntToStr(col) +  " ROW:" + IntToStr(row)) ;
+        }
+
+}
+
+
+
+void __fastcall TDBManager::Carrier_unLock(int col, int row)
+{
+	String str;
+	str = "UPDATE tblCarrier SET [C_ST] = '2' WHERE [C_X] ='" + IntToStr(col) + "' AND [C_Y] = '" + IntToStr(row) + "'" ;
+	stkc_frm->SystemQuery->Connection = stkc_frm->SystemConnection;
+	stkc_frm->SystemQuery->Close();
+	stkc_frm->SystemQuery->SQL->Clear();
+	stkc_frm->SystemQuery->SQL->Add(str);
+	stkc_frm->SystemQuery->Prepared = true;
+	stkc_frm->SystemQuery->ExecSQL();
+
+	stkc_frm->gd_carrier->Cells[col][row] = Carrier_ST_Idel_Str;
+	stkc_frm->PNT_ListBox("CARRIER UNLOCK COL:" + IntToStr(col) +  " ROW:" + IntToStr(row)) ;
+
+}
+
+void __fastcall TDBManager::Alram_Insert(stERR_INFO info)
+{
+	String Field, Value, str;
+
+	Field = "[A_ID], [A_CODE], [A_NAME], [A_LOC], [A_DETAILS], [A_START_TIME], [A_OVER_TIME]";
+	Value = "'" + info.ERR_ID +"', '" + info.ERR_Code + "', '" + info.ERR_Name + "', '" + info.ERR_Loc + "', '" + info.ERR_DETAILS + "', '" + info.ERR_START_TIME + "', '" + info.ERR_OVER_TIME + "'";
+	str = "INSERT INTO tblAlarm (" + Field + ") VALUES ("+Value+")";
+
+	ALQuery->Connection = ALConnection;
+	ALQuery->Close();
+	ALQuery->SQL->Clear();
+	ALQuery->SQL->Add(str);
+	//stkc_frm->SystemQuery->Prepared = true;
+	ALQuery->ExecSQL();
+
+}
+
+
+//---------------------------------------------------------------------------
+void __fastcall TDBManager::Alarm_List_Load(void)
+{
+	int a=0;
+	int i,j;
+
+	stERR_INFO info;
+
+	String str ="SELECT * from tblAlarm";
+
+	ALQuery->Connection = ALConnection;
+	ALQuery->Close();
+	ALQuery->SQL->Clear();
+	ALQuery->SQL->Add(str);
+	ALQuery->Open();
+
+	a = ALQuery->RecordCount;
+
+
+
+	if (a >= 50)
+	{
+		ALQuery->Close();
+
+		for(i = 1 ; i <= 50 ; i++)
+		{
+			str = "SELECT * from tblAlarm WHERE [A_NO]=";
+			str += IntToStr(a+1-i);
+			ALQuery->SQL->Clear();
+			ALQuery->SQL->Add(str);
+			ALQuery->Open();
+
+			stkc_frm->gd_Alarm->Cells[1][i] = ALQuery->FieldByName("A_ID")->AsString;
+			stkc_frm->gd_Alarm->Cells[2][i] = ALQuery->FieldByName("A_CODE")->AsString;
+			stkc_frm->gd_Alarm->Cells[3][i] = ALQuery->FieldByName("A_NAME")->AsString;
+			stkc_frm->gd_Alarm->Cells[4][i] = ALQuery->FieldByName("A_LOC")->AsString;
+			stkc_frm->gd_Alarm->Cells[5][i] = ALQuery->FieldByName("A_DETAILS")->AsString;
+			stkc_frm->gd_Alarm->Cells[6][i] = ALQuery->FieldByName("A_START_TIME")->AsString;
+			stkc_frm->gd_Alarm->Cells[7][i] = ALQuery->FieldByName("A_OVER_TIME")->AsString;
+		}
+	}
+	else
+	{
+		dbQuery->Close();
+		for(i=1 ; i <= a ; i++)
+		{
+			ALQuery->SQL->Clear();
+			str = "SELECT * from tblAlarm WHERE [A_NO]=";
+			str += IntToStr(i);
+			ALQuery->SQL->Add(str);
+			ALQuery->Open();
+
+			stkc_frm->gd_Alarm->Cells[1][a+1-i] = ALQuery->FieldByName("A_ID")->AsString;
+			stkc_frm->gd_Alarm->Cells[2][a+1-i] = ALQuery->FieldByName("A_CODE")->AsString;
+			stkc_frm->gd_Alarm->Cells[3][a+1-i] = ALQuery->FieldByName("A_NAME")->AsString;
+			stkc_frm->gd_Alarm->Cells[4][a+1-i] = ALQuery->FieldByName("A_LOC")->AsString;
+			stkc_frm->gd_Alarm->Cells[5][a+1-i] = ALQuery->FieldByName("A_DETAILS")->AsString;
+			stkc_frm->gd_Alarm->Cells[6][a+1-i] = ALQuery->FieldByName("A_START_TIME")->AsString;
+			stkc_frm->gd_Alarm->Cells[7][a+1-i] = ALQuery->FieldByName("A_OVER_TIME")->AsString;
+
+		}
+	}
+}
+
+//---------------------------------------------------------------------------
+
+bool __fastcall TDBManager::AddTransportCommand(stTransportCommandInfo info)
+{
+	if(!QConnection->Connected)	return false;
+
+	String Field = " ([TRANSPORT_ISSUEDATE], [TRANSPORT_STATUS], [TRANSPORT_CARRIERID], [TRANSPORT_SOURCE], [TRANSPORT_DESTINATION], [TRANSPORT_PRIORITY], [TRANSPORT_TYPE], [TRANSPORT_COMMANDID], [TRANSPORT_AGVID] )";
+	String Value = "'" + info.TRANSPORT_ISSUEDATE + "','" + info.TRANSPORT_STATUS + "','";
+	Value += info.TRANSPORT_CARRIERID + "','" + info.TRANSPORT_SOURCE + "','";
+	Value += info.TRANSPORT_DESTINATION + "','" + info.TRANSPORT_PRIORITY + "','";
+	Value += info.TRANSPORT_TYPE + "','" + info.TRANSPORT_COMMANDID + "','" + info.TRANSPORT_AGVID + "'";
+
+	QQuery->Connection = dbConnection;
+	QQuery->Close();
+	QQuery->SQL->Clear();
+	QQuery->SQL->Add("INSERT INTO tblTransportCommand " + Field + " VALUES ("+Value+");");
+	QQuery->Prepared = true;
+
+	if(QQuery->ExecSQL() > 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+//---------------------------------------------------------------------------
+// DB 모듈 시작
+void __fastcall TDBManager::DataModuleCreate(TObject *Sender)
+{
+	if(QConnection->Connected)
+		QConnection->Close();
+	QConnection->LoginPrompt = false;
+
+	String strConn  = "Provider=Microsoft.Jet.OLEDB.4.0;";
+	strConn += "Data Source=" + GetCurrentDir() + "\\System_Infomation.MDB";
+	strConn += ";Persist Security Info=False;";
+	strConn += "Jet OLEDB:Database";
+
+	QConnection->ConnectionString = strConn;
+
+	try
+	{
+		QConnection->Open();
+		if(QConnection->State == (TObjectStates() << stOpen))
+		{
+			QConnection->Connected = true;
+		}
+	}
+	catch(Exception *e)
+	{
+
+	}
+}
+//---------------------------------------------------------------------------
+

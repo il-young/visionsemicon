@@ -1,0 +1,19 @@
+04-27-16 오전 9:21:49 : Stocker Server Reboot
+04-27-16 오전 9:21:49 : CARRIER LOCK COL:11 ROW:4
+04-27-16 오전 9:21:49 : CARRIER UNLOCK COL:12 ROW:8
+04-27-16 오전 9:21:49 : CARRIER UNLOCK COL:7 ROW:6
+04-27-16 오전 9:21:49 : CARRIER UNLOCK COL:11 ROW:4
+04-27-16 오전 9:21:49 : STOKER SERVER CLOSE
+04-27-16 오전 9:27:21 : Stocker Server Reboot
+04-27-16 오전 9:27:56 : Stocker Server Reboot
+04-27-16 오전 9:27:56 : STOKER SERVER CLOSE
+04-27-16 오전 9:37:53 : Stocker Server Reboot
+04-27-16 오전 9:37:53 : STOKER SERVER CLOSE
+04-27-16 오전 9:38:33 : Stocker Server Reboot
+04-27-16 오전 9:38:33 : STOKER SERVER CLOSE
+04-27-16 오후 1:41:42 : Stocker Server Reboot
+04-27-16 오후 1:41:42 : STOKER SERVER CLOSE
+04-27-16 오후 1:42:35 : Stocker Server Reboot
+04-27-16 오후 1:45:00 : Stocker Server Reboot
+04-27-16 오후 5:37:06 : Stocker Server Reboot
+04-27-16 오후 5:37:06 : STOKER SERVER CLOSE

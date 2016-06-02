@@ -1,0 +1,73 @@
+05-23-16 오후 1:46:10 : Stocker Server Reboot
+05-23-16 오후 1:46:10 : Option Read Complte
+05-23-16 오후 1:46:10 : Option Read Complte
+05-23-16 오후 1:46:18 : Stocker Server Reboot
+05-23-16 오후 1:46:18 : MES Server Connected
+05-23-16 오후 1:46:18 : CARRIER LOCK COL:14 ROW:3
+05-23-16 오후 1:46:18 : CARRIER LOCK COL:11 ROW:5
+05-23-16 오후 1:46:18 : CARRIER LOCK COL:5 ROW:9
+05-23-16 오후 1:46:18 : CARRIER LOCK COL:2 ROW:3
+05-23-16 오후 1:46:18 : CARRIER LOCK COL:13 ROW:14
+05-23-16 오후 1:46:18 : STOKER SERVER CLOSE
+05-23-16 오후 5:52:54 : Stocker Server Reboot
+05-23-16 오후 5:52:54 : CARRIER LOCK COL:2 ROW:2
+05-23-16 오후 5:52:54 : CARRIER UNLOCK COL:2 ROW:2
+05-23-16 오후 5:52:54 : STOKER SERVER CLOSE
+05-23-16 오후 5:56:34 : Stocker Server Reboot
+05-23-16 오후 5:56:34 : Enter Maintenance Menu
+05-23-16 오후 5:56:34 : Change CarrierDB
+05-23-16 오후 5:56:34 : ReStart SERVER!!
+05-23-16 오후 5:56:34 : STOKER SERVER CLOSE
+05-23-16 오후 5:57:24 : Stocker Server Reboot
+05-23-16 오후 6:48:25 : Stocker Server Reboot
+05-23-16 오후 6:48:54 : Stocker Server Reboot
+05-23-16 오후 6:48:54 : Enter Maintenance Menu
+05-23-16 오후 7:12:15 : Stocker Server Reboot
+05-23-16 오후 7:12:15 : PERMISSION DENINED
+05-23-16 오후 7:12:15 : PERMISSION DENINED
+05-23-16 오후 7:12:15 : Enter Maintenance Menu
+05-23-16 오후 7:12:15 : Change CarrierDB
+05-23-16 오후 7:12:15 : ReStart SERVER!!
+05-23-16 오후 7:13:28 : Stocker Server Reboot
+05-23-16 오후 7:14:11 : Stocker Server Reboot
+05-23-16 오후 7:14:38 : Stocker Server Reboot
+05-23-16 오후 7:15:37 : Stocker Server Reboot
+05-23-16 오후 7:16:06 : Stocker Server Reboot
+05-23-16 오후 7:16:58 : Stocker Server Reboot
+05-23-16 오후 7:17:11 : Stocker Server Reboot
+05-23-16 오후 7:18:30 : Stocker Server Reboot
+05-23-16 오후 7:21:52 : Stocker Server Reboot
+05-23-16 오후 7:22:18 : Stocker Server Reboot
+05-23-16 오후 7:22:49 : Stocker Server Reboot
+05-23-16 오후 7:23:23 : Stocker Server Reboot
+05-23-16 오후 7:23:39 : Stocker Server Reboot
+05-23-16 오후 7:25:13 : Stocker Server Reboot
+05-23-16 오후 7:25:52 : Stocker Server Reboot
+05-23-16 오후 7:27:31 : Stocker Server Reboot
+05-23-16 오후 7:28:53 : Stocker Server Reboot
+05-23-16 오후 7:28:53 : CARRIER LOCK COL:4 ROW:2
+05-23-16 오후 7:41:42 : Stocker Server Reboot
+05-23-16 오후 7:42:03 : Stocker Server Reboot
+05-23-16 오후 7:42:03 : CARRIER UNLOCK COL:4 ROW:2
+05-23-16 오후 7:42:03 : STOKER SERVER CLOSE
+05-23-16 오후 7:43:59 : Stocker Server Reboot
+05-23-16 오후 7:43:59 : STOKER SERVER CLOSE
+05-23-16 오후 7:44:21 : Stocker Server Reboot
+05-23-16 오후 7:44:21 : STOKER SERVER CLOSE
+05-23-16 오후 7:49:55 : Stocker Server Reboot
+05-23-16 오후 7:49:55 : Option Read Complte
+05-23-16 오후 7:49:55 : Option Read Complte
+05-23-16 오후 7:50:29 : Stocker Server Reboot
+05-23-16 오후 7:55:00 : Stocker Server Reboot
+05-23-16 오후 7:56:02 : Stocker Server Reboot
+05-23-16 오후 7:56:26 : Stocker Server Reboot
+05-23-16 오후 7:56:26 : MES Server Connected
+05-23-16 오후 8:01:15 : Stocker Server Reboot
+05-23-16 오후 8:01:15 : MES Server Connected
+05-23-16 오후 8:01:15 : STOKER SERVER CLOSE
+05-23-16 오후 8:03:17 : Stocker Server Reboot
+05-23-16 오후 8:03:17 : MES Server Connected
+05-23-16 오후 8:03:17 : CARRIER LOCK COL:6 ROW:2
+05-23-16 오후 8:03:17 : CARRIER LOCK COL:3 ROW:3
+05-23-16 오후 8:03:17 : CARRIER UNLOCK COL:6 ROW:2
+05-23-16 오후 8:03:17 : STOKER SERVER CLOSE

@@ -1,0 +1,533 @@
+
+
+#include <boost/shared_ptr.hpp>
+
+#include "STKC.h"
+
+#include "System_Setting.h"
+#include "System_login_frm.h"
+#include "DBModule.h"
+#include "THDB_Loading.h"
+
+
+
+#define local_ip_default "127.0.0.1"
+#define local_port_default 5001
+#define remote_ip_default "127.0.0.1"
+#define remote_port_default 5001
+
+
+#define Carrier_ST_Alarm		"0"
+#define Carrier_ST_Complete	"1"
+#define Carrier_ST_Idel		"2"
+#define Carrier_ST_Offline	"3"
+#define Carrier_ST_Lock		"4"
+
+#define Carrier_ST_Alarm_Str		"Alarm"
+#define Carrier_ST_Complete_Str		"Complete"
+#define Carrier_ST_Idel_Str			"Idel"
+#define Carrier_ST_Offline_Str		"Offline"
+#define Carrier_ST_Lock_Str			"Lock"
+
+
+
+
+
+//-------
+// CARRIER Info
+//-------
+ #ifndef CARRIERInfo
+typedef struct CARRIERInfo
+{
+	AnsiString ST;
+	AnsiString Date;
+	AnsiString LOT;
+
+}stCARRIERInfo;
+#define CARRIERInfo
+#endif
+
+
+
+
+//-------
+// SERVER Info
+//-------
+ #ifndef SRVInfo
+typedef struct SRVInfo
+{
+	AnsiString SRV_ONLINE_STATE;
+	AnsiString SRV_LOCAL_REMOTE_STATE;
+	AnsiString SRV_USER;
+	AnsiString SRV_DESCRIPTIONS;
+	AnsiString SRV_LOGOUTTIME;
+	AnsiString SRV_LOGINDATE;
+	AnsiString SRV_NOWDATE;
+	AnsiString SRV_BEFORDATE;
+	AnsiString SRV_NOWTIME;
+	AnsiString SRV_MODELNAME;
+	AnsiString SRV_VERSION;
+	AnsiString DB_DIR;
+
+}stSRVInfo;
+#define SRVInfo
+#endif
+
+//-------
+// User Info
+//-------
+#ifndef UserInfo
+typedef struct UserInfo
+{
+	AnsiString USER_ID;
+	AnsiString USER_PASS;
+	AnsiString USER_GROUP;
+	AnsiString USER_DESCRIPTIONS;
+	AnsiString USER_LOGOUTTIME;
+	AnsiString USER_LOGINDATE;
+}stUserInfo;
+#define UserInfo
+#endif
+
+#ifndef ERR_INFO
+typedef struct ERR_INFO
+{
+	AnsiString ERR_ID;
+	AnsiString ERR_Code;
+	AnsiString ERR_Name;
+	AnsiString ERR_Loc;
+	AnsiString ERR_DETAILS;
+	AnsiString ERR_START_TIME;
+	AnsiString ERR_OVER_TIME;
+
+}stERR_INFO;
+#define ERR_INFO
+#endif
+
+//-------
+// AGV Info
+//-------
+#ifndef AGVInfo
+typedef struct AGVInfo
+{
+	AnsiString AGV_ID;
+	AnsiString AGV_STATUS;
+	AnsiString AGV_ERROR;
+	AnsiString AGV_POINT;
+	AnsiString AGV_DESTINATION;
+	AnsiString AGV_MAGAZINEID;
+    AnsiString AGV_BATTERY;
+}stAGVInfo;
+#define AGVInfo
+#endif
+
+//-------
+// Transport Command Info
+//-------
+#ifndef TransportCommandInfo
+typedef struct TransportCommandInfo
+{
+	AnsiString TRANSPORT_ISSUEDATE;
+	AnsiString TRANSPORT_STATUS;
+	AnsiString TRANSPORT_MAGAZINEID;
+	AnsiString TRANSPORT_SOURCE;
+	AnsiString TRANSPORT_DESTINATION;
+	AnsiString TRANSPORT_PRIORITY;
+	AnsiString TRANSPORT_TYPE;
+	AnsiString TRANSPORT_COMMANDID;
+}stTransportCommandInfo;
+#define TransportCommandInfo
+#endif
+
+//-------
+// Magazine Info
+//-------
+#ifndef MagazineInfo
+typedef struct MagazineInfo
+{
+	AnsiString MAGAZINE_ID;
+	AnsiString MAGAZINE_LOCATION;
+	AnsiString MAGAZINE_STATUS;
+	AnsiString MAGAZINE_ENTERDATE;
+}stMagazineInfo;
+#define MagazineInfo
+#endif
+
+//-------
+// Port Info
+//-------
+#ifndef PortInfo
+typedef struct PortInfo
+{
+	AnsiString PORT_ID;
+	AnsiString PORT_STATUS;
+	AnsiString PORT_TYPE;
+	AnsiString PORT_ENTERDATE;
+	AnsiString PORT_MODIFIER;
+}stPortInfo;
+#define PortInfo
+#endif
+
+//-------
+// SECS Info
+//-------
+#ifndef SECSInfo
+typedef struct SECSInfo
+{
+	AnsiString SECS_TYPE;
+	AnsiString SECS_LIP;
+	AnsiString SECS_LPORT;
+	AnsiString SECS_RIP;
+	AnsiString SECS_RPORT;
+	AnsiString SECS_T3;
+	AnsiString SECS_T5;
+	AnsiString SECS_T6;
+	AnsiString SECS_T7;
+	AnsiString SECS_T8;
+	AnsiString SECS_T9;
+
+	AnsiString SECS_COL;
+	AnsiString SECS_ROW;
+
+	AnsiString SECS_DEV_NUM;
+	AnsiString SECS_MODELNAME;
+	AnsiString SECS_VERSION;
+
+	AnsiString DB_DIR;
+}stSECSInfo;
+#define SECSInfo
+#endif
+
+#ifndef MCS_COMMAND
+typedef enum MCS_COMMAND
+{
+	MCS_COMMAND_ABORT = 1,
+	MCS_COMMAND_CANCEL = 2,
+	MCS_COMMAND_TRANSFER = 3,
+	MCS_COMMAND_MOVE = 4
+}enMCS_COMMAND;
+#define MCS_COMMAND
+#endif
+
+
+#ifndef CarrierXY
+typedef struct CarrierXY
+{
+	int x;
+	int y;
+}stCarrierXY;
+#define CarrierXY
+#endif
+
+
+
+
+//---------------------------------------------------------------------------
+// VID Define
+
+//---------------------------------------------------------------------------
+// GEM required variables
+
+#define VLID_GEM_AlarmID			10001
+#define VLID_GEM_Establish_Timeout		10002
+#define VLID_GEM_AlarmEnabled	           	10003
+#define VLID_GEM_AlarmsSet			10004
+#define	VLID_GEM_Clock				10005
+#define VLID_GEM_ControlState	           	10006
+#define VLID_GEM_EventEnabled	           	10007
+
+//---------------------------------------------------------------------------
+// Stocker SEM requires variables
+
+#define VLID_STK_SEM_ActiveCarriers	       	20001
+#define VLID_STK_SEM_ActiveTransfers		20002
+#define VLID_STK_SEM_AlarmLevel		       	20003
+#define VLID_STK_SEM_AlarmLoc		       	20004
+#define VLID_STK_SEM_AlarmText		       	20005
+#define VLID_STK_SEM_CarrierID		       	20006
+#define VLID_STK_SEM_CarrierInfo		20007
+#define VLID_STK_SEM_CarrierLoc		       	20008
+#define VLID_STK_SEM_CarrierLoc-Info		20009
+#define VLID_STK_SEM_CarrierLocation		20010
+#define VLID_STK_SEM_CarrierState	       	20011
+#define VLID_STK_SEM_CommandName		20012
+#define VLID_STK_SEM_CommandID			20013
+#define VLID_STK_SEM_CommandInfo		20014
+#define VLID_STK_SEM_CommandType		20015
+#define VLID_STK_SEM_CurrentPortStates		20016
+#define VLID_STK_SEM_Dest			20017
+#define VLID_STK_SEM_EmptyCarrier	       	20018
+#define VLID_STK_SEM_EnhancedCarriters		20019
+#define VLID_STK_SEM_EnhancedTransfers		20020
+#define VLID_STK_SEM_EqpName			20021
+#define VLID_STK_SEM_EquomentInfo	       	20022
+#define VLID_STK_SEM_ErrorID			20023
+#define VLID_STK_SEM_IDReadDuplicateOption	20024
+#define VLID_STK_SEM_IDReadFailureOption	20025
+#define VLID_STK_SEM_IDReadMismatchOption	20026
+#define VLID_STK_SEM_IDReadStateus	      	20027
+#define VLID_STK_SEM_InitallTime		20028
+#define VLID_STK_SEM_PortID			20029
+#define VLID_STK_SEM_PortInfo		      	20030
+#define VLID_STK_SEM_PortTransferState		20031
+#define VLID_STK_SEM_PortType      		20032
+#define VLID_STK_SEM_Priority      		20033
+#define VLID_STK_SEM_ResultCode    		20034
+#define VLID_STK_SEM_STKSState     		20035
+#define VLID_STK_SEM_STKSStateAvailability	20036
+#define VLID_STK_SEM_Source			20037
+#define VLID_STK_SEM_StokerAvailable		20038
+#define VLID_STK_SEM_StokerUnitID		20039
+#define VLID_STK_SEM_StockerUnitInfo		20040
+#define VLID_STK_SEM_StockerUnitState		20041
+#define VLID_STK_SEM_TransferCommand		20042
+#define VLID_STK_SEM_TransferInfo		20043
+#define VLID_STK_SEM_TransferState		20044
+#define VLID_STK_SEM_StockerCapacity		20045
+#define VLID_STK_SEM_StockerName		20046
+#define VLID_STK_SEM_StockerSize		20047
+#define VLID_STK_SEM_CarrierInfo4		20048
+#define VLID_STK_SEM_ActiveCarriers4		20049
+#define VLID_STK_SEM_STKSStateAvailability	20050
+#define VLID_STK_SEM_PrevSTKSState		20051
+#define VLID_STK_SEM_StockerCraneAvail		20052
+
+
+//---------------------------------------------------------------------------
+// Alarm ID
+
+#define VLID_AL_ID_ID_ERR			30001
+#define VLID_AL_ID_Stocker_ERR			30002
+#define VLID_AL_ID_Empty Carrier		30003
+#define VLID_AL_ID_Double Stock			30004
+#define VLID_AL_ID_Input_ERR			30005
+#define VLID_AL_ID_Output_ERR			30006
+#define VLID_AL_ID_PhysicalFull			30007
+#define VLID_AL_ID_Manual			30008
+#define VLID_AL_ID_No_AL_Code			30009
+#define VLID_AL_ID_PLC_Comm_ERR			30010
+#define VLID_AL_ID_Other_ERR			30011
+#define VLID_AL_ID_Fault			30012
+#define VLID_AL_ID_Warning			30013
+
+
+//---------------------------------------------------------------------------
+// CEID
+
+//---------------------------------------------------------------------------
+// Control-Related Event
+#define CEID_OFFLINE			40001
+#define CEID_LOCAL			40002
+#define CEID_REMOTE			40003
+
+#define CEID_OFFLINE_RID		701
+#define CEID_LOCAL_RID			702
+#define CEID_REMOTE_RID			703
+
+#define CEID_OFFLINE_STR		"OFF_LINE"
+#define CEID_LOCAL_STR			"LOCAL"
+#define CEID_REMOTE_STR			"REMOTE"
+
+
+//---------------------------------------------------------------------------
+// TRANSFER command State transition
+#define CEID_TransferAbortCompleted	     	40004
+#define CEID_TransferAbortFailed	     	40005
+#define CEID_TransferABortInitiated	     	40006
+#define CEID_TransferCancelCompleted     	40007
+#define CEID_TransferCancelFailed	     	40008
+#define CEID_TransferCancelInitiated     	40009
+#define CEID_TransferCompleted		     	40010
+#define CEID_TransferInitiated		     	40011
+
+#define CEID_TransferAbortCompleted_RID		804
+#define CEID_TransferAbortFailed_RID		805
+#define CEID_TransferABortInitiated_RID		806
+#define CEID_TransferCancelCompleted_RID	807
+#define CEID_TransferCancelFailed_RID		808
+#define CEID_TransferCancelInitiated_RID	809
+#define CEID_TransferCompleted_RID		810
+#define CEID_TransferInitiated_RID		811
+
+//---------------------------------------------------------------------------
+// Carrier State Transition Events
+#define CEID_CarrierInstallCompleted     	40012
+#define CEID_CarrierRemoveCompleted	     	40013
+#define CEID_CarrierRemoved			40014
+#define CEID_CarrierResumed			40015
+#define CEID_CarrierStored			40016
+#define CEID_CarrierStoredAlt		     	40017
+#define CEID_CarrierTransferrng		     	40018
+#define CEID_CarrierWaitIn			40019
+#define CEID_CarrierWaitOut			40020
+#define CEID_StockerCapacityChange	     	40021
+#define CEID_CarrierBlockCompleted	     	40022
+#define CEID_CarrierDeBlock			40023
+
+#define CEID_CarrierInstallCompleted_RID	812
+#define CEID_CarrierRemoveCompleted_RID		813
+#define CEID_CarrierRemoved_RID			814
+#define CEID_CarrierResumed_RID			815
+#define CEID_CarrierStored_RID			816
+#define CEID_CarrierStoredAlt_RID		817
+#define CEID_CarrierTransferrng_RID		818
+#define CEID_CarrierWaitIn_RID			819
+#define CEID_CarrierWaitOut_RID			820
+#define CEID_StockerCapacityChange_RID		821
+#define CEID_CarrierBlockCompleted_RID		822
+#define CEID_CarrierDeBlock_RID			823
+
+//---------------------------------------------------------------------------
+// Stocker Crane State Transition Events
+#define CEID_CraneActive			40024
+#define CEID_CraneIdle				40025
+
+#define CEID_CraneActive_RID			824
+#define CEID_CraneIdle_RID			825
+
+#define CEID_CraneActive_TXT			"ACTIVE"
+#define CEID_CraneIdle_TXT			"IDLE"
+
+//-----------------------------------------------------------
+// Port Transfer State Transition Event
+#define CEID_PortInService			40026
+#define CEID_PortOutOfService			40027
+
+#define CEID_PortInService_RID			826
+#define CEID_PortOutOfService_RID		827
+
+#define CEID_PortInService_TXT			"IN SERVICE"
+#define CEID_PortOutOfService_TXT		"OUT OF SERVICE"
+
+//---------------------------------------------------------------------------
+// STKS State Transition Events
+#define CEID_AlarmCleared		       		40028
+#define CEID_AlarmSet			       		40029
+#define CEID_STKSAutoCompleted	       			40030
+#define CEID_STKSAutoInitiated	       			40031
+#define CEID_STKSPauseCompleted	       			40032
+#define CEID_STKSPaused			       		40033
+#define CEID_STKSPauseInitiated	       			40034
+
+#define CEID_AlarmCleared_RID				828
+#define CEID_AlarmSet_RID			 	829
+#define CEID_STKSAutoCompleted_RID			830
+#define CEID_STKSAutoInitiated_RID			831
+#define CEID_STKSPauseCompleted_RID			832
+#define CEID_STKSPaused_RID				833
+#define CEID_STKSPauseInitiated_RID			834
+
+#define CEID_AlarmCleared_TXT				"NO ALARMS"
+#define CEID_AlarmSet_TXT			    	"ALARMS"
+#define CEID_STKSAutoCompleted_TXT			"AUTO"
+#define CEID_STKSAutoInitiated_TXT			"STKS INIT"
+#define CEID_STKSPauseCompleted_TXT			"PAUSED"
+#define CEID_STKSPaused_TXT			     	"PAUSED"
+#define CEID_STKSPauseInitiated_TXT			"PAUSING"
+
+
+//---------------------------------------------------------------------------
+// Events Transition Event
+#define CEID_CarrierIDRead			     	40035
+#define CEID_CarrierLocateCompleted	     		40036
+#define CEID_IDReadError			     	40037
+#define CEID_OperatorInitiatedAction     		40038
+#define CEID_StockerAvailChanged	     		40039
+#define CEID_CraneAcquireCompleted	     		40040
+#define CEID_CraneAvailChanged		     		40041
+#define CEID_AlarmSet				     	40042
+#define CEID_AlarmClear				     	40043
+
+#define CEID_CarrierIDRead_RID				835
+#define CEID_CarrierLocateCompleted_RID			836
+#define CEID_IDReadError_RID				837
+#define CEID_OperatorInitiatedAction_RID		838
+#define CEID_StockerAvailChanged_RID			839
+#define CEID_CraneAcquireCompleted_RID			840
+#define CEID_CraneAvailChanged_RID			841
+#define CEID_AlarmSet_RID				842
+#define CEID_AlarmClear_RID				843
+
+//---------------------------------------------------------------------------
+// STKS Initial Event
+#define CEID_StockerStatusChanged			40044
+#define CEID_CraneStatusChanged				40045
+#define CEID_PortStatusService				40046
+
+
+//---------------------------------------------------------------------------
+// ERROR CODE DEFINE
+
+#define ERR_CODE_1_STR "Unknown object in object specifier"
+#define ERR_CODE_2_STR "Unknown target object type"
+#define ERR_CODE_3_STR "Unknown object instance"
+#define ERR_CODE_4_STR "Unknown attribute name"
+#define ERR_CODE_5_STR "Ready-only attribute - access denied"
+#define ERR_CODE_6_STR "Unkown Object type"
+#define ERR_CODE_7_STR "Invalid attribute value"
+#define ERR_CODE_8_STR "Syntax error"
+#define ERR_CODE_9_STR "Verification error"
+#define ERR_CODE_10_STR "Validation error"
+#define ERR_CODE_11_STR "In Use -> PTJobID is used in now creating list"
+#define ERR_CODE_12_STR "Parameters improperty specified"
+#define ERR_CODE_13_STR "Insufficient parameters specified"
+#define ERR_CODE_14_STR "Unsupported option requested"
+#define ERR_CODE_15_STR "Busy -> Queue Full or Queue Overflow or Running"
+#define ERR_CODE_16_STR "Not available for processing"
+#define ERR_CODE_17_STR "Command not calid for current state"
+#define ERR_CODE_18_STR "No mateerial processed"
+#define ERR_CODE_19_STR "Material partially processed"
+#define ERR_CODE_20_STR "All material processed"
+#define ERR_CODE_21_STR "Recipe Specificationo related error"
+#define ERR_CODE_22_STR "Failed during processing"
+#define ERR_CODE_23_STR "Failed while not processing"
+#define ERR_CODE_24_STR "Failed due to lack of material"
+#define ERR_CODE_25_STR "Job aborted"
+#define ERR_CODE_26_STR "Job stoped"
+#define ERR_CODE_27_STR "Job Canceled"
+#define ERR_CODE_28_STR "Cannot Change selected recipe"
+#define ERR_CODE_29_STR "Unknown event"
+#define ERR_CODE_30_STR "Duplicate report ID"
+#define ERR_CODE_31_STR "Unknown data report"
+#define ERR_CODE_32_STR "Data report not linked"
+#define ERR_CODE_33_STR "Unknown trace report"
+#define ERR_CODE_34_STR "Duplicate trace ID"
+#define ERR_CODE_35_STR "Too many data reports"
+#define ERR_CODE_36_STR "Sample period out of range"
+#define ERR_CODE_37_STR "Group size to large"
+#define ERR_CODE_38_STR "Recovery action currently invalid"
+#define ERR_CODE_39_STR "Busy with another recobery currently unable to perform the recovery"
+#define ERR_CODE_40_STR "No active recovery action"
+#define ERR_CODE_41_STR "Exception recovery failed"
+#define ERR_CODE_42_STR "Exception recovery aborted"
+#define ERR_CODE_43_STR "Iinvalid table element"
+#define ERR_CODE_44_STR "Unknown table element"
+#define ERR_CODE_45_STR "Cannot delete predefined"
+#define ERR_CODE_46_STR "invalied token"
+#define ERR_CODE_47_STR "Invalid parameter"
+#define ERR_CODE_48_STR "Job creation failed"
+#define ERR_CODE_49_STR "Parameter change fail"
+#define ERR_CODE_50_STR "Duplication parameter"
+#define ERR_CODE_51_STR "When CTLJob create, carriterID not exist in all PRJob"
+#define ERR_CODE_52_STR "response timeout from jobmanageer"
+#define ERR_CODE_53_STR "Memory allocation fail"
+#define ERR_CODE_54_STR "Resonse has a error"
+#define ERR_CODE_71_STR "Queue is Empty"
+#define ERR_CODE_72_STR "Queue is Full"
+#define ERR_CODE_73_STR "Queue Already Regist"
+#define ERR_CODE_74_STR "Queue Cannot Find"
+#define ERR_CODE_75_STR "Data Running"
+#define ERR_CODE_76_STR "Data Using"
+#define ERR_CODE_77_STR "Data Not Using"
+#define ERR_CODE_78_STR "Duplication PRJob"
+#define ERR_CODE_79_STR "Cannot Find PRJob"
+#define ERR_CODE_80_STR "Cannot Find CTLJob"
+#define ERR_CODE_81_STR "Job Already Selected"
+#define ERR_CODE_82_STR "Job Not Selected"
+#define ERR_CODE_83_STR "Select Data Error"
+#define ERR_CODE_84_STR "Not Good Data"
+#define ERR_CODE_85_STR "Error Data"
+#define ERR_CODE_86_STR "Control Job Running Already"
+
+
+

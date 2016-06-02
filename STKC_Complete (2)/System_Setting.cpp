@@ -7,6 +7,10 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "AdvEdit"
+//#pragma link "AdvIPEdit"
+#pragma link "FolderDialog"
+#pragma link "AdvDirectoryEdit"
+#pragma link "AdvEdBtn"
 #pragma link "AdvIPEdit"
 #pragma resource "*.dfm"
 TSetting_Frm *Setting_Frm;
@@ -158,13 +162,31 @@ void __fastcall TSetting_Frm::btn_okClick(TObject *Sender)
 	info.SECS_LPORT =	tb_local_port->Text;
 	info.SECS_RIP   =	AdvIPEdit2->IPAddress;
 	info.SECS_RPORT =	tb_remote_port->Text;
+	info.DB_DIR		= de_dbdir->Text;
 
-	info.SECS_COL = tb_col->Text;
-	info.SECS_ROW = tb_row->Text;
 
 	info.SECS_DEV_NUM = tb_dev_num->Text;
 	info.SECS_MODELNAME = tb_model->Text;
 	info.SECS_VERSION = tb_version->Text;
+
+	if (!(info.SECS_COL == tb_col->Text) || !(info.SECS_ROW == tb_row->Text) )
+	{
+		DBManager->CarrierDB_Init(tb_col->Text.ToInt() , tb_row->Text.ToInt());
+
+		info.SECS_COL = tb_col->Text;
+		info.SECS_ROW = tb_row->Text;
+
+
+		stkc_frm->PNT_ListBox("Change CarrierDB");
+		stkc_frm->PNT_ListBox("ReStart SERVER!!");
+		ShowMessage("ReStart SERVER!!");
+
+		DBManager->EditSECS(info);
+
+		stkc_frm->Close();
+	}
+
+
 
 
 	DBManager->EditSECS(info);
@@ -178,7 +200,7 @@ void __fastcall TSetting_Frm::btn_okClick(TObject *Sender)
 
 void __fastcall TSetting_Frm::Settingfrm_maintenance(TObject *Sender)
 {
-	  AnsiString temp1 = InputBox("maintenance","Enter maintenance Password","");
+	  AnsiString temp1 = InputBox("Maintenance","Enter Maintenance Password","");
 
 	if (temp1 == "mngr") {
 		ts_maintenance->Enabled = true;
@@ -188,10 +210,15 @@ void __fastcall TSetting_Frm::Settingfrm_maintenance(TObject *Sender)
 		tb_row->ReadOnly = false;
 		tb_model->ReadOnly = false;
 		tb_version->ReadOnly = false;
+
+		stkc_frm->PNT_ListBox("Enter Maintenance Menu");
+
+
+;
 	}
 	else {
-		stkc_frm->PNT_ListBox("ACCESS DENINED");
-		MessageDlg("Access Denied",mtConfirmation,TMsgDlgButtons() << mbOK,0);
+		stkc_frm->PNT_ListBox("PERMISSION DENINED");
+		MessageDlg("PERMISSION Denied",mtConfirmation,TMsgDlgButtons() << mbOK,0);
 
 
 	}
@@ -199,6 +226,7 @@ void __fastcall TSetting_Frm::Settingfrm_maintenance(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TSetting_Frm::Read_Setting()
 {
+
 	DBManager->ConnectDB();
 
 	stSECSInfo info =  DBManager->SelectSECSInfo();
@@ -222,9 +250,14 @@ void __fastcall TSetting_Frm::Read_Setting()
 	Setting_Frm->tb_model->Text = info.SECS_MODELNAME;
 	Setting_Frm->tb_version->Text = info.SECS_VERSION;
 
-	stkc_frm->STK_SRVinfo.SRV_MODELNAME = info.SECS_MODELNAME;
-	stkc_frm->STK_SRVinfo.SRV_VERSION = info.SECS_VERSION;
+	Setting_Frm->de_dbdir->Text  = info.DB_DIR;
 
+	stkc_frm->STK_SRVinfo.SRV_MODELNAME = info.SECS_MODELNAME;
+
+	stkc_frm->STK_SRVinfo.SRV_VERSION = info.SECS_VERSION;
+	stkc_frm->STK_SRVinfo.DB_DIR = info.DB_DIR;
+
+	stkc_frm->PNT_ListBox("Option Read Complete");
 }
 
 
@@ -233,4 +266,5 @@ void __fastcall TSetting_Frm::DBCarrierInit()
 	DBManager->InitCarrierDB();
 
 }
+
 

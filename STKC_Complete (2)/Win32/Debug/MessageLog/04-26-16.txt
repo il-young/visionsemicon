@@ -1,0 +1,313 @@
+04-26-16 오전 9:00:50 : Stocker Server Reboot
+04-26-16 오전 9:00:50 : MES Server Connected
+04-26-16 오전 9:00:50 : mngr Login
+04-26-16 오전 9:00:50 : mngr LogOut
+04-26-16 오전 9:00:50 : mngr Login
+04-26-16 오전 9:00:50 : mngr LogOut
+04-26-16 오전 9:00:50 : mngr Login
+04-26-16 오전 9:00:50 : STOKER SERVER CLOSE
+04-26-16 오전 9:02:53 : Stocker Server Reboot
+04-26-16 오전 9:02:53 : MES Server Connected
+04-26-16 오전 9:02:53 : mngr Login
+04-26-16 오전 9:02:53 : mngr LogOut
+04-26-16 오전 9:02:53 : STOKER SERVER CLOSE
+04-26-16 오전 9:04:54 : Stocker Server Reboot
+04-26-16 오전 9:04:54 : MES Server Connected
+04-26-16 오전 9:04:54 : Login Fail
+04-26-16 오전 9:04:54 : STOKER SERVER CLOSE
+04-26-16 오전 9:07:19 : Stocker Server Reboot
+04-26-16 오전 9:07:19 : MES Server Connected
+04-26-16 오전 9:07:19 : STOKER SERVER CLOSE
+04-26-16 오전 9:14:21 : Stocker Server Reboot
+04-26-16 오전 9:14:21 : MES Server Connected
+04-26-16 오전 9:14:21 : STOKER SERVER CLOSE
+04-26-16 오전 9:14:56 : Stocker Server Reboot
+04-26-16 오전 9:14:56 : MES Server Connected
+04-26-16 오전 9:14:56 : STOKER SERVER CLOSE
+04-26-16 오전 9:31:48 : Stocker Server Reboot
+04-26-16 오전 9:31:48 : MES Server Connected
+04-26-16 오전 9:31:48 : STOKER SERVER CLOSE
+04-26-16 오전 9:38:41 : Stocker Server Reboot
+04-26-16 오전 9:38:41 : MES Server Connected
+04-26-16 오전 9:38:41 : STOKER SERVER CLOSE
+04-26-16 오전 9:49:14 : Stocker Server Reboot
+04-26-16 오전 9:49:14 : MES Server Connected
+04-26-16 오전 9:49:14 : STOKER SERVER CLOSE
+04-26-16 오전 9:49:56 : Stocker Server Reboot
+04-26-16 오전 9:49:56 : MES Server Connected
+04-26-16 오전 9:49:56 : STOKER SERVER CLOSE
+04-26-16 오전 10:49:48 : Stocker Server Reboot
+04-26-16 오전 10:49:48 : MES Server Connected
+04-26-16 오전 10:50:00 : Stocker Server Reboot
+04-26-16 오전 10:50:00 : MES Server Connected
+04-26-16 오전 10:50:00 : STOKER SERVER CLOSE
+04-26-16 오전 10:54:19 : Stocker Server Reboot
+04-26-16 오전 10:54:19 : MES Server Connected
+04-26-16 오전 10:55:25 : Stocker Server Reboot
+04-26-16 오전 10:55:25 : MES Server Connected
+04-26-16 오전 10:55:25 : STOKER SERVER CLOSE
+04-26-16 오전 11:09:21 : Stocker Server Reboot
+04-26-16 오전 11:09:21 : MES Server Connected
+04-26-16 오전 11:09:21 : STOKER SERVER CLOSE
+04-26-16 오전 11:11:03 : Stocker Server Reboot
+04-26-16 오전 11:11:03 : MES Server Connected
+04-26-16 오전 11:13:36 : Stocker Server Reboot
+04-26-16 오전 11:13:36 : MES Server Connected
+04-26-16 오전 11:13:36 : STOKER SERVER CLOSE
+04-26-16 오전 11:41:13 : Stocker Server Reboot
+04-26-16 오전 11:41:13 : MES Server Connected
+04-26-16 오전 11:41:13 : STOKER SERVER CLOSE
+04-26-16 오전 11:48:17 : Stocker Server Reboot
+04-26-16 오전 11:48:17 : MES Server Connected
+04-26-16 오전 11:48:17 : STOKER SERVER CLOSE
+04-26-16 오후 1:35:43 : Stocker Server Reboot
+04-26-16 오후 1:36:59 : Stocker Server Reboot
+04-26-16 오후 1:37:17 : Stocker Server Reboot
+04-26-16 오후 1:37:56 : Stocker Server Reboot
+04-26-16 오후 1:43:51 : Stocker Server Reboot
+04-26-16 오후 1:43:51 : MES Server Connected
+04-26-16 오후 1:51:27 : Stocker Server Reboot
+04-26-16 오후 1:51:27 : MES Server Connected
+04-26-16 오후 1:51:27 : STOKER SERVER CLOSE
+04-26-16 오후 1:52:23 : Stocker Server Reboot
+04-26-16 오후 1:52:23 : MES Server Connected
+04-26-16 오후 1:52:23 : STOKER SERVER CLOSE
+04-26-16 오후 1:53:04 : Stocker Server Reboot
+04-26-16 오후 1:53:04 : MES Server Connected
+04-26-16 오후 2:06:52 : Stocker Server Reboot
+04-26-16 오후 2:06:52 : MES Server Connected
+04-26-16 오후 2:06:52 : STOKER SERVER CLOSE
+04-26-16 오후 2:17:19 : Stocker Server Reboot
+04-26-16 오후 2:17:19 : MES Server Connected
+04-26-16 오후 2:17:19 : STOKER SERVER CLOSE
+04-26-16 오후 2:21:11 : Stocker Server Reboot
+04-26-16 오후 2:21:11 : MES Server Connected
+04-26-16 오후 2:22:35 : Stocker Server Reboot
+04-26-16 오후 2:25:09 : Stocker Server Reboot
+04-26-16 오후 2:30:15 : Stocker Server Reboot
+04-26-16 오후 2:32:27 : Stocker Server Reboot
+04-26-16 오후 2:32:27 : MES Server Connected
+04-26-16 오후 2:33:54 : Stocker Server Reboot
+04-26-16 오후 2:33:54 : MES Server Connected
+04-26-16 오후 2:33:54 : STOKER SERVER CLOSE
+04-26-16 오후 2:38:26 : Stocker Server Reboot
+04-26-16 오후 2:38:50 : Stocker Server Reboot
+04-26-16 오후 2:38:50 : MES Server Connected
+04-26-16 오후 2:40:59 : Stocker Server Reboot
+04-26-16 오후 2:40:59 : MES Server Connected
+04-26-16 오후 2:41:25 : Stocker Server Reboot
+04-26-16 오후 2:44:46 : Stocker Server Reboot
+04-26-16 오후 2:44:46 : MES Server Connected
+04-26-16 오후 2:51:40 : Stocker Server Reboot
+04-26-16 오후 2:51:40 : MES Server Connected
+04-26-16 오후 2:52:03 : Stocker Server Reboot
+04-26-16 오후 2:52:03 : MES Server Connected
+04-26-16 오후 2:57:13 : Stocker Server Reboot
+04-26-16 오후 2:57:13 : MES Server Connected
+04-26-16 오후 2:57:54 : Stocker Server Reboot
+04-26-16 오후 2:58:23 : Stocker Server Reboot
+04-26-16 오후 2:58:23 : MES Server Connected
+04-26-16 오후 2:59:53 : Stocker Server Reboot
+04-26-16 오후 3:01:24 : Stocker Server Reboot
+04-26-16 오후 3:01:24 : MES Server Connected
+04-26-16 오후 3:08:30 : Stocker Server Reboot
+04-26-16 오후 3:08:30 : MES Server Connected
+04-26-16 오후 3:09:14 : Stocker Server Reboot
+04-26-16 오후 3:11:56 : Stocker Server Reboot
+04-26-16 오후 3:19:37 : Stocker Server Reboot
+04-26-16 오후 3:19:37 : MES Server Connected
+04-26-16 오후 3:19:37 : STOKER SERVER CLOSE
+04-26-16 오후 3:21:40 : Stocker Server Reboot
+04-26-16 오후 3:21:40 : MES Server Connected
+04-26-16 오후 3:21:40 : STOKER SERVER CLOSE
+04-26-16 오후 3:22:31 : Stocker Server Reboot
+04-26-16 오후 3:22:31 : MES Server Connected
+04-26-16 오후 3:22:31 : STOKER SERVER CLOSE
+04-26-16 오후 3:23:41 : Stocker Server Reboot
+04-26-16 오후 3:23:41 : MES Server Connected
+04-26-16 오후 3:24:25 : Stocker Server Reboot
+04-26-16 오후 3:24:25 : MES Server Connected
+04-26-16 오후 3:24:25 : STOKER SERVER CLOSE
+04-26-16 오후 3:29:10 : Stocker Server Reboot
+04-26-16 오후 3:29:10 : MES Server Connected
+04-26-16 오후 3:29:10 : STOKER SERVER CLOSE
+04-26-16 오후 3:29:59 : Stocker Server Reboot
+04-26-16 오후 3:35:48 : Stocker Server Reboot
+04-26-16 오후 3:36:03 : Stocker Server Reboot
+04-26-16 오후 3:36:03 : MES Server Connected
+04-26-16 오후 3:36:03 : STOKER SERVER CLOSE
+04-26-16 오후 4:13:01 : Stocker Server Reboot
+04-26-16 오후 4:13:01 : MES Server Connected
+04-26-16 오후 4:13:01 : STOKER SERVER CLOSE
+04-26-16 오후 4:14:25 : Stocker Server Reboot
+04-26-16 오후 4:14:25 : MES Server Connected
+04-26-16 오후 4:14:25 : STOKER SERVER CLOSE
+04-26-16 오후 4:15:48 : Stocker Server Reboot
+04-26-16 오후 4:15:48 : MES Server Connected
+04-26-16 오후 4:15:48 : STOKER SERVER CLOSE
+04-26-16 오후 4:40:39 : Stocker Server Reboot
+04-26-16 오후 4:40:39 : STOKER SERVER CLOSE
+04-26-16 오후 4:42:37 : Stocker Server Reboot
+04-26-16 오후 5:10:05 : Stocker Server Reboot
+04-26-16 오후 5:12:32 : Stocker Server Reboot
+04-26-16 오후 5:14:39 : Stocker Server Reboot
+04-26-16 오후 5:14:54 : Stocker Server Reboot
+04-26-16 오후 5:16:29 : Stocker Server Reboot
+04-26-16 오후 5:17:12 : Stocker Server Reboot
+04-26-16 오후 5:18:00 : Stocker Server Reboot
+04-26-16 오후 5:18:37 : Stocker Server Reboot
+04-26-16 오후 5:20:57 : Stocker Server Reboot
+04-26-16 오후 5:23:33 : Stocker Server Reboot
+04-26-16 오후 5:26:51 : Stocker Server Reboot
+04-26-16 오후 5:26:51 : MES Server Connected
+04-26-16 오후 5:26:51 : STOKER SERVER CLOSE
+04-26-16 오후 5:28:53 : Stocker Server Reboot
+04-26-16 오후 5:28:53 : MES Server Connected
+04-26-16 오후 5:30:00 : Stocker Server Reboot
+04-26-16 오후 5:30:00 : MES Server Connected
+04-26-16 오후 5:31:20 : Stocker Server Reboot
+04-26-16 오후 5:31:20 : MES Server Connected
+04-26-16 오후 5:31:20 : Enter Maintenance Menu
+04-26-16 오후 5:31:20 : STOKER SERVER CLOSE
+04-26-16 오후 5:43:21 : Stocker Server Reboot
+04-26-16 오후 5:43:21 : MES Server Connected
+04-26-16 오후 5:43:21 : Enter Maintenance Menu
+04-26-16 오후 5:43:21 : Change CarrierDB
+04-26-16 오후 5:43:21 : ReStart SERVER!!
+04-26-16 오후 5:43:21 : STOKER SERVER CLOSE
+04-26-16 오후 7:22:44 : Stocker Server Reboot
+04-26-16 오후 7:22:44 : MES Server Connected
+04-26-16 오후 7:24:05 : Stocker Server Reboot
+04-26-16 오후 7:24:05 : MES Server Connected
+04-26-16 오후 7:25:14 : Stocker Server Reboot
+04-26-16 오후 7:25:14 : MES Server Connected
+04-26-16 오후 7:25:14 : Carrier COL:1 ROW:2
+04-26-16 오후 7:27:24 : Stocker Server Reboot
+04-26-16 오후 7:27:24 : MES Server Connected
+04-26-16 오후 7:27:24 : Carrier COL:1 ROW:2
+04-26-16 오후 7:27:24 : MES SERVER Disconnected
+04-26-16 오후 7:27:24 : Carrier COL:1 ROW:4
+04-26-16 오후 7:27:24 : MES Server Connected
+04-26-16 오후 7:33:03 : Stocker Server Reboot
+04-26-16 오후 7:33:03 : MES Server Connected
+04-26-16 오후 7:33:03 : STOKER SERVER CLOSE
+04-26-16 오후 7:33:16 : Stocker Server Reboot
+04-26-16 오후 7:33:16 : MES Server Connected
+04-26-16 오후 7:33:16 : STOKER SERVER CLOSE
+04-26-16 오후 7:33:49 : Stocker Server Reboot
+04-26-16 오후 7:33:49 : MES Server Connected
+04-26-16 오후 7:33:49 : STOKER SERVER CLOSE
+04-26-16 오후 7:42:47 : Stocker Server Reboot
+04-26-16 오후 7:42:47 : MES Server Connected
+04-26-16 오후 7:44:41 : Stocker Server Reboot
+04-26-16 오후 7:44:41 : MES Server Connected
+04-26-16 오후 7:45:34 : Stocker Server Reboot
+04-26-16 오후 7:45:34 : MES Server Connected
+04-26-16 오후 7:45:34 : Carrier COL:2 ROW:1
+04-26-16 오후 7:45:34 : STOKER SERVER CLOSE
+04-26-16 오후 8:06:42 : Stocker Server Reboot
+04-26-16 오후 8:06:42 : MES Server Connected
+04-26-16 오후 8:06:42 : STOKER SERVER CLOSE
+04-26-16 오후 8:12:26 : Stocker Server Reboot
+04-26-16 오후 8:12:26 : MES Server Connected
+04-26-16 오후 8:12:26 : Carrier COL:2 ROW:1
+04-26-16 오후 8:12:43 : Stocker Server Reboot
+04-26-16 오후 8:12:43 : MES Server Connected
+04-26-16 오후 8:12:43 : Carrier COL:2 ROW:1
+04-26-16 오후 8:12:43 : STOKER SERVER CLOSE
+04-26-16 오후 8:13:30 : Stocker Server Reboot
+04-26-16 오후 8:13:30 : MES Server Connected
+04-26-16 오후 8:13:30 : Carrier COL:2 ROW:1
+04-26-16 오후 8:13:30 : STOKER SERVER CLOSE
+04-26-16 오후 8:14:44 : Stocker Server Reboot
+04-26-16 오후 8:14:44 : MES Server Connected
+04-26-16 오후 8:14:44 : CARRIER LOCK COL:2 ROW:1
+04-26-16 오후 8:14:44 : CARRIER LOCK COL:4 ROW:2
+04-26-16 오후 8:14:44 : CARRIER LOCK COL:3 ROW:2
+04-26-16 오후 8:14:44 : CARRIER UNLOCK COL:2 ROW:1
+04-26-16 오후 8:14:44 : CARRIER UNLOCK COL:4 ROW:2
+04-26-16 오후 8:14:44 : CARRIER UNLOCK COL:3 ROW:2
+04-26-16 오후 8:14:44 : STOKER SERVER CLOSE
+04-26-16 오후 8:19:53 : Stocker Server Reboot
+04-26-16 오후 8:19:53 : MES Server Connected
+04-26-16 오후 8:19:53 : CARRIER LOCK COL:2 ROW:1
+04-26-16 오후 8:19:53 : CARRIER LOCK COL:2 ROW:2
+04-26-16 오후 8:19:53 : CARRIER LOCK COL:5 ROW:1
+04-26-16 오후 8:19:53 : CARRIER UNLOCK COL:2 ROW:2
+04-26-16 오후 8:19:53 : CARRIER UNLOCK COL:5 ROW:1
+04-26-16 오후 8:19:53 : CARRIER UNLOCK COL:2 ROW:1
+04-26-16 오후 8:19:53 : STOKER SERVER CLOSE
+04-26-16 오후 9:01:05 : Stocker Server Reboot
+04-26-16 오후 9:01:05 : MES Server Connected
+04-26-16 오후 9:01:05 : CARRIER LOCK COL:3 ROW:1
+04-26-16 오후 9:01:05 : CARRIER UNLOCK COL:3 ROW:1
+04-26-16 오후 9:01:05 : STOKER SERVER CLOSE
+04-26-16 오후 9:05:09 : Stocker Server Reboot
+04-26-16 오후 9:05:09 : MES Server Connected
+04-26-16 오후 9:05:09 : CARRIER LOCK COL:3 ROW:1
+04-26-16 오후 9:05:09 : CARRIER LOCK COL:6 ROW:1
+04-26-16 오후 9:05:09 : STOKER SERVER CLOSE
+04-26-16 오후 9:06:14 : Stocker Server Reboot
+04-26-16 오후 9:06:14 : MES Server Connected
+04-26-16 오후 9:06:14 : Enter Maintenance Menu
+04-26-16 오후 9:06:14 : Change CarrierDB
+04-26-16 오후 9:06:14 : ReStart SERVER!!
+04-26-16 오후 9:06:14 : STOKER SERVER CLOSE
+04-26-16 오후 9:06:41 : Stocker Server Reboot
+04-26-16 오후 9:06:41 : MES Server Connected
+04-26-16 오후 9:06:41 : PERMISSION DENINED
+04-26-16 오후 9:06:41 : Enter Maintenance Menu
+04-26-16 오후 9:06:41 : Change CarrierDB
+04-26-16 오후 9:06:41 : ReStart SERVER!!
+04-26-16 오후 9:06:41 : STOKER SERVER CLOSE
+04-26-16 오후 9:07:35 : Stocker Server Reboot
+04-26-16 오후 9:07:35 : MES Server Connected
+04-26-16 오후 9:07:35 : Enter Maintenance Menu
+04-26-16 오후 9:11:12 : Stocker Server Reboot
+04-26-16 오후 9:11:12 : MES Server Connected
+04-26-16 오후 9:11:12 : Enter Maintenance Menu
+04-26-16 오후 9:11:12 : Change CarrierDB
+04-26-16 오후 9:11:12 : ReStart SERVER!!
+04-26-16 오후 9:11:12 : MES SERVER Disconnected
+04-26-16 오후 9:11:12 : STOKER SERVER CLOSE
+04-26-16 오후 9:12:31 : Stocker Server Reboot
+04-26-16 오후 9:12:31 : MES Server Connected
+04-26-16 오후 9:12:31 : STOKER SERVER CLOSE
+04-26-16 오후 9:16:10 : Stocker Server Reboot
+04-26-16 오후 9:16:10 : MES Server Connected
+04-26-16 오후 9:16:45 : Stocker Server Reboot
+04-26-16 오후 9:16:45 : MES Server Connected
+04-26-16 오후 9:16:45 : STOKER SERVER CLOSE
+04-26-16 오후 9:17:59 : Stocker Server Reboot
+04-26-16 오후 9:17:59 : MES Server Connected
+04-26-16 오후 9:17:59 : CARRIER LOCK COL:5 ROW:1
+04-26-16 오후 9:18:39 : Stocker Server Reboot
+04-26-16 오후 9:18:39 : MES Server Connected
+04-26-16 오후 9:18:56 : Stocker Server Reboot
+04-26-16 오후 9:18:56 : MES Server Connected
+04-26-16 오후 9:19:28 : Stocker Server Reboot
+04-26-16 오후 9:19:28 : MES Server Connected
+04-26-16 오후 9:19:28 : CARRIER LOCK COL:3 ROW:2
+04-26-16 오후 9:19:28 : STOKER SERVER CLOSE
+04-26-16 오후 9:19:51 : Stocker Server Reboot
+04-26-16 오후 9:19:51 : MES Server Connected
+04-26-16 오후 9:19:51 : Enter Maintenance Menu
+04-26-16 오후 9:19:51 : Change CarrierDB
+04-26-16 오후 9:19:51 : ReStart SERVER!!
+04-26-16 오후 9:19:51 : STOKER SERVER CLOSE
+04-26-16 오후 9:20:25 : Stocker Server Reboot
+04-26-16 오후 9:20:25 : MES Server Connected
+04-26-16 오후 9:20:25 : STOKER SERVER CLOSE
+04-26-16 오후 9:20:54 : Stocker Server Reboot
+04-26-16 오후 9:20:54 : MES Server Connected
+04-26-16 오후 9:21:17 : Stocker Server Reboot
+04-26-16 오후 9:21:17 : MES Server Connected
+04-26-16 오후 9:21:34 : Stocker Server Reboot
+04-26-16 오후 9:21:34 : MES Server Connected
+04-26-16 오후 9:22:02 : Stocker Server Reboot
+04-26-16 오후 9:22:02 : MES Server Connected
+04-26-16 오후 9:22:02 : CARRIER LOCK COL:1 ROW:1
+04-26-16 오후 9:22:02 : CARRIER UNLOCK COL:1 ROW:1
+04-26-16 오후 9:22:02 : CARRIER LOCK COL:7 ROW:6
+04-26-16 오후 9:22:02 : CARRIER LOCK COL:12 ROW:8
+04-26-16 오후 9:22:02 : STOKER SERVER CLOSE
